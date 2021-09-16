@@ -23,13 +23,13 @@ import java.util.List;
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
 
-    @Shadow public abstract NbtCompound getOrCreateSubTag(String key);
+    @Shadow public abstract NbtCompound getOrCreateSubNbt(String key);
 
-    @Shadow public abstract NbtCompound getTag();
+    @Shadow public abstract NbtCompound getNbt();
 
-    @Shadow public abstract boolean hasTag();
+    @Shadow public abstract boolean hasNbt();
 
-    @Shadow public abstract NbtCompound getSubTag(String key);
+    @Shadow public abstract NbtCompound getSubNbt(String key);
 
     @Redirect(
             method = "getAttributeModifiers",
@@ -40,10 +40,10 @@ public abstract class ItemStackMixin {
         Multimap<EntityAttribute, EntityAttributeModifier> newMap = LinkedListMultimap.create();
         newMap.putAll(mods);
 
-        if(getSubTag(Tiered.NBT_SUBTAG_KEY) != null) {
-            Identifier tier = new Identifier(getOrCreateSubTag(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        if(getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) {
+            Identifier tier = new Identifier(getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
 
-            if(!hasTag() || !getTag().contains("AttributeModifiers", 9)) {
+            if(!hasNbt() || !getNbt().contains("AttributeModifiers", 9)) {
                 PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
                 if(potentialAttribute != null) {

@@ -15,6 +15,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.resource.ResourceReloader;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -28,7 +29,7 @@ public class Tiered implements ModInitializer {
      * Attribute Data Loader instance which handles loading attribute .json files from "data/modid/item_attributes".
      * <p> This field is registered to the server's data manager in {@link ServerResourceManagerMixin}
      */
-    public static final AttributeDataLoader ATTRIBUTE_DATA_LOADER = new AttributeDataLoader();
+    public static final ResourceReloader ATTRIBUTE_DATA_LOADER = new AttributeDataLoader();
 
     public static final UUID[] MODIFIERS = new UUID[] {
             UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"),

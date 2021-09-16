@@ -34,11 +34,11 @@ import java.util.Map;
 @Mixin(ItemStack.class)
 public abstract class ItemStackClientMixin {
 
-    @Shadow public abstract NbtCompound getOrCreateSubTag(String key);
+    @Shadow public abstract NbtCompound getOrCreateSubNbt(String key);
 
-    @Shadow public abstract boolean hasTag();
+    @Shadow public abstract boolean hasNbt();
 
-    @Shadow public abstract NbtCompound getSubTag(String key);
+    @Shadow public abstract NbtCompound getSubNbt(String key);
 
     private boolean isTiered = false;
 
@@ -49,8 +49,8 @@ public abstract class ItemStackClientMixin {
 
     @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/text/TranslatableText;formatted(Lnet/minecraft/util/Formatting;)Lnet/minecraft/text/MutableText;", ordinal = 2), method = "getTooltip")
     private MutableText getFormatting(TranslatableText translatableText, Formatting formatting) {
-        if(this.hasTag() && this.getSubTag(Tiered.NBT_SUBTAG_KEY) != null && isTiered) {
-            Identifier tier = new Identifier(this.getOrCreateSubTag(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        if(this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && isTiered) {
+            Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
             PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
             return translatableText.setStyle(attribute.getStyle());
@@ -86,8 +86,8 @@ public abstract class ItemStackClientMixin {
             cancellable = true
     )
     private void modifyName(CallbackInfoReturnable<Text> cir) {
-        if(this.hasTag() && this.getSubTag("display") == null && this.getSubTag(Tiered.NBT_SUBTAG_KEY) != null) {
-            Identifier tier = new Identifier(getOrCreateSubTag(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        if(this.hasNbt() && this.getSubNbt("display") == null && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) {
+            Identifier tier = new Identifier(getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
 
             // attempt to display attribute if it is valid
             PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);

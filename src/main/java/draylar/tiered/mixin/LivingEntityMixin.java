@@ -26,7 +26,7 @@ public abstract class LivingEntityMixin extends Entity {
      *   such as bonus health are reset. This is annoying with health boosting armor.
      */
     @Redirect(
-            method = "readCustomDataFromTag",
+            method = "readCustomDataFromNbt",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
     private void trustOverflowHealth(LivingEntity livingEntity, float health) {
         this.dataTracker.set(HEALTH, health);
