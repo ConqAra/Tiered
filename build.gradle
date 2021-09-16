@@ -1,10 +1,10 @@
 plugins {
-    id 'fabric-loom' version '0.5-SNAPSHOT'
+    id 'fabric-loom' version '0.8-SNAPSHOT'
     id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version + "-" + project.minecraft_version
@@ -22,12 +22,12 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
-    modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modCompileOnly "net.fabricmc:fabric-loader:${project.loader_version}"
+    modCompileOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modCompile "io.github.prospector:modmenu:${project.mod_menu_version}"
+    modCompileOnly "io.github.prospector:modmenu:${project.mod_menu_version}"
 
-    modCompile ("com.github.Draylar:reach-entity-attributes:1.0.2") {
+    modCompileOnly ("com.github.Draylar:reach-entity-attributes:1.0.2") {
         exclude group: "net.fabricmc.fabric-api"
     }
 

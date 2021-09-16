@@ -9,7 +9,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,13 +23,13 @@ import java.util.List;
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
 
-    @Shadow public abstract CompoundTag getOrCreateSubTag(String key);
+    @Shadow public abstract NbtCompound getOrCreateSubTag(String key);
 
-    @Shadow public abstract CompoundTag getTag();
+    @Shadow public abstract NbtCompound getTag();
 
     @Shadow public abstract boolean hasTag();
 
-    @Shadow public abstract CompoundTag getSubTag(String key);
+    @Shadow public abstract NbtCompound getSubTag(String key);
 
     @Redirect(
             method = "getAttributeModifiers",

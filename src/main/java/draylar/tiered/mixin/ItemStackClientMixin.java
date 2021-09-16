@@ -11,7 +11,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -34,11 +34,11 @@ import java.util.Map;
 @Mixin(ItemStack.class)
 public abstract class ItemStackClientMixin {
 
-    @Shadow public abstract CompoundTag getOrCreateSubTag(String key);
+    @Shadow public abstract NbtCompound getOrCreateSubTag(String key);
 
     @Shadow public abstract boolean hasTag();
 
-    @Shadow public abstract CompoundTag getSubTag(String key);
+    @Shadow public abstract NbtCompound getSubTag(String key);
 
     private boolean isTiered = false;
 

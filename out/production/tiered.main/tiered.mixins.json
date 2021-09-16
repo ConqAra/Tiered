@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "draylar.tiered.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ItemStackMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin",
+    "ServerResourceManagerMixin"
+  ],
+  "client": [
+    "ItemStackClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

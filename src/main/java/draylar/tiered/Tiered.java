@@ -73,9 +73,9 @@ public class Tiered implements ModInitializer {
     private void setupModifierLabel() {
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, lines) -> {
             // has tier
-            if(stack.getSubTag(NBT_SUBTAG_KEY) != null) {
+            if(stack.getSubNbt(NBT_SUBTAG_KEY) != null) {
                 // get tier
-                Identifier tier = new Identifier(stack.getOrCreateSubTag(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+                Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
 
                 // attempt to display attribute if it is valid
                 PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);

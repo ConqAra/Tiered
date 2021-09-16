@@ -18,6 +18,6 @@ public class ServerResourceManagerMixin {
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void onInit(CommandManager.RegistrationEnvironment registrationEnvironment, int i, CallbackInfo ci) {
-        this.resourceManager.registerListener(Tiered.ATTRIBUTE_DATA_LOADER);
+        this.resourceManager.registerReloader(Tiered.ATTRIBUTE_DATA_LOADER);
     }
 }

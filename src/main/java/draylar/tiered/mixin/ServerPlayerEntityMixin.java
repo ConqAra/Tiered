@@ -29,13 +29,15 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     private void onTick(CallbackInfo ci) {
         // if main copy is null, set it to player inventory and check each stack
         if(mainCopy == null) {
-            mainCopy = copyDefaultedList(inventory.main);
+            mainCopy = copyDefaultedList(((InventoryAccessor)this).getInventory().main);
+            //mainCopy = copyDefaultedList(inventory.main);
             runCheck();
         }
 
         // if main copy =/= inventory, run check and set mainCopy to inventory
-        if (!inventory.main.equals(mainCopy)) {
-            mainCopy = copyDefaultedList(inventory.main);
+        if (!((InventoryAccessor)this).getInventory().main.equals(mainCopy)) {
+        //if (!inventory.main.equals(mainCopy)) {
+            mainCopy = copyDefaultedList(((InventoryAccessor)this).getInventory().main);
             runCheck();
         }
     }
@@ -53,15 +55,15 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     @Unique
     private void runCheck() {
-        inventory.main.forEach(itemStack -> {
+        ((InventoryAccessor)this).getInventory().main.forEach(itemStack -> {
             // no tier on item
-            if(itemStack.getSubTag(Tiered.NBT_SUBTAG_KEY) == null) {
+            if(itemStack.getSubNbt(Tiered.NBT_SUBTAG_KEY) == null) {
                 // attempt to get a random tier
                 Identifier potentialAttributeID = ModifierUtils.getRandomAttributeIDFor(itemStack.getItem());
 
                 // found an ID
                 if(potentialAttributeID != null) {
-                    itemStack.getOrCreateSubTag(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
+                    itemStack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
                 }
             }
         });
