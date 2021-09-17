@@ -89,9 +89,10 @@ public class Tiered implements ModInitializer {
     }
 
     public static boolean isPreferredEquipmentSlot(ItemStack stack, EquipmentSlot slot) {
-        if(stack.getItem() instanceof ArmorItem) {
-            ArmorItem item = (ArmorItem) stack.getItem();
+        if(stack.getItem() instanceof ArmorItem item) {
             return item.getSlotType().equals(slot);
+            //ArmorItem item = (ArmorItem) stack.getItem();
+            //return item.getSlotType().equals(slot);
         }
 
         return slot == EquipmentSlot.MAINHAND;
