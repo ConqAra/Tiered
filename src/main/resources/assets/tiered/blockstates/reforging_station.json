@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "tiered:block/reforging_station" },
+    "facing=east":  { "model": "tiered:block/reforging_station", "y":  90},
+    "facing=south": { "model": "tiered:block/reforging_station", "y": 180 },
+    "facing=west":  { "model": "tiered:block/reforging_station", "y": 270 }
+  }
+}

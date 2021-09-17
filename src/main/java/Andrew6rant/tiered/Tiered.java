@@ -3,27 +3,40 @@ package Andrew6rant.tiered;
 import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.api.TieredItemTags;
+import Andrew6rant.tiered.block.ReforgingStation;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.mixin.ServerResourceManagerMixin;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.client.ItemTooltipCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.resource.ResourceReloader;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.UUID;
 
 public class Tiered implements ModInitializer {
+
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
+            new Identifier("tiered", "general"),
+            () -> new ItemStack(Tiered.REFORGING_STATION));
 
     /**
      * Attribute Data Loader instance which handles loading attribute .json files from "data/modid/item_attributes".
@@ -46,6 +59,8 @@ public class Tiered implements ModInitializer {
     public static final String NBT_SUBTAG_KEY = "Tiered";
     public static final String NBT_SUBTAG_DATA_KEY = "Tier";
 
+    public static final ReforgingStation REFORGING_STATION = new ReforgingStation(FabricBlockSettings.copyOf(Blocks.SPRUCE_PLANKS));
+
     @Override
     public void onInitialize() {
         TieredItemTags.init();
@@ -55,6 +70,8 @@ public class Tiered implements ModInitializer {
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
 //            setupModifierLabel();
         }
+        Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
+        Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
     }
 
     /**
