@@ -17,10 +17,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "draylar.tiered.Tiered"
+      "Andrew6rant.tiered.Tiered"
     ],
     "client": [
-      "draylar.tiered.TieredClient"
+      "Andrew6rant.tiered.TieredClient"
     ]
   },
   "mixins": [

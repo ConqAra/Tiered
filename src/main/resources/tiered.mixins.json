@@ -3,14 +3,14 @@
   "package": "draylar.tiered.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ItemStackMixin",
-    "LivingEntityMixin",
-    "PlayerEntityMixin",
-    "ServerPlayerEntityMixin",
-    "ServerResourceManagerMixin"
+    "Andrew6rant.tiered.mixin.ItemStackMixin",
+    "Andrew6rant.tiered.mixin.LivingEntityMixin",
+    "Andrew6rant.tiered.mixin.PlayerEntityMixin",
+    "Andrew6rant.tiered.mixin.ServerPlayerEntityMixin",
+    "Andrew6rant.tiered.mixin.ServerResourceManagerMixin"
   ],
   "client": [
-    "ItemStackClientMixin"
+    "Andrew6rant.tiered.mixin.ItemStackClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

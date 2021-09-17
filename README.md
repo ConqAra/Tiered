@@ -4,6 +4,8 @@ Tiered is a Fabric mod inspired by [Quality Tools](https://www.curseforge.com/mi
 
 <img src="resources/legendary_chestplate.png" width="400">
 
+Tiered was originally made by Draylar, and is in the process of being updated by Andrew6rant.
+
 ### Customization
 
 Tiered is entirely data-driven, which means you can add, modify, and remove modifiers as you see fit. The base path for modifiers is `data/modid/item_attributes`, and tiered modifiers are stored under the modid of tiered. Here's an example modifier called "Hasteful," which grants additional dig speed when any of the valid tools are held:
