@@ -58,7 +58,7 @@ and a tag can be specified with:
 "tag": "fabric:helmets"
 ```
 
-Tiered provides 4 armor tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, and `fabric:boots` for your convenience).
+Tiered provides 5 armor tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, `fabric:boots`, and `fabric:shields` for your convenience).
 
 
 ### License
