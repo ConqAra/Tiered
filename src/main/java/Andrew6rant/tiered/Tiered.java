@@ -88,7 +88,7 @@ public class Tiered implements ModInitializer {
      * Creates an {@link ItemTooltipCallback} listener that adds the modifier name at the top of an Item tooltip.
      * <p>A tool name is only displayed if the item has a modifier.
      */
-    private void setupModifierLabel() {
+    public static void setupModifierLabel() {
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, lines) -> {
             // has tier
             if(stack.getSubNbt(NBT_SUBTAG_KEY) != null) {
