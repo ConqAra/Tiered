@@ -37,6 +37,27 @@ public class ModifierUtils {
         }
     }
 
+    public static Identifier getWeightedAttributeIDFor(Item item) {
+        List<Identifier> potentialAttributes = new ArrayList<>();
+
+        // collect all valid attributes for the given item
+        Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
+            if(attribute.isValid(Registry.ITEM.getId(item))) {
+                potentialAttributes.add(new Identifier(attribute.getID()));
+            }
+        });
+
+        // return a random attribute if there are any, or null if there are none
+        if(potentialAttributes.size() > 0) {
+            for (int i = 0; i <= potentialAttributes.size(); i++) {
+                System.out.println(potentialAttributes);
+            }
+            return potentialAttributes.get(new Random().nextInt(potentialAttributes.size()));
+        } else {
+            return null;
+        }
+    }
+
     private ModifierUtils() {
         // no-op
     }
