@@ -11,7 +11,8 @@
     "ServerResourceManagerMixin"
   ],
   "client": [
-    "ItemStackClientMixin"
+    "ItemStackClientMixin",
+    "TooltipFadeAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
