@@ -1,4 +1,4 @@
-package Andrew6rant.tiered.mixin;
+package Andrew6rant.tiered.mixin.client;
 
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;

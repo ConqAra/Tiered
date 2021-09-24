@@ -2,30 +2,20 @@ package Andrew6rant.tiered.block;
 
 import Andrew6rant.tiered.Tiered;
 import Andrew6rant.tiered.api.ModifierUtils;
-import Andrew6rant.tiered.api.PotentialAttribute;
-import Andrew6rant.tiered.mixin.ServerPlayerEntityMixin;
-import Andrew6rant.tiered.mixin.TooltipFadeAccessor;
-import net.fabricmc.fabric.api.event.client.ItemTooltipCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -33,11 +23,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.TickScheduler;
 import net.minecraft.world.World;
-
-import java.util.Random;
-import java.util.function.UnaryOperator;
 
 public class ReforgingStation extends Block implements BlockEntityProvider {
 

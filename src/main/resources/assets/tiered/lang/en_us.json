@@ -1,6 +1,38 @@
 {
   "generic.dig_speed": "Dig Speed",
   "generic.crit_chance": "Crit Chance",
+  "generic.size": "Size",
+
+  "tiered:tiny.label": "Tiny",
+  "tiered:small.label": "Small",
+  "tiered:large.label": "Large",
+  "tiered:massive.label": "Massive",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   "tiered:common.label": "Common",
   "tiered:rare.label": "Rare",

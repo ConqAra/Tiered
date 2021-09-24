@@ -29,6 +29,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     private static void initAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> ci) {
         ci.getReturnValue().add(CustomEntityAttributes.CRIT_CHANCE);
         ci.getReturnValue().add(CustomEntityAttributes.DIG_SPEED);
+        //ci.getReturnValue().add(CustomEntityAttributes.SIZE);
     }
 
     @ModifyVariable(

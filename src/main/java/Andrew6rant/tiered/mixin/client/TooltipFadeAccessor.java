@@ -1,4 +1,4 @@
-package Andrew6rant.tiered.mixin;
+package Andrew6rant.tiered.mixin.client;
 
 import net.minecraft.client.gui.hud.InGameHud;
 import org.spongepowered.asm.mixin.Mixin;
