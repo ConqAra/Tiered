@@ -31,6 +31,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class TestStation extends BarrelBlock {
@@ -107,11 +108,11 @@ public class TestStation extends BarrelBlock {
                 return ActionResult.CONSUME;
         }
         else if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-            Identifier tier = new Identifier(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-            PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+            //Identifier tier = new Identifier(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+            //PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
             //stack.removeSubNbt(Tiered.NBT_SUBTAG_KEY);
             //player.getItemCooldownManager().set(stack.getItem(), 15);
-            Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
+            Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDNoDuplicates(stack);
             if(potentialAttributeID != null) {
                 stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
             }
