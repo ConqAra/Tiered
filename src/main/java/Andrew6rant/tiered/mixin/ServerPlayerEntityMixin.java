@@ -59,7 +59,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
             // no tier on item
             if(itemStack.getSubNbt(Tiered.NBT_SUBTAG_KEY) == null) {
                 // attempt to get a random tier
-                Identifier potentialAttributeID = ModifierUtils.getRandomAttributeIDFor(itemStack.getItem());
+                //Identifier potentialAttributeID = ModifierUtils.getRandomAttributeIDFor(itemStack.getItem());
+                Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(itemStack);
 
                 // found an ID
                 if(potentialAttributeID != null) {

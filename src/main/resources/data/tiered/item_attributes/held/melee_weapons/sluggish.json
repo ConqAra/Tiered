@@ -1,11 +1,20 @@
 {
-  "id": "tiered:dull",
+  "id": "tiered:sluggish",
   "verifiers": [
     {
       "tag": "fabric:swords"
     },
     {
       "tag": "fabric:axes"
+    },
+    {
+      "tag": "fabric:pickaxes"
+    },
+    {
+      "tag": "fabric:shovels"
+    },
+    {
+      "tag": "fabric:hoes"
     }
   ],
   "style": {
@@ -13,11 +22,11 @@
   },
   "attributes": [
     {
-      "type": "generic.attack_damage",
+      "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:dull",
+        "name": "tiered:sluggish",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.10
+        "amount": -0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"

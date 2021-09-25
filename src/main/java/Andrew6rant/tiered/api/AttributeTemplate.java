@@ -54,6 +54,10 @@ public class AttributeTemplate {
         return optionalEquipmentSlots;
     }
 
+    /*public String  getRarity() {
+        return rarity;
+    }*/
+
     /**
      * Uses this {@link AttributeTemplate} to create an {@link EntityAttributeModifier}, which is placed into the given {@link Multimap}.
      * <p>Note that this method assumes the given {@link Multimap} is mutable.

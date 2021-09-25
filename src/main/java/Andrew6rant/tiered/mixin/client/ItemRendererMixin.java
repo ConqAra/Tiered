@@ -35,6 +35,7 @@ public class ItemRendererMixin
         NbtCompound size2 = new NbtCompound(); size2.putString("Tier","tiered:small");
         NbtCompound size3 = new NbtCompound(); size3.putString("Tier","tiered:large");
         NbtCompound size4 = new NbtCompound(); size4.putString("Tier","tiered:massive");
+        NbtCompound size5 = new NbtCompound(); size4.putString("Tier","tiered:gargantuan");
         matrices.push();
         float scale = 1f;
             if (size1.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
@@ -45,6 +46,8 @@ public class ItemRendererMixin
                 scale = 1.25f;
             } else if (size4.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
                 scale = 1.5f;
+            } else if (size5.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
+                scale = 1.75f;
             }
             matrices.scale(scale, scale, scale);
         matrices.push();

@@ -66,7 +66,7 @@
     {
       "type": "generic.armor_toughness",
       "modifier": {
-        "name": "tiered:legendary",
+        "name": "tiered:epic",
         "operation": "ADDITION",
         "amount": 1
       },

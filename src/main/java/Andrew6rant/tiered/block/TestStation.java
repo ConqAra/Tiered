@@ -2,6 +2,7 @@ package Andrew6rant.tiered.block;
 
 import Andrew6rant.tiered.Tiered;
 import Andrew6rant.tiered.api.ModifierUtils;
+import Andrew6rant.tiered.api.PotentialAttribute;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,7 +17,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
+import net.minecraft.text.TextColor;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -27,6 +30,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class TestStation extends BarrelBlock {
 
@@ -102,9 +107,11 @@ public class TestStation extends BarrelBlock {
                 return ActionResult.CONSUME;
         }
         else if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-            stack.removeSubNbt(Tiered.NBT_SUBTAG_KEY);
-            player.getItemCooldownManager().set(stack.getItem(), 15);
-            Identifier potentialAttributeID = ModifierUtils.getRandomAttributeIDFor(stack.getItem());
+            Identifier tier = new Identifier(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+            PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+            //stack.removeSubNbt(Tiered.NBT_SUBTAG_KEY);
+            //player.getItemCooldownManager().set(stack.getItem(), 15);
+            Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
             if(potentialAttributeID != null) {
                 stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
             }

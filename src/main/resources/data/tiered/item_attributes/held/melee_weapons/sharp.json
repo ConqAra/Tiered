@@ -1,5 +1,5 @@
 {
-  "id": "tiered:dull",
+  "id": "tiered:sharp",
   "verifiers": [
     {
       "tag": "fabric:swords"
@@ -9,15 +9,15 @@
     }
   ],
   "style": {
-    "color": "gray"
+    "color": "white"
   },
   "attributes": [
     {
       "type": "generic.attack_damage",
       "modifier": {
-        "name": "tiered:dull",
+        "name": "tiered:sharp",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.15
+        "amount": 0.15
       },
       "optional_equipment_slots": [
         "MAINHAND"
