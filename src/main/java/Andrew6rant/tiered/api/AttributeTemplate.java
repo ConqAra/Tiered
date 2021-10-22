@@ -35,26 +35,35 @@ public class AttributeTemplate {
     @SerializedName("optional_equipment_slots")
     private final EquipmentSlot[] optionalEquipmentSlots;
 
+    //@SerializedName("size")
+    //private final String size;
+
     //@SerializedName("rarity")
     //private final String rarity;
 
-    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots, String rarity) {
+    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots) {
         this.attributeTypeID = attributeTypeID;
         this.entityAttributeModifier = entityAttributeModifier;
         this.requiredEquipmentSlots = requiredEquipmentSlots;
         this.optionalEquipmentSlots = optionalEquipmentSlots;
+        //this.size = size;
         //this.rarity = rarity;
+
     }
 
-    public EquipmentSlot[]  getRequiredEquipmentSlots() {
+    public EquipmentSlot[] getRequiredEquipmentSlots() {
         return requiredEquipmentSlots;
     }
 
-    public EquipmentSlot[]  getOptionalEquipmentSlots() {
+    public EquipmentSlot[] getOptionalEquipmentSlots() {
         return optionalEquipmentSlots;
     }
 
-    /*public String  getRarity() {
+    /*public String getSize() {
+        return size;
+    }*/
+
+    /*public String getRarity() {
         return rarity;
     }*/
 

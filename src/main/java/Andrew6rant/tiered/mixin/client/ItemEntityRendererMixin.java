@@ -1,32 +1,25 @@
 package Andrew6rant.tiered.mixin.client;
 
-import Andrew6rant.tiered.Tiered;
+import com.google.common.collect.Multimap;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ItemEntityRenderer;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
-import org.spongepowered.asm.mixin.Final;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Environment(EnvType.CLIENT)
 @Mixin(ItemEntityRenderer.class)
@@ -38,26 +31,29 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
 
     @Inject(at = @At("HEAD"), method = "render", cancellable = true)
     public void preRender(ItemEntity itemEntity, float f, float g, MatrixStack matrices, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo info) {
-        NbtCompound size1 = new NbtCompound(); size1.putString("Tier","tiered:tiny");
-        NbtCompound size2 = new NbtCompound(); size2.putString("Tier","tiered:small");
-        NbtCompound size3 = new NbtCompound(); size3.putString("Tier","tiered:large");
-        NbtCompound size4 = new NbtCompound(); size4.putString("Tier","tiered:massive");
-        NbtCompound size5 = new NbtCompound(); size4.putString("Tier","tiered:gargantuan");
-        ItemStack item = itemEntity.getStack();
         matrices.push();
-        float scale = 1f;
-        if (size1.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-            scale = .5f;
-        } else if (size2.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-            scale = .75f;
-        } else if (size3.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-            scale = 1.25f;
-        } else if (size4.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-            scale = 1.5f;
-        } else if (size5.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-            scale = 1.75f;
+        AtomicReference<Float> scale = new AtomicReference<>(1f);
+        Identifier size = new Identifier("tiered","generic.size");
+
+        for(EquipmentSlot slot : EquipmentSlot.values()) {
+            Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers = itemEntity.getStack().getAttributeModifiers(slot);
+            if(!attributeModifiers.isEmpty()) {
+                attributeModifiers.keySet().forEach(attribute -> attributeModifiers.get(attribute).forEach(modifier -> {
+                    float value = (float) modifier.getValue();
+                    Identifier attributeId = Registry.ATTRIBUTE.getId(attribute);
+                    System.out.println(attributeId);
+                    if (attributeId.equals(size)) {
+                        System.out.println("yes");
+                        if (modifier.getOperation() == EntityAttributeModifier.Operation.ADDITION) {
+                            scale.updateAndGet(v -> v + value);
+                        } else {
+                            scale.updateAndGet(v -> v * (value + 1));
+                        }
+                    }
+                }));
+            }
         }
-        matrices.scale(scale, scale, scale);
+        matrices.scale(scale.get(), scale.get(), scale.get());
         matrices.push();
     }
     @Inject(at = @At("RETURN"), method = "render", cancellable = true)

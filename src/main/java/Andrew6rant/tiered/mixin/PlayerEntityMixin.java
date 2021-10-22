@@ -30,7 +30,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         ci.getReturnValue().add(CustomEntityAttributes.CRIT_CHANCE);
         ci.getReturnValue().add(CustomEntityAttributes.DIG_SPEED);
         //ci.getReturnValue().add(CustomEntityAttributes.EXHAUSTION_LEVEL);
-        //ci.getReturnValue().add(CustomEntityAttributes.SIZE);
+        ci.getReturnValue().add(CustomEntityAttributes.SIZE);
     }
 
     @ModifyVariable(
@@ -88,4 +88,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
         return bl3 || world.random.nextDouble() < customChance;
     }
+
+
 }

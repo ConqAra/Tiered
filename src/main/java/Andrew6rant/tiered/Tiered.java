@@ -56,6 +56,7 @@ public class Tiered implements ModInitializer {
             UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150"),
             UUID.fromString("4a88bc27-9563-4eeb-96d5-fe50917cc24f"),
             UUID.fromString("fee48d8c-1b51-4c46-9f4b-c58162623a7a")
+            //UUID.fromString("cb3f55d3-645c-4f38-a497-9c13a33db5cf")
     };
 
     public static final Logger LOGGER = LogManager.getLogger();

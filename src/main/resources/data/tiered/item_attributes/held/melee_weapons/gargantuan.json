@@ -53,6 +53,17 @@
       "optional_equipment_slots": [
         "MAINHAND"
       ]
+    },
+    {
+      "type": "tiered:generic.size",
+      "modifier": {
+        "name": "tiered:gargantuan",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": 1.5
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
     }
   ]
 }

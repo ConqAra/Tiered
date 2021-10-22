@@ -1,9 +1,13 @@
 package Andrew6rant.tiered;
 
+import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.api.PotentialAttribute;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
@@ -33,5 +37,22 @@ public class TieredClient implements ClientModInitializer {
                 Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().put(id, pa);
             }
         });
+    }
+    public static float getSize(LivingEntity entity, float f) {
+        EntityAttributeInstance instance = entity.getAttributeInstance(CustomEntityAttributes.SIZE);
+
+        if(instance != null) {
+            for (EntityAttributeModifier modifier : instance.getModifiers()) {
+                float amount = (float) modifier.getValue();
+
+                if (modifier.getOperation() == EntityAttributeModifier.Operation.ADDITION) {
+                    f += amount;
+                } else {
+                    f *= (amount + 1);
+                }
+            }
+        }
+
+        return f;
     }
 }

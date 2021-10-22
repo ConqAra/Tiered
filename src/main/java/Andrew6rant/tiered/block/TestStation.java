@@ -1,14 +1,20 @@
 package Andrew6rant.tiered.block;
 
 import Andrew6rant.tiered.Tiered;
+import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.api.ModifierUtils;
 import Andrew6rant.tiered.api.PotentialAttribute;
+import com.google.common.collect.Multimap;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -17,7 +23,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.TextColor;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -26,6 +35,7 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -70,9 +80,37 @@ public class TestStation extends BarrelBlock {
     }
     @Override
     public ActionResult onUse(BlockState blockState, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit){
+
         //((TooltipFadeAccessor) MinecraftClient.getInstance()).getHeldItemTooltipFade(0);
         //int heldItemTooltipFade = ((TooltipFadeAccessor) MinecraftClient.getInstance()).getHeldItemTooltipFade();
         ItemStack stack = player.getStackInHand(hand);
+        EntityAttributeInstance instance = player.getAttributeInstance(CustomEntityAttributes.SIZE);
+        System.out.println(instance);
+        if(!stack.isEmpty()) {
+
+            for(EquipmentSlot slot : EquipmentSlot.values()) {
+                Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers = stack.getAttributeModifiers(slot);
+                if(!attributeModifiers.isEmpty()) {
+                    Multimap<EntityAttribute, EntityAttributeModifier> test = stack.getAttributeModifiers(EquipmentSlot.MAINHAND);
+                    System.out.println(test.keySet());
+                    System.out.println(attributeModifiers);
+                    attributeModifiers.keySet().forEach(attribute -> attributeModifiers.get(attribute).forEach(modifier -> {
+                        String attributeId = Registry.ATTRIBUTE.getId(attribute).toString();
+                        String uuid = modifier.getId().toString();
+                        String name = modifier.getName();
+                        String value = String.valueOf(modifier.getValue());
+                        String operation = modifier.getOperation().name().toLowerCase();
+
+                        System.out.println(attributeId);//
+                        System.out.println(uuid);
+                        System.out.println(name);
+                        System.out.println(value);//
+                        System.out.println(operation);//
+                    }));
+                }
+
+            }
+        }
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (world.isClient) {
             return ActionResult.SUCCESS;

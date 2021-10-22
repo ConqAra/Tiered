@@ -18,7 +18,7 @@
     }
   ],
   "style": {
-    "color": "white"
+    "color": "green"
   },
   "attributes": [
     {
@@ -49,6 +49,17 @@
         "name": "tiered:small",
         "operation": "ADDITION",
         "amount": -1
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "tiered:generic.size",
+      "modifier": {
+        "name": "tiered:small",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": -0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"

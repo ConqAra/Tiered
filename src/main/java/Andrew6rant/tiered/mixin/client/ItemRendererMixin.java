@@ -1,16 +1,22 @@
 package Andrew6rant.tiered.mixin.client;
 
 import Andrew6rant.tiered.Tiered;
+import Andrew6rant.tiered.TieredClient;
 import Andrew6rant.tiered.api.CustomEntityAttributes;
+import Andrew6rant.tiered.mixin.PlayerEntityMixin;
+import com.google.common.collect.Multimap;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
@@ -30,26 +36,12 @@ public class ItemRendererMixin
             )
     )
     private void onRenderItemPreRender(@Nullable LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, @Nullable World world, int light, int overlay, int seed, CallbackInfo info) {
-        //EntityAttribute attribute = (CustomEntityAttributes.SIZE);
-        NbtCompound size1 = new NbtCompound(); size1.putString("Tier","tiered:tiny");
-        NbtCompound size2 = new NbtCompound(); size2.putString("Tier","tiered:small");
-        NbtCompound size3 = new NbtCompound(); size3.putString("Tier","tiered:large");
-        NbtCompound size4 = new NbtCompound(); size4.putString("Tier","tiered:massive");
-        NbtCompound size5 = new NbtCompound(); size4.putString("Tier","tiered:gargantuan");
-        matrices.push();
         float scale = 1f;
-            if (size1.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-                scale = .5f;
-            } else if (size2.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-                scale = .75f;
-            } else if (size3.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-                scale = 1.25f;
-            } else if (size4.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-                scale = 1.5f;
-            } else if (size5.equals(item.getSubNbt(Tiered.NBT_SUBTAG_KEY))) {
-                scale = 1.75f;
-            }
-            matrices.scale(scale, scale, scale);
+        if(entity.isPlayer()) {
+            scale = TieredClient.getSize(entity, scale);
+        }
+        matrices.push();
+        matrices.scale(scale, scale, scale);
         matrices.push();
     }
 
