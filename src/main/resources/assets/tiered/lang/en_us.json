@@ -15,5 +15,7 @@
   "tiered:nimble.label": "Nimble",
   "tiered:quick.label": "Quick",
   "tiered:slow.label": "Slow",
-  "tiered:sluggish.label": "Sluggish"
+  "tiered:sluggish.label": "Sluggish",
+
+  "tiered:steppy.label": "Steppy"
 }

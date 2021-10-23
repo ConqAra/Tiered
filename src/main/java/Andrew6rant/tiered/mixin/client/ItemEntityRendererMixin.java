@@ -41,9 +41,7 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
                 attributeModifiers.keySet().forEach(attribute -> attributeModifiers.get(attribute).forEach(modifier -> {
                     float value = (float) modifier.getValue();
                     Identifier attributeId = Registry.ATTRIBUTE.getId(attribute);
-                    System.out.println(attributeId);
                     if (attributeId.equals(size)) {
-                        System.out.println("yes");
                         if (modifier.getOperation() == EntityAttributeModifier.Operation.ADDITION) {
                             scale.updateAndGet(v -> v + value);
                         } else {

@@ -84,7 +84,7 @@ public class TestStation extends BarrelBlock {
         //((TooltipFadeAccessor) MinecraftClient.getInstance()).getHeldItemTooltipFade(0);
         //int heldItemTooltipFade = ((TooltipFadeAccessor) MinecraftClient.getInstance()).getHeldItemTooltipFade();
         ItemStack stack = player.getStackInHand(hand);
-        EntityAttributeInstance instance = player.getAttributeInstance(CustomEntityAttributes.SIZE);
+        /*EntityAttributeInstance instance = player.getAttributeInstance(CustomEntityAttributes.SIZE);
         System.out.println(instance);
         if(!stack.isEmpty()) {
 
@@ -110,7 +110,7 @@ public class TestStation extends BarrelBlock {
                 }
 
             }
-        }
+        }*/
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (world.isClient) {
             return ActionResult.SUCCESS;

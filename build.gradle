@@ -17,6 +17,7 @@ repositories {
     maven { url 'https://jitpack.io' }
     maven { url 'https://jitpack.io' }
     maven { url 'https://jitpack.io' }
+    maven { url = "https://jitpack.io" }
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release"
         content {
@@ -34,6 +35,9 @@ dependencies {
     modCompileOnly "io.github.prospector:modmenu:${project.mod_menu_version}"
 
     include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
+
+    modImplementation "com.github.emilyploszaj:step-height-entity-attribute:v1.0.1"
+    include "com.github.emilyploszaj:step-height-entity-attribute:v1.0.1"
 }
 
 processResources {

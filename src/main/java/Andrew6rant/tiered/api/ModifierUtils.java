@@ -42,6 +42,7 @@ public class ModifierUtils {
     }
 
     public static Identifier getWeightedAttributeIDFor(ItemStack stack) {
+
         List<Identifier> junkRarity = new ArrayList<>();
         List<Identifier> commonRarity = new ArrayList<>();
         List<Identifier> uncommonRarity = new ArrayList<>();
@@ -56,7 +57,7 @@ public class ModifierUtils {
         //System.out.println(potentialAttribute);
         Random rand = new Random();
         int rarityCalc = rand.nextInt(100);
-        System.out.println(rarityCalc);
+        //System.out.println(rarityCalc);
         // collect all valid attributes for the given item
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
