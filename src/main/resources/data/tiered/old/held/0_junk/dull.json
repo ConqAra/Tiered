@@ -1,0 +1,27 @@
+{
+  "id": "tiered:dull",
+  "verifiers": [
+    {
+      "tag": "fabric:swords"
+    },
+    {
+      "tag": "fabric:axes"
+    }
+  ],
+  "style": {
+    "color": "gray"
+  },
+  "attributes": [
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:dull",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": -0.15
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

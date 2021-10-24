@@ -1,0 +1,38 @@
+{
+  "id": "tiered:daring",
+  "verifiers": [
+    {
+      "tag": "fabric:swords"
+    },
+    {
+      "tag": "fabric:axes"
+    }
+  ],
+  "style": {
+    "color": "dark_purple"
+  },
+  "attributes": [
+    {
+      "type": "generic.max_health",
+      "modifier": {
+        "name": "tiered:daring",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": 0.5
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:daring",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": 2
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

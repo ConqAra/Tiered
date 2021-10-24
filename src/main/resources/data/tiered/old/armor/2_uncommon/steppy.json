@@ -1,0 +1,28 @@
+{
+  "id": "tiered:steppy",
+  "verifiers": [
+    {
+      "tag": "fabric:leggings"
+    },
+    {
+      "tag": "fabric:boots"
+    }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "attributes": [
+    {
+      "type": "stepheightentityattribute:stepheight",
+      "modifier": {
+        "name": "tiered:steppy",
+        "operation": "ADDITION",
+        "amount": 0.5
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS"
+      ]
+    }
+  ]
+}

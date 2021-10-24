@@ -1,0 +1,50 @@
+{
+  "id": "tiered:unchained",
+  "verifiers": [
+    {
+      "tag": "fabric:helmets"
+    },
+    {
+      "tag": "fabric:chestplates"
+    },
+    {
+      "tag": "fabric:leggings"
+    },
+    {
+      "tag": "fabric:boots"
+    }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "attributes": [
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:unchained",
+        "operation": "ADDITION",
+        "amount": -2
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    },
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:unchained",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": 0.25
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    }
+  ]
+}

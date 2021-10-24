@@ -1,0 +1,41 @@
+{
+  "id": "tiered:reinforced",
+  "verifiers": [
+    {
+      "tag": "fabric:helmets"
+    },
+    {
+      "tag": "fabric:chestplates"
+    },
+    {
+      "tag": "fabric:leggings"
+    },
+    {
+      "tag": "fabric:boots"
+    },
+    {
+      "tag": "fabric:shields"
+    }
+  ],
+  "style": {
+    "color": "blue"
+  },
+  "attributes": [
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:reinforced",
+        "operation": "ADDITION",
+        "amount": 2
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD",
+        "MAINHAND",
+        "OFFHAND"
+      ]
+    }
+  ]
+}
