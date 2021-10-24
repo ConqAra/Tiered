@@ -30,15 +30,17 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         // if main copy is null, set it to player inventory and check each stack
         if(mainCopy == null) {
             mainCopy = copyDefaultedList(((InventoryAccessor)this).getInventory().main);
-            //mainCopy = copyDefaultedList(inventory.main);
             runCheck();
         }
 
         // if main copy =/= inventory, run check and set mainCopy to inventory
         if (!((InventoryAccessor)this).getInventory().main.equals(mainCopy)) {
-        //if (!inventory.main.equals(mainCopy)) {
             mainCopy = copyDefaultedList(((InventoryAccessor)this).getInventory().main);
             runCheck();
+        }
+        // this will update the player's health when switching items
+        if (this.getHealth() != this.getMaxHealth()) {
+            this.setHealth(this.getHealth());
         }
     }
 
