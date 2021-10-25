@@ -1,5 +1,5 @@
 {
-  "id": "tiered:large",
+  "id": "tiered:extended",
   "verifiers": [
     {
       "tag": "fabric:swords"
@@ -22,20 +22,9 @@
   },
   "attributes": [
     {
-      "type": "generic.attack_speed",
-      "modifier": {
-        "name": "tiered:large",
-        "operation": "MULTIPLY_TOTAL",
-        "amount": -0.25
-      },
-      "optional_equipment_slots": [
-        "MAINHAND"
-      ]
-    },
-    {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:large",
+        "name": "tiered:extended",
         "operation": "ADDITION",
         "amount": 1
       },
@@ -46,20 +35,9 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:large",
+        "name": "tiered:extended",
         "operation": "ADDITION",
         "amount": 1
-      },
-      "optional_equipment_slots": [
-        "MAINHAND"
-      ]
-    },
-    {
-      "type": "tiered:generic.size",
-      "modifier": {
-        "name": "tiered:large",
-        "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"

@@ -1,5 +1,5 @@
 {
-  "id": "tiered:heavy",
+  "id": "tiered:brisk",
   "verifiers": [
     {
       "tag": "fabric:helmets"
@@ -15,15 +15,15 @@
     }
   ],
   "style": {
-    "color": "dark_gray"
+    "color": "white"
   },
   "attributes": [
     {
-      "type": "generic.knockback_resistance",
+      "type": "generic.movement_speed",
       "modifier": {
-        "name": "tiered:heavy",
+        "name": "tiered:brisk",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.1
+        "amount": 0.05
       },
       "optional_equipment_slots": [
         "FEET",

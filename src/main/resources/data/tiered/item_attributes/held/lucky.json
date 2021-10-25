@@ -1,23 +1,20 @@
 {
-  "id": "tiered:dull",
+  "id": "tiered:lucky",
   "verifiers": [
     {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
+      "tag": "fabric:fishing_rods"
     }
   ],
   "style": {
-    "color": "gray"
+    "color": "white"
   },
   "attributes": [
     {
-      "type": "generic.attack_damage",
+      "type": "generic.luck",
       "modifier": {
-        "name": "tiered:dull",
+        "name": "tiered:lucky",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.15
+        "amount": 0.10
       },
       "optional_equipment_slots": [
         "MAINHAND"

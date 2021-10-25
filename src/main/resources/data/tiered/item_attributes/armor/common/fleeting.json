@@ -1,5 +1,5 @@
 {
-  "id": "tiered:fortified",
+  "id": "tiered:fleeting",
   "verifiers": [
     {
       "tag": "fabric:helmets"
@@ -15,15 +15,15 @@
     }
   ],
   "style": {
-    "color": "dark_blue"
+    "color": "white"
   },
   "attributes": [
     {
-      "type": "generic.armor",
+      "type": "generic.movement_speed",
       "modifier": {
-        "name": "tiered:fortified",
+        "name": "tiered:fleeting",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
+        "amount": 0.10
       },
       "optional_equipment_slots": [
         "FEET",

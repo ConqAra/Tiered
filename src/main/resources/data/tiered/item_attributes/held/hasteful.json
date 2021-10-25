@@ -1,12 +1,6 @@
 {
-  "id": "tiered:quick",
+  "id": "tiered:hasteful",
   "verifiers": [
-    {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
-    },
     {
       "tag": "fabric:pickaxes"
     },
@@ -14,19 +8,22 @@
       "tag": "fabric:shovels"
     },
     {
+      "tag": "fabric:axes"
+    },
+    {
       "tag": "fabric:hoes"
     }
   ],
   "style": {
-    "color": "white"
+    "color": "green"
   },
   "attributes": [
     {
-      "type": "generic.attack_speed",
+      "type": "tiered:generic.dig_speed",
       "modifier": {
-        "name": "tiered:quick",
+        "name": "tiered:hasteful",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
+        "amount": 0.10
       },
       "optional_equipment_slots": [
         "MAINHAND"

@@ -1,20 +1,23 @@
 {
-  "id": "tiered:lucky",
+  "id": "tiered:keen",
   "verifiers": [
     {
-      "id": "minecraft:fishing_rod"
+      "tag": "fabric:swords"
+    },
+    {
+      "tag": "fabric:axes"
     }
   ],
   "style": {
-    "color": "aqua"
+    "color": "white"
   },
   "attributes": [
     {
-      "type": "generic.luck",
+      "type": "generic.attack_damage",
       "modifier": {
-        "name": "tiered:lucky",
+        "name": "tiered:keen",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
+        "amount": 0.10
       },
       "optional_equipment_slots": [
         "MAINHAND"

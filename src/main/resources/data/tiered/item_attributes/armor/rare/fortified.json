@@ -1,5 +1,5 @@
 {
-  "id": "tiered:heavy",
+  "id": "tiered:fortified",
   "verifiers": [
     {
       "tag": "fabric:helmets"
@@ -12,29 +12,24 @@
     },
     {
       "tag": "fabric:boots"
-    },
-    {
-      "tag": "fabric:shields"
     }
   ],
   "style": {
-    "color": "white"
+    "color": "aqua"
   },
   "attributes": [
     {
-      "type": "generic.knockback_resistance",
+      "type": "generic.armor",
       "modifier": {
-        "name": "tiered:heavy",
+        "name": "tiered:fortified",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.1
+        "amount": 0.25
       },
       "optional_equipment_slots": [
         "FEET",
         "LEGS",
         "CHEST",
-        "HEAD",
-        "MAINHAND",
-        "OFFHAND"
+        "HEAD"
       ]
     }
   ]

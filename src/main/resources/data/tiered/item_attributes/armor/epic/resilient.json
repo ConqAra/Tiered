@@ -1,5 +1,5 @@
 {
-  "id": "tiered:reinforced",
+  "id": "tiered:resilient",
   "verifiers": [
     {
       "tag": "fabric:helmets"
@@ -15,15 +15,15 @@
     }
   ],
   "style": {
-    "color": "dark_gray"
+    "color": "light_purple"
   },
   "attributes": [
     {
-      "type": "generic.armor",
+      "type": "generic.max_health",
       "modifier": {
-        "name": "tiered:reinforced",
+        "name": "tiered:resilient",
         "operation": "ADDITION",
-        "amount": 2
+        "amount": 1
       },
       "optional_equipment_slots": [
         "FEET",

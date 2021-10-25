@@ -1,5 +1,5 @@
 {
-  "id": "tiered:massive",
+  "id": "tiered:breakneck",
   "verifiers": [
     {
       "tag": "fabric:swords"
@@ -18,15 +18,15 @@
     }
   ],
   "style": {
-    "color": "green"
+    "color": "light_purple"
   },
   "attributes": [
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:breakneck",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.5
+        "amount": 0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -35,7 +35,7 @@
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:breakneck",
         "operation": "ADDITION",
         "amount": 2
       },
@@ -46,20 +46,9 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:breakneck",
         "operation": "ADDITION",
         "amount": 2
-      },
-      "optional_equipment_slots": [
-        "MAINHAND"
-      ]
-    },
-    {
-      "type": "tiered:generic.size",
-      "modifier": {
-        "name": "tiered:massive",
-        "operation": "MULTIPLY_TOTAL",
-        "amount": 0.5
       },
       "optional_equipment_slots": [
         "MAINHAND"

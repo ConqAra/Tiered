@@ -71,10 +71,10 @@ public class ModifierUtils {
                 } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.GREEN))){
                     uncommonRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("uncommon: "+uncommonRarity);
-                } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.BLUE))){
+                } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.AQUA))){
                     rareRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("rare: "+rareRarity);
-                } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.DARK_PURPLE))){
+                } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.LIGHT_PURPLE))){
                     epicRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("epic: "+epicRarity);
                 } else if (attribute.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.GOLD))){

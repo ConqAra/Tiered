@@ -1,5 +1,5 @@
 {
-  "id": "tiered:daring",
+  "id": "tiered:critical",
   "verifiers": [
     {
       "tag": "fabric:swords"
@@ -9,26 +9,26 @@
     }
   ],
   "style": {
-    "color": "dark_purple"
+    "color": "green"
   },
   "attributes": [
     {
-      "type": "generic.max_health",
+      "type": "generic.attack_damage",
       "modifier": {
-        "name": "tiered:daring",
+        "name": "tiered:critical",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.5
+        "amount": -0.15
       },
       "optional_equipment_slots": [
         "MAINHAND"
       ]
     },
     {
-      "type": "generic.attack_damage",
+      "type": "tiered:generic.crit_chance",
       "modifier": {
-        "name": "tiered:daring",
+        "name": "tiered:critical",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 2
+        "amount": 0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"

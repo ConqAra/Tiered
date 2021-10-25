@@ -1,5 +1,5 @@
 {
-  "id": "tiered:common",
+  "id": "tiered:reinforced",
   "verifiers": [
     {
       "tag": "fabric:helmets"
@@ -14,38 +14,27 @@
       "tag": "fabric:boots"
     },
     {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:shovels"
-    },
-    {
-      "tag": "fabric:pickaxes"
-    },
-    {
-      "tag": "fabric:hoes"
-    },
-    {
-      "tag": "fabric:axes"
+      "tag": "fabric:shields"
     }
   ],
   "style": {
-    "color": "gray"
+    "color": "green"
   },
   "attributes": [
     {
-      "type": "generic.max_health",
+      "type": "generic.armor",
       "modifier": {
-        "name": "tiered:common",
+        "name": "tiered:reinforced",
         "operation": "ADDITION",
         "amount": 2
       },
       "optional_equipment_slots": [
-        "MAINHAND",
         "FEET",
         "LEGS",
         "CHEST",
-        "HEAD"
+        "HEAD",
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]

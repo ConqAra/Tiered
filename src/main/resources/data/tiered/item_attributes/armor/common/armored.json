@@ -1,6 +1,12 @@
 {
-  "id": "tiered:steppy",
+  "id": "tiered:armored",
   "verifiers": [
+    {
+      "tag": "fabric:helmets"
+    },
+    {
+      "tag": "fabric:chestplates"
+    },
     {
       "tag": "fabric:leggings"
     },
@@ -9,19 +15,21 @@
     }
   ],
   "style": {
-    "color": "green"
+    "color": "blue"
   },
   "attributes": [
     {
-      "type": "stepheightentityattribute:stepheight",
+      "type": "generic.armor",
       "modifier": {
-        "name": "tiered:steppy",
+        "name": "tiered:armored",
         "operation": "ADDITION",
-        "amount": 0.5
+        "amount": 1
       },
       "optional_equipment_slots": [
         "FEET",
-        "LEGS"
+        "LEGS",
+        "CHEST",
+        "HEAD"
       ]
     }
   ]
