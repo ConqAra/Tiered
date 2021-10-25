@@ -4,11 +4,11 @@ Tiered is a Fabric mod inspired by [Quality Tools](https://www.curseforge.com/mi
 
 <img src="resources/legendary_chestplate.png" width="400">
 
-Tiered was originally made by Draylar, and is in the process of being updated by Andrew6rant.
+Tiered was originally made by Draylar, and is being updated and maintained by Andrew6rant.
 
 ### Customization
 
-Tiered is entirely data-driven, which means you can add, modify, and remove modifiers as you see fit. The base path for modifiers is `data/modid/item_attributes`, and tiered modifiers are stored under the modid of tiered. Here's an example modifier called "Hasteful," which grants additional dig speed when any of the valid tools are held:
+Tiered is almost entirely data-driven, which means you can add, modify, and remove modifiers as you see fit. The base path for modifiers is `data/modid/item_attributes`, and tiered modifiers are stored under the modid of tiered. Here's an example modifier called "Hasteful," which grants additional dig speed when any of the valid tools are held:
 ```json
 {
   "id": "tiered:hasteful",
@@ -24,7 +24,7 @@ Tiered is entirely data-driven, which means you can add, modify, and remove modi
     }
   ],
   "style": {
-    "color": "GREEN"
+    "color": "green"
   },
   "attributes": [
     {
@@ -42,7 +42,7 @@ Tiered is entirely data-driven, which means you can add, modify, and remove modi
 }
 ```
 
-Tiered currently provides 2 custom attributes: Dig Speed and Crit chance. Dig Speed increases the speed of your block breaking (think: haste), and Crit Chance offers an additional random chance to crit when using a tool.
+Tiered currently provides 3 custom attributes: Dig Speed, Crit Chance, and Size. Dig Speed increases the speed of your block breaking (think: haste), Crit Chance offers an additional random chance to crit when using a tool, and Size changes the held and dropped item rendering.
 
 ### Verifiers
 
@@ -58,7 +58,7 @@ and a tag can be specified with:
 "tag": "fabric:helmets"
 ```
 
-Tiered provides 5 armor tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, `fabric:boots`, and `fabric:shields` for your convenience).
+Tiered provides 5 armor tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, `fabric:boots`, and `fabric:shields`) for your convenience.
 
 
 ### License
