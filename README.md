@@ -63,3 +63,5 @@ Tiered provides 6 tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings
 
 ### License
 Tiered is licensed under MIT. You are free to use the code inside this repo as you want.
+
+## More information is available on the wiki: https://github.com/Andrew6rant/tiered/wiki
