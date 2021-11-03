@@ -1,5 +1,5 @@
 {
-  "id": "tiered:berserk",
+  "id": "tiered:brutal",
   "verifiers": [
     {
       "tag": "fabric:swords"
@@ -15,7 +15,7 @@
     {
       "type": "generic.attack_damage",
       "modifier": {
-        "name": "tiered:berserk",
+        "name": "tiered:brutal",
         "operation": "MULTIPLY_TOTAL",
         "amount": 0.25
       },
@@ -26,9 +26,9 @@
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:berserk",
+        "name": "tiered:brutal",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.25
+        "amount": -0.10
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -37,7 +37,7 @@
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:berserk",
+        "name": "tiered:brutal",
         "operation": "ADDITION",
         "amount": -1
       },
@@ -48,7 +48,7 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:berserk",
+        "name": "tiered:brutal",
         "operation": "ADDITION",
         "amount": -1
       },

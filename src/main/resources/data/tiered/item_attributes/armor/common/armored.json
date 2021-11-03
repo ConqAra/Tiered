@@ -12,10 +12,14 @@
     },
     {
       "tag": "fabric:boots"
+    },
+    {
+      "tag": "fabric:shields"
     }
+
   ],
   "style": {
-    "color": "blue"
+    "color": "green"
   },
   "attributes": [
     {
@@ -29,7 +33,9 @@
         "FEET",
         "LEGS",
         "CHEST",
-        "HEAD"
+        "HEAD",
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]

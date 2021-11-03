@@ -12,6 +12,7 @@ public class TieredItemTags {
     public static final Tag<Item> LEGGINGS = register("leggings");
     public static final Tag<Item> BOOTS = register("boots");
     public static final Tag<Item> SHIELDS = register("shields");
+    public static final Tag<Item> FISHING_RODS = register("fishing_rods");
 
     private TieredItemTags() { }
 
