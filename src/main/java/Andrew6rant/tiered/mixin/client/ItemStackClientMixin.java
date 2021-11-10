@@ -12,9 +12,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackClientMixin {
@@ -93,7 +92,12 @@ public abstract class ItemStackClientMixin {
             PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
             if(potentialAttribute != null) {
-                cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle()));
+                switch (Objects.requireNonNull(potentialAttribute.getStyle().getColor()).toString()) {
+                    case "aqua" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0x7FFFFF)));
+                    case "light_purple" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0xFF70FF)));
+                    case "white" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0xFEFEFE)));
+                    default -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle()));
+                }
             }
         }
     }
