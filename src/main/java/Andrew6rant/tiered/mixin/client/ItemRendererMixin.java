@@ -26,6 +26,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 @Mixin(value = ItemRenderer.class, priority = 1010)
 public class ItemRendererMixin
 {
@@ -37,9 +39,9 @@ public class ItemRendererMixin
     )
     private void onRenderItemPreRender(@Nullable LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, @Nullable World world, int light, int overlay, int seed, CallbackInfo info) {
         float scale = 1f;
-        if(entity.isPlayer()) {
-            scale = TieredClient.getSize(entity, scale);
-        }
+        //if(Objects.requireNonNull(entity).isPlayer()) {
+        //    scale = TieredClient.getSize(entity, scale);
+        //}
         matrices.push();
         matrices.scale(scale, scale, scale);
         matrices.push();

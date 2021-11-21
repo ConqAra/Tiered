@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tiered",
-  "version": "${version}",
+  "version": "2.0.1-beta",
   "name": "Tiered",
   "description": "Adds tiers to tools.",
   "authors": [
@@ -9,10 +9,10 @@
     "Draylar"
   ],
   "contact": {
-    "issues": "https://github.com/Draylar/tiered/issues",
+    "issues": "https://github.com/Andrew6rant/tiered/issues",
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/tiered"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/tiered/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -29,7 +29,10 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": ">=1.17",
+    "minecraft": [
+      "1.17.x",
+      "1.18.x"
+    ],
     "java": ">=16"
   }
 }
