@@ -39,9 +39,9 @@ public class ItemRendererMixin
     )
     private void onRenderItemPreRender(@Nullable LivingEntity entity, ItemStack item, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, @Nullable World world, int light, int overlay, int seed, CallbackInfo info) {
         float scale = 1f;
-        //if(Objects.requireNonNull(entity).isPlayer()) {
-        //    scale = TieredClient.getSize(entity, scale);
-        //}
+        if (entity != null) {
+            scale = TieredClient.getSize(entity, scale);
+        }
         matrices.push();
         matrices.scale(scale, scale, scale);
         matrices.push();
