@@ -2,7 +2,7 @@
 
 Tiered is a Fabric mod inspired by [Quality Tools](https://www.curseforge.com/minecraft/mc-mods/quality-tools). Every tool you make will have a special modifier, as seen below:
 
-<img src="resources/legendary_chestplate.png" width="400">
+![tiered](https://user-images.githubusercontent.com/57331134/142939375-8ea3935d-ec9d-4f47-aea7-8cfb090a2159.png)
 
 Tiered was originally made by Draylar, and is being updated and maintained by Andrew6rant.
 
