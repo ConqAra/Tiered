@@ -5,7 +5,6 @@ import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.api.TieredItemTags;
 import Andrew6rant.tiered.block.ReforgingStation;
 import Andrew6rant.tiered.block.ReforgingStationBlockEntity;
-import Andrew6rant.tiered.block.TestStation;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.mixin.ServerResourceManagerMixin;
 import io.netty.buffer.Unpooled;
@@ -18,9 +17,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
@@ -28,7 +25,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.resource.ResourceReloader;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -65,7 +61,6 @@ public class Tiered implements ModInitializer {
     public static final String NBT_SUBTAG_KEY = "Tiered";
     public static final String NBT_SUBTAG_DATA_KEY = "Tier";
 
-    public static final TestStation TEST_STATION = new TestStation(FabricBlockSettings.copyOf(Blocks.SPRUCE_PLANKS));
     public static final ReforgingStation REFORGING_STATION = new ReforgingStation(FabricBlockSettings.copyOf(Blocks.SPRUCE_PLANKS));
     public static BlockEntityType<ReforgingStationBlockEntity> REFORGING_STATION_BLOCK_ENTITY;
 
@@ -78,11 +73,11 @@ public class Tiered implements ModInitializer {
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
 //            setupModifierLabel();
         }
-        Registry.register(Registry.BLOCK, new Identifier("tiered", "test_station"), TEST_STATION);
+        //Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
         Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
         REFORGING_STATION_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "tiered:reforging_station_block_entity", FabricBlockEntityTypeBuilder.create(ReforgingStationBlockEntity::new, REFORGING_STATION).build(null));
+        //Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier("tiered", "test_station"), new BlockItem(TEST_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
     }
 
     /**

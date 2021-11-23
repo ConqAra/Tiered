@@ -1,4 +1,8 @@
 {
+  "block.tiered.reforging_station": "Reforging Station",
+  "container.reforging_station": "Reforging Station",
+
+
   "generic.dig_speed": "Dig Speed",
   "generic.crit_chance": "Crit Chance",
   "generic.size": "Size",

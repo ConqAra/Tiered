@@ -1,8 +1,16 @@
 {
   "variants": {
-    "facing=north": { "model": "tiered:block/reforging_station" },
-    "facing=east":  { "model": "tiered:block/reforging_station", "y":  90},
-    "facing=south": { "model": "tiered:block/reforging_station", "y": 180 },
-    "facing=west":  { "model": "tiered:block/reforging_station", "y": 270 }
+    "facing=north,open=false": { "model": "tiered:block/reforging_station" },
+    "facing=east,open=false":  { "model": "tiered:block/reforging_station", "y":  90},
+    "facing=south,open=false": { "model": "tiered:block/reforging_station", "y": 180 },
+    "facing=west,open=false":  { "model": "tiered:block/reforging_station", "y": 270 },
+    "facing=up,open=false": { "model": "tiered:block/reforging_station" },
+    "facing=down,open=false": { "model": "tiered:block/reforging_station" },
+    "facing=north,open=true": { "model": "tiered:block/reforging_station_open" },
+    "facing=east,open=true":  { "model": "tiered:block/reforging_station_open", "y":  90},
+    "facing=south,open=true": { "model": "tiered:block/reforging_station_open", "y": 180 },
+    "facing=west,open=true":  { "model": "tiered:block/reforging_station_open", "y": 270 },
+    "facing=up,open=true": { "model": "tiered:block/reforging_station_open" },
+    "facing=down,open=true": { "model": "tiered:block/reforging_station_open" }
   }
 }
