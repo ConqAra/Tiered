@@ -3,14 +3,23 @@ package Andrew6rant.tiered;
 import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.api.PotentialAttribute;
+import com.anthonyhilyard.iceberg.events.RenderTickEvents;
+import com.anthonyhilyard.iceberg.events.RenderTooltipEvents;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.tooltip.TooltipComponent;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TieredClient implements ClientModInitializer {
@@ -21,6 +30,10 @@ public class TieredClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         registerAttributeSyncHandler();
+        //RenderTooltipEvents.PRE.register(TieredClient::onPreTooltipEvent);
+        //RenderTooltipEvents.COLOR.register(TieredClient::onTooltipColorEvent);
+        RenderTooltipEvents.POST.register(TieredClient::onPostTooltipEvent);
+        //RenderTickEvents.START.register(TieredClient::onRenderTick);
     }
 
     public static void registerAttributeSyncHandler() {
@@ -54,5 +67,9 @@ public class TieredClient implements ClientModInitializer {
         }
 
         return f;
+    }
+
+    public static void onPostTooltipEvent(ItemStack stack, List<TooltipComponent> components, MatrixStack matrixStack, int x, int y, TextRenderer font, int width, int height, boolean comparison) {
+        Tooltip.drawBorder(matrixStack, x, y, width, height, stack, components, font, 0, comparison); // just testing for now
     }
 }
