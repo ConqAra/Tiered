@@ -14,13 +14,13 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
   "id": "tiered:hasteful",
   "verifiers": [
     {
-      "tag": "fabric:pickaxes"
+      "tag": "c:pickaxes"
     },
     {
-      "tag": "fabric:shovels"
+      "tag": "c:shovels"
     },
     {
-      "tag": "fabric:axes"
+      "tag": "c:axes"
     }
   ],
   "style": {
@@ -55,10 +55,10 @@ A specific item ID can be specified with:
 
 and a tag can be specified with:
 ```json
-"tag": "fabric:helmets"
+"tag": "c:helmets"
 ```
 
-Tiered provides 6 tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, `fabric:boots`, `fabric:shields`, and `fabric:fishing_rods`) for your convenience.
+Tiered provides 6 tags (`c:helmets`, `c:chestplates`, `c:leggings`, `c:boots`, `c:shields`, and `c:fishing_rods`) for your convenience.
 
 
 ### License
