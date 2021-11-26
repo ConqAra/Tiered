@@ -26,7 +26,7 @@ public class Tooltip {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0, TEXTURE_TOOLTIP_BORDERS);
 
-        // We have to bind the texture to be able to query it, so do that.
+        // We have to bind the texture to be able to query it
         MinecraftClient mc = MinecraftClient.getInstance();
         AbstractTexture borderTexture = mc.getTextureManager().getTexture(TEXTURE_TOOLTIP_BORDERS);
         borderTexture.bindTexture();
@@ -39,24 +39,29 @@ public class Tooltip {
 
         // top left corner
         DrawableHelper.drawTexture(matrixStack, x-10, y-10, (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
-        //DrawableHelper.drawTexture(matrixStack, x-10, y-10, 16, 32, 16, 16, textureWidth, textureHeight);
 
         // top right corner
         DrawableHelper.drawTexture(matrixStack, x+width-6, y-10, 112+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         // bottom left corner
         DrawableHelper.drawTexture(matrixStack, x-10, y+height-6, (frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
-        //DrawableHelper.drawTexture(matrixStack, x-10, y+height-6, 16, 48, 16, 16, textureWidth, textureHeight);
 
         // bottom right corner
         DrawableHelper.drawTexture(matrixStack, x+width-6, y+height-6, 112+(frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         if (width >= 64) {
             // top middle
-            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 48, y - 12, 16 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 96, 16, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y - 12, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 64, 16, textureWidth, textureHeight);
 
             // bottom middle
-            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 48, y + height - 4, 16 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight + 16, 96, 16, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y + height - 4, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight + 16, 64, 16, textureWidth, textureHeight);
+        }
+        if (height >= 48) {
+            // left side
+            DrawableHelper.drawTexture(matrixStack, x-12, y+(height/2)-16, 16+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+
+            // right side
+            DrawableHelper.drawTexture(matrixStack, x+width-4, y+(height/2)-16, 96+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
         }
 
         matrixStack.pop();
