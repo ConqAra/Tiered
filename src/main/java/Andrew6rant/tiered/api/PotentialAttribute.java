@@ -9,25 +9,19 @@ public class PotentialAttribute {
 
     private final String id;
     private final List<ItemVerifier> verifiers;
-    private final Style style;
-    //private final String rarity;
+    private final List<Style> style;
     private final List<AttributeTemplate> attributes;
 
-    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, String rarity, List<AttributeTemplate> attributes) {
+    public PotentialAttribute(String id, List<ItemVerifier> verifiers, List<Style> style, List<AttributeTemplate> attributes) {
         this.id = id;
         this.verifiers = verifiers;
         this.style = style;
-        //this.rarity = rarity;
         this.attributes = attributes;
     }
 
     public String getID() {
         return id;
     }
-
-    /*public String getRarity() {
-        return rarity;
-    }*/
 
     public List<ItemVerifier> getVerifiers() {
         return verifiers;
@@ -39,11 +33,10 @@ public class PotentialAttribute {
                 return true;
             }
         }
-
         return false;
     }
 
-    public Style getStyle() {
+    public List<Style> getStyle() {
         return style;
     }
 

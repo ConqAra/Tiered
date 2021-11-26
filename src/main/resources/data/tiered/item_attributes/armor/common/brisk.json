@@ -15,7 +15,9 @@
     }
   ],
   "style": {
-    "color": "white"
+    "color": "white",
+    "rarity": "common",
+    "tooltip_border": "1"
   },
   "attributes": [
     {

@@ -1,5 +1,6 @@
 package Andrew6rant.tiered.mixin.client;
 
+import Andrew6rant.tiered.TieredClient;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import Andrew6rant.tiered.Tiered;
@@ -51,7 +52,7 @@ public abstract class ItemStackClientMixin {
             Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
             PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
-            return translatableText.setStyle(attribute.getStyle());
+            return translatableText.setStyle(attribute.getStyle().get(0));
         } else {
             return translatableText.formatted(formatting);
         }
@@ -92,12 +93,13 @@ public abstract class ItemStackClientMixin {
             PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
             if(potentialAttribute != null) {
-                switch (Objects.requireNonNull(potentialAttribute.getStyle().getColor()).toString()) {
+                /*switch (Objects.requireNonNull(potentialAttribute.getStyle().getColor()).toString()) {
                     case "aqua" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0x7FFFFF)));
                     case "light_purple" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0xFF70FF)));
                     case "white" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0xFEFEFE)));
                     default -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle()));
-                }
+                }*/
+                cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle().get(0)));
             }
         }
     }

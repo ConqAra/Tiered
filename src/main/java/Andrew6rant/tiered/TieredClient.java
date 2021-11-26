@@ -70,6 +70,7 @@ public class TieredClient implements ClientModInitializer {
     }
 
     public static void onPostTooltipEvent(ItemStack stack, List<TooltipComponent> components, MatrixStack matrixStack, int x, int y, TextRenderer font, int width, int height, boolean comparison) {
+
         Tooltip.drawBorder(matrixStack, x, y, width, height, stack, components, font, 0, comparison); // just testing for now
     }
 }

@@ -19,7 +19,9 @@
 
   ],
   "style": {
-    "color": "green"
+    "color": "green",
+    "rarity": "common",
+    "tooltip_border": "2"
   },
   "attributes": [
     {
