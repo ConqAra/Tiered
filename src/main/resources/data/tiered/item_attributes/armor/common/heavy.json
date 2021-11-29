@@ -1,27 +1,17 @@
 {
   "id": "tiered:heavy",
   "verifiers": [
-    {
-      "tag": "fabric:helmets"
-    },
-    {
-      "tag": "fabric:chestplates"
-    },
-    {
-      "tag": "fabric:leggings"
-    },
-    {
-      "tag": "fabric:boots"
-    },
-    {
-      "tag": "fabric:shields"
-    }
+    { "tag": "fabric:helmets" },
+    { "tag": "fabric:chestplates" },
+    { "tag": "fabric:leggings" },
+    { "tag": "fabric:boots" },
+    { "tag": "fabric:shields" }
   ],
-  "style": {
-    "color": "white",
-    "rarity": "common",
-    "tooltip_border": "1"
-  },
+  "style": [
+    { "color": "white" },
+    { "rarity": "common" },
+    { "tooltip_border": "1" }
+  ],
   "attributes": [
     {
       "type": "generic.knockback_resistance",

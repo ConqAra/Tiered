@@ -1,16 +1,14 @@
 {
   "id": "tiered:steppy",
   "verifiers": [
-    {
-      "tag": "fabric:leggings"
-    },
-    {
-      "tag": "fabric:boots"
-    }
+    { "tag": "fabric:leggings" },
+    { "tag": "fabric:boots" }
   ],
-  "style": {
-    "color": "green"
-  },
+  "style": [
+    { "color": "green" },
+    { "rarity": "uncommon" },
+    { "tooltip_border": "2" }
+  ],
   "attributes": [
     {
       "type": "stepheightentityattribute:stepheight",

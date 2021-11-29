@@ -1,25 +1,17 @@
 {
   "id": "tiered:reinforced",
   "verifiers": [
-    {
-      "tag": "fabric:helmets"
-    },
-    {
-      "tag": "fabric:chestplates"
-    },
-    {
-      "tag": "fabric:leggings"
-    },
-    {
-      "tag": "fabric:boots"
-    },
-    {
-      "tag": "fabric:shields"
-    }
+    { "tag": "fabric:helmets" },
+    { "tag": "fabric:chestplates" },
+    { "tag": "fabric:leggings" },
+    { "tag": "fabric:boots" },
+    { "tag": "fabric:shields" }
   ],
-  "style": {
-    "color": "green"
-  },
+  "style": [
+    { "color": "green" },
+    { "rarity": "uncommon" },
+    { "tooltip_border": "2" }
+  ],
   "attributes": [
     {
       "type": "generic.armor",

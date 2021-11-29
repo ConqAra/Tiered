@@ -59,7 +59,7 @@ public class ModifierUtils {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
                 //TextColor is incompatible with switch statements :(
                 //EDIT: I am dumb af, I can just convert to string
-                switch (Objects.requireNonNull(attribute.getStyle().get(1).toString())) {
+                /*switch (Objects.requireNonNull(attribute.getStyle().get(1).toString())) {
                     case "junk": junkRarity.add(new Identifier(attribute.getID()));
                     case "common": commonRarity.add(new Identifier(attribute.getID()));
                     case "uncommon": uncommonRarity.add(new Identifier(attribute.getID()));
@@ -67,12 +67,12 @@ public class ModifierUtils {
                     case "epic": epicRarity.add(new Identifier(attribute.getID()));
                     case "legendary": legendaryRarity.add(new Identifier(attribute.getID()));
                     default: arcaneRarity.add(new Identifier((attribute.getID())));
-                }
+                }*/
 
 
 
 
-                /*if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
+                if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
                     junkRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("junk: "+junkRarity);
                 } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.WHITE))){
@@ -93,7 +93,7 @@ public class ModifierUtils {
                 } else{
                     arcaneRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("arcane: "+arcaneRarity);
-                }*/
+                }
             }
         });
 
@@ -168,7 +168,7 @@ public class ModifierUtils {
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
                 //TextColor is incompatible with switch statements :(
-                switch (Objects.requireNonNull(attribute.getStyle().get(1)).toString()) {
+                /*switch (Objects.requireNonNull(attribute.getStyle().get(1)).toString()) {
                     case "junk": junkRarity.add(new Identifier(attribute.getID()));
                     case "common": commonRarity.add(new Identifier(attribute.getID()));
                     case "uncommon": uncommonRarity.add(new Identifier(attribute.getID()));
@@ -176,10 +176,12 @@ public class ModifierUtils {
                     case "epic": epicRarity.add(new Identifier(attribute.getID()));
                     case "legendary": legendaryRarity.add(new Identifier(attribute.getID()));
                     default: arcaneRarity.add(new Identifier((attribute.getID())));
-                }
+                }*/
+                System.out.println(Objects.requireNonNull(attribute.getStyle().get(0)));
+                System.out.println(Objects.requireNonNull(attribute.getStyle().get(1)));
+                System.out.println(Objects.requireNonNull(attribute.getStyle().get(2)));
 
-
-                /*if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
+                if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
                     junkRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("junk: "+junkRarity);
                 } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.WHITE))){
@@ -200,7 +202,7 @@ public class ModifierUtils {
                 } else{
                     arcaneRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("arcane: "+arcaneRarity);
-                }*/
+                }
             }
         });
         // return a weighted attribute if there are any, or null if there are none

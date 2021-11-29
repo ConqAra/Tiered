@@ -1,13 +1,13 @@
 {
   "id": "tiered:leaded",
   "verifiers": [
-    {
-      "tag": "fabric:boots"
-    }
+    { "tag": "fabric:boots" }
   ],
-  "style": {
-    "color": "gray"
-  },
+  "style": [
+    { "color": "gray" },
+    { "rarity": "junk" },
+    { "tooltip_border": "0" }
+  ],
   "attributes": [
     {
       "type": "generic.armor",
