@@ -25,7 +25,10 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.text.Style;
+import net.minecraft.text.TextColor;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
@@ -105,10 +108,29 @@ public class Tiered implements ModInitializer {
                 PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
                 if(potentialAttribute != null) {
-                    lines.add(1, new TranslatableText(potentialAttribute.getID() + ".label").setStyle(potentialAttribute.getStyle().get(0)));
+                    lines.add(1, new TranslatableText(potentialAttribute.getID() + ".label").setStyle(potentialAttribute.getStyle()));
                 }
             }
         });
+    }
+
+    public static int testing(ItemStack stack) {
+        //ItemTooltipCallback.EVENT.register((stack) -> {
+            // has tier
+            if(stack.getSubNbt(NBT_SUBTAG_KEY) != null) {
+                // get tier
+                Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+
+                // attempt to display attribute if it is valid
+                PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+
+                if(potentialAttribute != null) {
+                    //int test = potentialAttribute.getTooltip_border();
+                    return potentialAttribute.getTooltip_border();
+                }
+            }
+            return 0;
+        //});
     }
 
     public static boolean isPreferredEquipmentSlot(ItemStack stack, EquipmentSlot slot) {

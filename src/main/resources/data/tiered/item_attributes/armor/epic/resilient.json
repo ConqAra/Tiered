@@ -6,11 +6,11 @@
     { "tag": "fabric:leggings" },
     { "tag": "fabric:boots" }
   ],
-  "style": [
-    { "color": "light_purple" },
-    { "rarity": "epic" },
-    { "tooltip_border": "4" }
-  ],
+  "style": {
+    "color": "light_purple"
+  },
+  "rarity": "epic",
+  "tooltip_border": 4,
   "attributes": [
     {
       "type": "generic.max_health",

@@ -4,12 +4,15 @@ package Andrew6rant.tiered.api;
 import Andrew6rant.tiered.Tiered;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Style;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.include.com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -57,42 +60,15 @@ public class ModifierUtils {
         // collect all valid attributes for the given item
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
-                //TextColor is incompatible with switch statements :(
-                //EDIT: I am dumb af, I can just convert to string
-                /*switch (Objects.requireNonNull(attribute.getStyle().get(1).toString())) {
-                    case "junk": junkRarity.add(new Identifier(attribute.getID()));
-                    case "common": commonRarity.add(new Identifier(attribute.getID()));
-                    case "uncommon": uncommonRarity.add(new Identifier(attribute.getID()));
-                    case "aqua": rareRarity.add(new Identifier(attribute.getID()));
-                    case "epic": epicRarity.add(new Identifier(attribute.getID()));
-                    case "legendary": legendaryRarity.add(new Identifier(attribute.getID()));
-                    default: arcaneRarity.add(new Identifier((attribute.getID())));
-                }*/
-
-
-
-
-                if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
-                    junkRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("junk: "+junkRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.WHITE))){
-                    commonRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("common: "+commonRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GREEN))){
-                    uncommonRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("uncommon: "+uncommonRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.AQUA))){
-                    rareRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("rare: "+rareRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.LIGHT_PURPLE))){
-                    epicRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("epic: "+epicRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GOLD))){
-                    legendaryRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("legendary: "+legendaryRarity);
-                } else{
-                    arcaneRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("arcane: "+arcaneRarity);
+                //System.out.println(attribute.getRarity());
+                switch (attribute.getRarity()) {
+                    case "junk" -> junkRarity.add(new Identifier(attribute.getID()));
+                    case "common" -> commonRarity.add(new Identifier(attribute.getID()));
+                    case "uncommon" -> uncommonRarity.add(new Identifier(attribute.getID()));
+                    case "rare" -> rareRarity.add(new Identifier(attribute.getID()));
+                    case "epic" -> epicRarity.add(new Identifier(attribute.getID()));
+                    case "legendary" -> legendaryRarity.add(new Identifier(attribute.getID()));
+                    default -> arcaneRarity.add(new Identifier((attribute.getID())));
                 }
             }
         });
@@ -167,21 +143,22 @@ public class ModifierUtils {
         // collect all valid attributes for the given item
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
-                //TextColor is incompatible with switch statements :(
-                /*switch (Objects.requireNonNull(attribute.getStyle().get(1)).toString()) {
-                    case "junk": junkRarity.add(new Identifier(attribute.getID()));
-                    case "common": commonRarity.add(new Identifier(attribute.getID()));
-                    case "uncommon": uncommonRarity.add(new Identifier(attribute.getID()));
-                    case "aqua": rareRarity.add(new Identifier(attribute.getID()));
-                    case "epic": epicRarity.add(new Identifier(attribute.getID()));
-                    case "legendary": legendaryRarity.add(new Identifier(attribute.getID()));
-                    default: arcaneRarity.add(new Identifier((attribute.getID())));
-                }*/
-                System.out.println(Objects.requireNonNull(attribute.getStyle().get(0)));
-                System.out.println(Objects.requireNonNull(attribute.getStyle().get(1)));
-                System.out.println(Objects.requireNonNull(attribute.getStyle().get(2)));
+                switch (attribute.getRarity()) {
+                    case "junk" -> junkRarity.add(new Identifier(attribute.getID()));
+                    case "common" -> commonRarity.add(new Identifier(attribute.getID()));
+                    case "uncommon" -> uncommonRarity.add(new Identifier(attribute.getID()));
+                    case "rare" -> rareRarity.add(new Identifier(attribute.getID()));
+                    case "epic" -> epicRarity.add(new Identifier(attribute.getID()));
+                    case "legendary" -> legendaryRarity.add(new Identifier(attribute.getID()));
+                    default -> arcaneRarity.add(new Identifier((attribute.getID())));
+                }
+                //System.out.println("item:");
+                //System.out.println(Objects.requireNonNull(attribute.getStyle()));
+                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(0)));
+                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(1)));
+                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(2)));
 
-                if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
+                /*if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
                     junkRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("junk: "+junkRarity);
                 } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.WHITE))){
@@ -202,7 +179,7 @@ public class ModifierUtils {
                 } else{
                     arcaneRarity.add(new Identifier(attribute.getID()));
                     //System.out.println("arcane: "+arcaneRarity);
-                }
+                }*/
             }
         });
         // return a weighted attribute if there are any, or null if there are none

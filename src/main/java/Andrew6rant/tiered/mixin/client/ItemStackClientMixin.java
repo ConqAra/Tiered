@@ -1,12 +1,16 @@
 package Andrew6rant.tiered.mixin.client;
 
 import Andrew6rant.tiered.TieredClient;
+import Andrew6rant.tiered.Tooltip;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import Andrew6rant.tiered.Tiered;
 import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.data.AttributeDataLoader;
+import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -33,7 +37,10 @@ import java.util.Objects;
 @Mixin(ItemStack.class)
 public abstract class ItemStackClientMixin {
 
-    @Shadow public abstract NbtCompound getOrCreateSubNbt(String key);
+    @Shadow
+    public NbtCompound getOrCreateSubNbt(String key) {
+        return null;
+    }
 
     @Shadow public abstract boolean hasNbt();
 
@@ -52,7 +59,7 @@ public abstract class ItemStackClientMixin {
             Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
             PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
-            return translatableText.setStyle(attribute.getStyle().get(0));
+            return translatableText.setStyle(attribute.getStyle());
         } else {
             return translatableText.formatted(formatting);
         }
@@ -99,7 +106,7 @@ public abstract class ItemStackClientMixin {
                     case "white" -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(Style.EMPTY.withColor(0xFEFEFE)));
                     default -> cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle()));
                 }*/
-                cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle().get(0)));
+                cir.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(cir.getReturnValue()).setStyle(potentialAttribute.getStyle()));
             }
         }
     }

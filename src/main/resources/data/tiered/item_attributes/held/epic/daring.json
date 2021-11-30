@@ -1,16 +1,14 @@
 {
   "id": "tiered:daring",
   "verifiers": [
-    {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
-    }
+    { "tag": "fabric:swords" },
+    { "tag": "fabric:axes" }
   ],
   "style": {
     "color": "light_purple"
   },
+  "rarity": "epic",
+  "tooltip_border": 4,
   "attributes": [
     {
       "type": "generic.max_health",

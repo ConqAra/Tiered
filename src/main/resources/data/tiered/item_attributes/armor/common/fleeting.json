@@ -6,11 +6,11 @@
     { "tag": "fabric:leggings" },
     { "tag": "fabric:boots" }
   ],
-  "style": [
-    { "color": "white" },
-    { "rarity": "common" },
-    { "tooltip_border": "1" }
-  ],
+  "style": {
+    "color": "white"
+  },
+  "rarity": "common",
+  "tooltip_border": 1,
   "attributes": [
     {
       "type": "generic.movement_speed",

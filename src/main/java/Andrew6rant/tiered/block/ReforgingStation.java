@@ -81,8 +81,6 @@ public class ReforgingStation extends Block implements BlockEntityProvider {
             return ActionResult.SUCCESS;
         }
         else {
-
-
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if(((hit.getPos().x - pos.getX()) > 0.2
                 && (hit.getPos().x - pos.getX()) < 0.81

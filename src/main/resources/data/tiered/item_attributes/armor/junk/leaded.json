@@ -3,11 +3,11 @@
   "verifiers": [
     { "tag": "fabric:boots" }
   ],
-  "style": [
-    { "color": "gray" },
-    { "rarity": "junk" },
-    { "tooltip_border": "0" }
-  ],
+  "style": {
+    "color": "gray"
+  },
+  "rarity": "junk",
+  "tooltip_border": 0,
   "attributes": [
     {
       "type": "generic.armor",

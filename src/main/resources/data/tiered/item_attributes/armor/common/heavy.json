@@ -7,11 +7,11 @@
     { "tag": "fabric:boots" },
     { "tag": "fabric:shields" }
   ],
-  "style": [
-    { "color": "white" },
-    { "rarity": "common" },
-    { "tooltip_border": "1" }
-  ],
+  "style": {
+    "color": "white"
+  },
+  "rarity": "common",
+  "tooltip_border": 1,
   "attributes": [
     {
       "type": "generic.knockback_resistance",

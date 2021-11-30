@@ -7,11 +7,11 @@
     { "tag": "fabric:boots" },
     { "tag": "fabric:shields" }
   ],
-  "style": [
-    { "color": "green" },
-    { "rarity": "uncommon" },
-    { "tooltip_border": "2" }
-  ],
+  "style": {
+    "color": "green"
+  },
+  "rarity": "uncommon",
+  "tooltip_border": 2,
   "attributes": [
     {
       "type": "generic.armor",
