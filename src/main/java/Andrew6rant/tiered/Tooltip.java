@@ -22,7 +22,18 @@ public class Tooltip {
     // Thanks to Grend for permission to use the Iceberg Library and LegendaryTooltips code for the tooltips in this mod
     private static final Identifier TEXTURE_TOOLTIP_BORDERS = new Identifier("tiered", "textures/gui/tooltips.png");
 
-    public static void drawBorder(MatrixStack matrixStack, int x, int y, int width, int height, ItemStack item, List<? extends TooltipComponent> lines, TextRenderer font, int frameLevel, boolean comparison) {
+    public static void drawBorder(MatrixStack matrixStack, int x, int y, int width, int height, int frameLevel, int startColor, int endColor) {
+
+        matrixStack.push();
+        Matrix4f mat = matrixStack.peek().getPositionMatrix();
+
+        GuiHelper.drawGradientRect(mat, 400, x - 3, y - 3 + 1, x - 3 + 1, y + height + 3 - 1, startColor, endColor);
+        GuiHelper.drawGradientRect(mat, 400, x + width + 2, y - 3 + 1, x + width + 3, y + height + 3 - 1, startColor, endColor);
+        GuiHelper.drawGradientRect(mat, 400, x - 3, y - 3, x + width + 3, y - 3 + 1, startColor, endColor);
+        GuiHelper.drawGradientRect(mat, 400, x - 3, y + height + 2, x + width + 3, y + height + 3, startColor, endColor);
+        matrixStack.pop();
+
+
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0, TEXTURE_TOOLTIP_BORDERS);
 

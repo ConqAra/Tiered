@@ -11,7 +11,9 @@
     "color": "green"
   },
   "rarity": "uncommon",
-  "tooltip_border": 2,
+  "tooltip_image": 2,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
   "attributes": [
     {
       "type": "generic.armor",

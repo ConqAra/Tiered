@@ -77,7 +77,7 @@ public class TieredClient implements ClientModInitializer {
 
     public static void onPostTooltipEvent(ItemStack stack, List<TooltipComponent> components, MatrixStack matrixStack, int x, int y, TextRenderer font, int width, int height, boolean comparison) {
         if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) {
-            Tooltip.drawBorder(matrixStack, x, y, width, height, stack, components, font, Tiered.testing(stack), comparison); // just testing for now
+            Tooltip.drawBorder(matrixStack, x, y, width, height, Tiered.getTooltipLevel(stack), Tiered.getStartColor(stack), Tiered.getEndColor(stack)); // just testing for now
         }
     }
 }

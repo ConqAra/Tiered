@@ -10,7 +10,9 @@
     "color": "gray"
   },
   "rarity": "junk",
-  "tooltip_border": 0,
+  "tooltip_image": 0,
+  "tooltip_border_start":  4280615006,
+  "tooltip_border_end":  4279762996,
   "attributes": [
     {
       "type": "generic.armor",

@@ -114,23 +114,37 @@ public class Tiered implements ModInitializer {
         });
     }
 
-    public static int testing(ItemStack stack) {
-        //ItemTooltipCallback.EVENT.register((stack) -> {
-            // has tier
-            if(stack.getSubNbt(NBT_SUBTAG_KEY) != null) {
-                // get tier
-                Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+    public static int getTooltipLevel(ItemStack stack) {
+        // get tier
+        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        // attempt to display attribute if it is valid
+        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+        if(potentialAttribute != null) {
+            return potentialAttribute.getTooltip_image();
+        }
+        return 0; // this should never be called
+    }
 
-                // attempt to display attribute if it is valid
-                PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+    public static int getStartColor(ItemStack stack) {
+        // get tier
+        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        // attempt to display attribute if it is valid
+        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+        if(potentialAttribute != null) {
+            return potentialAttribute.getTooltip_border_start();
+        }
+        return 0; // this should never be called
+    }
 
-                if(potentialAttribute != null) {
-                    //int test = potentialAttribute.getTooltip_border();
-                    return potentialAttribute.getTooltip_border();
-                }
-            }
-            return 0;
-        //});
+    public static int getEndColor(ItemStack stack) {
+        // get tier
+        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        // attempt to display attribute if it is valid
+        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+        if(potentialAttribute != null) {
+            return potentialAttribute.getTooltip_border_end();
+        }
+        return 0; // this should never be called
     }
 
     public static boolean isPreferredEquipmentSlot(ItemStack stack, EquipmentSlot slot) {

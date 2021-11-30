@@ -11,7 +11,9 @@
     "color": "white"
   },
   "rarity": "common",
-  "tooltip_border": 1,
+  "tooltip_image": 1,
+  "tooltip_border_start":  4294967295,
+  "tooltip_border_end":  4294967295,
   "attributes": [
     {
       "type": "generic.knockback_resistance",

@@ -21,5 +21,16 @@
   "tiered:slow.label": "Slow",
   "tiered:sluggish.label": "Sluggish",
 
-  "tiered:steppy.label": "Steppy"
+  "tiered:steppy.label": "Steppy",
+
+
+
+
+
+
+
+
+  "tiered:dented.label": "Dented",
+  "tiered:leaded.label": "Leaded",
+  "tiered:heavy.label": "Heavy"
 }
