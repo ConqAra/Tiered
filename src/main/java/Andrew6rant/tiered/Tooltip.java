@@ -42,37 +42,49 @@ public class Tooltip {
         AbstractTexture borderTexture = mc.getTextureManager().getTexture(TEXTURE_TOOLTIP_BORDERS);
         borderTexture.bindTexture();
 
-        int textureWidth = 256;
-        int textureHeight = 256;
+        int textureWidth = GlStateManager._getTexLevelParameter(GL11.GL_TEXTURE_2D, 0, GL11.GL_TEXTURE_WIDTH); // these should be equal and powers of 2 to render properly
+        int textureHeight = GlStateManager._getTexLevelParameter(GL11.GL_TEXTURE_2D, 0, GL11.GL_TEXTURE_HEIGHT);
+
+        int divisorValue = textureWidth / 32; // this allows texture size to scale larger than 256x (512x, 1024x...) for additional border styles (256x -> 16 styles, 512x -> 64 styles, etc)
 
         matrixStack.push();
         matrixStack.translate(0, 0, 410.0);
 
         // top left corner
-        DrawableHelper.drawTexture(matrixStack, x-10, y-10, (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        //DrawableHelper.drawTexture(matrixStack, x-10, y-10, (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        DrawableHelper.drawTexture(matrixStack, x-10, y-10, (frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         // top right corner
-        DrawableHelper.drawTexture(matrixStack, x+width-6, y-10, 112+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        //DrawableHelper.drawTexture(matrixStack, x+width-6, y-10, 112+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        DrawableHelper.drawTexture(matrixStack, x+width-6, y-10, 112+(frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         // bottom left corner
-        DrawableHelper.drawTexture(matrixStack, x-10, y+height-6, (frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        //DrawableHelper.drawTexture(matrixStack, x-10, y+height-6, (frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        DrawableHelper.drawTexture(matrixStack, x-10, y+height-6, (frameLevel / divisorValue) * 128, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         // bottom right corner
-        DrawableHelper.drawTexture(matrixStack, x+width-6, y+height-6, 112+(frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        //DrawableHelper.drawTexture(matrixStack, x+width-6, y+height-6, 112+(frameLevel / 4) * 64, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
+        DrawableHelper.drawTexture(matrixStack, x+width-6, y+height-6, 112+(frameLevel / divisorValue) * 128, 16+(frameLevel * 32) % textureHeight, 16, 16, textureWidth, textureHeight);
 
         if (width >= 64) {
             // top middle
-            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y - 12, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 64, 16, textureWidth, textureHeight);
+            //DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y - 12, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 64, 16, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y - 12, 32 + (frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight, 64, 16, textureWidth, textureHeight);
 
             // bottom middle
-            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y + height - 4, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight + 16, 64, 16, textureWidth, textureHeight);
+            //DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y + height - 4, 32 + (frameLevel / 4) * 64, (frameLevel * 32) % textureHeight + 16, 64, 16, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x + (width / 2) - 32, y + height - 4, 32 + (frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight + 16, 64, 16, textureWidth, textureHeight);
+
         }
         if (height >= 48) {
             // left side
-            DrawableHelper.drawTexture(matrixStack, x-12, y+(height/2)-16, 16+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+            //DrawableHelper.drawTexture(matrixStack, x-12, y+(height/2)-16, 16+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x-12, y+(height/2)-16, 16+(frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
 
             // right side
-            DrawableHelper.drawTexture(matrixStack, x+width-4, y+(height/2)-16, 96+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+            //DrawableHelper.drawTexture(matrixStack, x+width-4, y+(height/2)-16, 96+(frameLevel / 4) * 64, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+            DrawableHelper.drawTexture(matrixStack, x+width-4, y+(height/2)-16, 96+(frameLevel / divisorValue) * 128, (frameLevel * 32) % textureHeight, 16, 32, textureWidth, textureHeight);
+
         }
 
         matrixStack.pop();
