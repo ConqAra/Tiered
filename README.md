@@ -22,8 +22,8 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
   },
   "rarity": "uncommon",
   "tooltip_image": 2,
-  "tooltip_border_start":  4283826005, "//": "Numbers are a decimal representation of 0xAARRGGBB",
-  "tooltip_border_end":  4279880217, "///": "for example, 4283826005 is #55FF55 (0xFF55FF55)",
+  "tooltip_border_start":  4283826005,
+  "tooltip_border_end":  4279880217,
   "attributes": [
     {
       "type": "generic.dig_speed",
