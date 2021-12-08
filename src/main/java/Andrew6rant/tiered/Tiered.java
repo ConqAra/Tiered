@@ -4,7 +4,6 @@ import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.api.TieredItemTags;
 import Andrew6rant.tiered.block.ReforgingStation;
-import Andrew6rant.tiered.block.ReforgingStationBlockEntity;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.mixin.ServerResourceManagerMixin;
 import io.netty.buffer.Unpooled;
@@ -25,10 +24,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.text.Style;
-import net.minecraft.text.TextColor;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
@@ -65,7 +61,6 @@ public class Tiered implements ModInitializer {
     public static final String NBT_SUBTAG_DATA_KEY = "Tier";
 
     public static final ReforgingStation REFORGING_STATION = new ReforgingStation(FabricBlockSettings.copyOf(Blocks.SPRUCE_PLANKS));
-    public static BlockEntityType<ReforgingStationBlockEntity> REFORGING_STATION_BLOCK_ENTITY;
 
     @Override
     public void onInitialize() {
@@ -78,7 +73,6 @@ public class Tiered implements ModInitializer {
         }
         //Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
         Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
-        REFORGING_STATION_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "tiered:reforging_station_block_entity", FabricBlockEntityTypeBuilder.create(ReforgingStationBlockEntity::new, REFORGING_STATION).build(null));
         //Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
         Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));
     }

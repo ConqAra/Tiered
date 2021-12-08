@@ -115,7 +115,7 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                 && (hit.getPos().z - pos.getZ()) > 0.2
                 && (hit.getPos().z - pos.getZ()) < 0.81
                 && (blockState.get(Properties.FACING) == Direction.WEST))) {
-                    player.openHandledScreen((ReforgingStationBlockEntity)blockEntity);
+                    player.openHandledScreen((BarrelBlockEntity)blockEntity);
                     return ActionResult.CONSUME;
             }
             if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
