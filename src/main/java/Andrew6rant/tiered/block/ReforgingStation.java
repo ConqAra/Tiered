@@ -74,7 +74,9 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new ReforgingStationBlockEntity(pos, state);
+        BarrelBlockEntity reforgingStationBlockEntity = new BarrelBlockEntity(pos, state);
+        reforgingStationBlockEntity.setCustomName(new TranslatableText("container.reforging_station"));
+        return reforgingStationBlockEntity;
     }
 
     @Override
