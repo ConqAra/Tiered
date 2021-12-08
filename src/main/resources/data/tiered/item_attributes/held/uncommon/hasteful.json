@@ -1,22 +1,18 @@
 {
   "id": "tiered:hasteful",
   "verifiers": [
-    {
-      "tag": "fabric:pickaxes"
-    },
-    {
-      "tag": "fabric:shovels"
-    },
-    {
-      "tag": "fabric:axes"
-    },
-    {
-      "tag": "fabric:hoes"
-    }
+    { "tag": "fabric:pickaxes" },
+    { "tag": "fabric:shovels" },
+    { "tag": "fabric:axes" },
+    { "tag": "fabric:hoes" }
   ],
   "style": {
     "color": "green"
   },
+  "rarity": "uncommon",
+  "tooltip_image": 2,
+  "tooltip_border_start":  4283826005,
+  "tooltip_border_end":  4279880217,
   "attributes": [
     {
       "type": "tiered:generic.dig_speed",

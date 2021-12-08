@@ -1,5 +1,5 @@
 {
-  "id": "tiered:nimble",
+  "id": "tiered:gargantuan",
   "verifiers": [
     { "tag": "fabric:swords" },
     { "tag": "fabric:axes" },
@@ -11,14 +11,16 @@
     "color": "aqua"
   },
   "rarity": "rare",
-  "tooltip_border": 3,
+  "tooltip_image": 3,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
   "attributes": [
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:nimble",
+        "name": "tiered:gargantuan",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.1
+        "amount": -0.75
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -27,9 +29,9 @@
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:nimble",
+        "name": "tiered:gargantuan",
         "operation": "ADDITION",
-        "amount": 1
+        "amount": 3
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -38,9 +40,20 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:nimble",
+        "name": "tiered:gargantuan",
         "operation": "ADDITION",
-        "amount": 1
+        "amount": 3
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "tiered:generic.size",
+      "modifier": {
+        "name": "tiered:gargantuan",
+        "operation": "MULTIPLY_TOTAL",
+        "amount": 1.5
       },
       "optional_equipment_slots": [
         "MAINHAND"

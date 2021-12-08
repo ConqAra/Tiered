@@ -1,5 +1,5 @@
 {
-  "id": "tiered:quick",
+  "id": "tiered:slow",
   "verifiers": [
     { "tag": "fabric:swords" },
     { "tag": "fabric:axes" },
@@ -8,17 +8,19 @@
     { "tag": "fabric:hoes" }
   ],
   "style": {
-    "color": "white"
+    "color": "gray"
   },
-  "rarity": "common",
-  "tooltip_border": 1,
+  "rarity": "junk",
+  "tooltip_image": 0,
+  "tooltip_border_start":  4289374890,
+  "tooltip_border_end":  4289374890,
   "attributes": [
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:quick",
+        "name": "tiered:slow",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
+        "amount": -0.15
       },
       "optional_equipment_slots": [
         "MAINHAND"
