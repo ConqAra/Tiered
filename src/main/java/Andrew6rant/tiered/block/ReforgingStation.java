@@ -3,6 +3,7 @@ package Andrew6rant.tiered.block;
 import Andrew6rant.tiered.Tiered;
 import Andrew6rant.tiered.api.ModifierUtils;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BarrelBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -12,6 +13,8 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -25,7 +28,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ReforgingStation extends Block implements BlockEntityProvider {
+public class ReforgingStation extends BarrelBlock implements BlockEntityProvider {
     public static final DirectionProperty FACING;
     public static final BooleanProperty OPEN;
 
@@ -33,6 +36,7 @@ public class ReforgingStation extends Block implements BlockEntityProvider {
         super(settings.nonOpaque());
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(OPEN, false));
     }
+
     @Override
     public VoxelShape getOutlineShape(BlockState blockState, BlockView view, BlockPos pos, ShapeContext context) {
         Direction dir = blockState.get(Properties.FACING);
