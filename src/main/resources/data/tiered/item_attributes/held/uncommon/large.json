@@ -1,5 +1,5 @@
 {
-  "id": "tiered:massive",
+  "id": "tiered:large",
   "verifiers": [
     { "tag": "fabric:swords" },
     { "tag": "fabric:axes" },
@@ -11,14 +11,16 @@
     "color": "green"
   },
   "rarity": "uncommon",
-  "tooltip_border": 2,
+  "tooltip_image": 2,
+  "tooltip_border_start":  4283826005,
+  "tooltip_border_end":  4279880217,
   "attributes": [
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:large",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.5
+        "amount": -0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -27,9 +29,9 @@
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:large",
         "operation": "ADDITION",
-        "amount": 2
+        "amount": 1
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -38,9 +40,9 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:large",
         "operation": "ADDITION",
-        "amount": 2
+        "amount": 1
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -49,9 +51,9 @@
     {
       "type": "tiered:generic.size",
       "modifier": {
-        "name": "tiered:massive",
+        "name": "tiered:large",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.5
+        "amount": 0.25
       },
       "optional_equipment_slots": [
         "MAINHAND"

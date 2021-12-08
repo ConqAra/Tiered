@@ -1,19 +1,17 @@
 {
   "id": "tiered:swift",
   "verifiers": [
-    {
-      "tag": "fabric:pickaxes"
-    },
-    {
-      "tag": "fabric:shovels"
-    },
-    {
-      "tag": "fabric:axes"
-    }
+    { "tag": "fabric:pickaxes" },
+    { "tag": "fabric:shovels" },
+    { "tag": "fabric:axes" }
   ],
   "style": {
-    "color": "green"
+    "color": "white"
   },
+  "rarity": "common",
+  "tooltip_image": 1,
+  "tooltip_border_start":  4294967295,
+  "tooltip_border_end":  4294967295,
   "attributes": [
     {
       "type": "tiered:generic.dig_speed",
@@ -31,7 +29,7 @@
       "modifier": {
         "name": "tiered:swift",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.10
+        "amount": 0.05
       },
       "optional_equipment_slots": [
         "MAINHAND"

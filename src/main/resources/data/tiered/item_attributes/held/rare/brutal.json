@@ -1,16 +1,16 @@
 {
   "id": "tiered:brutal",
   "verifiers": [
-    {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
-    }
+    { "tag": "fabric:swords" },
+    { "tag": "fabric:axes" }
   ],
   "style": {
     "color": "aqua"
   },
+  "rarity": "rare",
+  "tooltip_image": 3,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
   "attributes": [
     {
       "type": "generic.attack_damage",

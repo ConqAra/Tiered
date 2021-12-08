@@ -1,21 +1,23 @@
 {
-  "id": "tiered:dull",
+  "id": "tiered:keen",
   "verifiers": [
     { "tag": "fabric:swords" },
     { "tag": "fabric:axes" }
   ],
   "style": {
-    "color": "gray"
+    "color": "white"
   },
-  "rarity": "junk",
-  "tooltip_border": 0,
+  "rarity": "common",
+  "tooltip_image": 1,
+  "tooltip_border_start":  4294967295,
+  "tooltip_border_end":  4294967295,
   "attributes": [
     {
       "type": "generic.attack_damage",
       "modifier": {
-        "name": "tiered:dull",
+        "name": "tiered:keen",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.15
+        "amount": 0.10
       },
       "optional_equipment_slots": [
         "MAINHAND"
