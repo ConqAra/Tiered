@@ -2,35 +2,67 @@
   "block.tiered.reforging_station": "Reforging Station",
   "container.reforging_station": "Reforging Station",
 
-
   "generic.dig_speed": "Dig Speed",
   "generic.crit_chance": "Crit Chance",
   "generic.size": "Size",
 
-  "tiered:tiny.label": "Tiny",
-  "tiered:small.label": "Small",
-  "tiered:large.label": "Large",
-  "tiered:massive.label": "Massive",
-  "tiered:gargantuan.label": "Gargantuan",
+  "//": "--- Held Item Modifiers ---",
 
-  "tiered:dull.label": "Dull",
-  "tiered:sharp.label": "Sharp",
+    "///": "Junk",
+      "tiered:dull.label": "Dull",
+      "tiered:slow.label": "Slow",
+      "tiered:sluggish.label": "Sluggish",
 
-  "tiered:nimble.label": "Nimble",
-  "tiered:quick.label": "Quick",
-  "tiered:slow.label": "Slow",
-  "tiered:sluggish.label": "Sluggish",
+    "///": "Common",
+      "tiered:critical.label": "Critical",
+      "tiered:keen.label": "Keen",
+      "tiered:lucky.label": "Lucky",
+      "tiered:quick.label": "Quick",
+      "tiered:sharp.label": "Sharp",
+      "tiered:swift.label": "Swift",
 
-  "tiered:steppy.label": "Steppy",
+    "///": "Uncommon",
+      "tiered:extended.label": "Extended",
+      "tiered:hasteful.label": "Hasteful",
+      "tiered:large.label": "Large",
+      "tiered:massive.label": "Massive",
+      "tiered:small.label": "Small",
+      "tiered:tiny.label": "Tiny",
 
+    "///": "Rare",
+      "tiered:brutal.label": "Brutal",
+      "tiered:gargantuan.label": "Gargantuan",
+      "tiered:nimble.label": "Nimble",
 
+    "///": "Epic",
+      "tiered:breakneck.label": "Breakneck",
+      "tiered:daring.label": "Daring",
 
+    "///": "Legendary",
 
+  "//": "--- Armor Modifiers ---",
 
+    "///": "Junk",
+      "tiered:dented.label": "Dented",
+      "tiered:leaded.label": "Leaded",
 
+    "///": "Common",
+      "tiered:armored.label": "Armored",
+      "tiered:brisk.label": "Brisk",
+      "tiered:fleeting.label": "Fleeting",
+      "tiered:heavy.label": "Heavy",
 
+    "///": "Uncommon",
+      "tiered:reinforced.label": "Reinforced",
+      "tiered:steppy.label": "Steppy",
 
-  "tiered:dented.label": "Dented",
-  "tiered:leaded.label": "Leaded",
-  "tiered:heavy.label": "Heavy"
+    "///": "Rare",
+      "tiered:fortified.label": "Fortified",
+      "tiered:unchained.label": "Unchained",
+
+    "///": "Epic",
+      "tiered:resilient.label": "Resilient",
+
+    "///": "Legendary"
+
 }
