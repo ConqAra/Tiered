@@ -124,7 +124,6 @@ public class ReforgingStation extends Block implements BlockEntityProvider {
                 return ActionResult.SUCCESS;
             }
         }
-
         return ActionResult.FAIL;
     }
 

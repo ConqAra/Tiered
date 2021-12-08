@@ -15,8 +15,10 @@ minecraft {
 
 repositories {
     maven { url 'https://jitpack.io' }
-    maven { url 'https://jitpack.io' }
-    maven { url 'https://jitpack.io' }
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com"
+    }
     maven { url = "https://jitpack.io" }
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release"
@@ -24,6 +26,10 @@ repositories {
             includeGroup "com.jamieswhiteshirt"
         }
     }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/tiered.accesswidener")
 }
 
 dependencies {
@@ -38,6 +44,8 @@ dependencies {
 
     modImplementation "com.github.emilyploszaj:step-height-entity-attribute:v1.0.1"
     include "com.github.emilyploszaj:step-height-entity-attribute:v1.0.1"
+
+    modImplementation "curse.maven:iceberg-539382:3535221"
 }
 
 processResources {

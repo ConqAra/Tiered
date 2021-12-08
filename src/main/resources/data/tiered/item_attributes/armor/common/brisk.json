@@ -1,22 +1,18 @@
 {
   "id": "tiered:brisk",
   "verifiers": [
-    {
-      "tag": "fabric:helmets"
-    },
-    {
-      "tag": "fabric:chestplates"
-    },
-    {
-      "tag": "fabric:leggings"
-    },
-    {
-      "tag": "fabric:boots"
-    }
+    { "tag": "fabric:helmets" },
+    { "tag": "fabric:chestplates" },
+    { "tag": "fabric:leggings" },
+    { "tag": "fabric:boots" }
   ],
   "style": {
     "color": "white"
   },
+  "rarity": "common",
+  "tooltip_image": 1,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
   "attributes": [
     {
       "type": "generic.movement_speed",

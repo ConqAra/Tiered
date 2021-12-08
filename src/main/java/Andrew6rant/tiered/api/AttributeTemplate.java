@@ -48,7 +48,6 @@ public class AttributeTemplate {
         this.optionalEquipmentSlots = optionalEquipmentSlots;
         //this.size = size;
         //this.rarity = rarity;
-
     }
 
     public EquipmentSlot[] getRequiredEquipmentSlots() {

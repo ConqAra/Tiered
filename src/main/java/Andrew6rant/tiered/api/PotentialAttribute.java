@@ -10,14 +10,20 @@ public class PotentialAttribute {
     private final String id;
     private final List<ItemVerifier> verifiers;
     private final Style style;
-    //private final String rarity;
+    private final String rarity;
+    private final int tooltip_image;
+    private final int tooltip_border_start;
+    private final int tooltip_border_end;
     private final List<AttributeTemplate> attributes;
 
-    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, String rarity, List<AttributeTemplate> attributes) {
+    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, String rarity, int tooltip_image, int tooltip_border_start, int tooltip_border_end, List<AttributeTemplate> attributes) {
         this.id = id;
         this.verifiers = verifiers;
         this.style = style;
-        //this.rarity = rarity;
+        this.rarity = rarity;
+        this.tooltip_image = tooltip_image;
+        this.tooltip_border_start = tooltip_border_start;
+        this.tooltip_border_end = tooltip_border_end;
         this.attributes = attributes;
     }
 
@@ -25,9 +31,21 @@ public class PotentialAttribute {
         return id;
     }
 
-    /*public String getRarity() {
+    public String getRarity() {
         return rarity;
-    }*/
+    }
+
+    public int getTooltip_image() {
+        return tooltip_image;
+    }
+
+    public int getTooltip_border_start() {
+        return tooltip_border_start;
+    }
+
+    public int getTooltip_border_end() {
+        return tooltip_border_end;
+    }
 
     public List<ItemVerifier> getVerifiers() {
         return verifiers;
@@ -39,7 +57,6 @@ public class PotentialAttribute {
                 return true;
             }
         }
-
         return false;
     }
 

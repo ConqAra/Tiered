@@ -1,32 +1,24 @@
 {
-  "id": "tiered:small",
+  "id": "tiered:tiny",
   "verifiers": [
-    {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
-    },
-    {
-      "tag": "fabric:pickaxes"
-    },
-    {
-      "tag": "fabric:shovels"
-    },
-    {
-      "tag": "fabric:hoes"
-    }
+    { "tag": "fabric:swords" },
+    { "tag": "fabric:axes" },
+    { "tag": "fabric:pickaxes" },
+    { "tag": "fabric:shovels" },
+    { "tag": "fabric:hoes" }
   ],
   "style": {
     "color": "green"
   },
+  "rarity": "uncommon",
+  "tooltip_border": 2,
   "attributes": [
     {
       "type": "generic.attack_speed",
       "modifier": {
-        "name": "tiered:small",
+        "name": "tiered:tiny",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.25
+        "amount": 0.5
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -35,9 +27,9 @@
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:small",
+        "name": "tiered:tiny",
         "operation": "ADDITION",
-        "amount": -1
+        "amount": -2
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -46,9 +38,9 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:small",
+        "name": "tiered:tiny",
         "operation": "ADDITION",
-        "amount": -1
+        "amount": -2
       },
       "optional_equipment_slots": [
         "MAINHAND"
@@ -57,9 +49,9 @@
     {
       "type": "tiered:generic.size",
       "modifier": {
-        "name": "tiered:small",
+        "name": "tiered:tiny",
         "operation": "MULTIPLY_TOTAL",
-        "amount": -0.25
+        "amount": -0.5
       },
       "optional_equipment_slots": [
         "MAINHAND"

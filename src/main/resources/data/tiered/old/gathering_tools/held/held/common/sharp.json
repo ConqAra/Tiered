@@ -1,16 +1,14 @@
 {
   "id": "tiered:sharp",
   "verifiers": [
-    {
-      "tag": "fabric:swords"
-    },
-    {
-      "tag": "fabric:axes"
-    }
+    { "tag": "fabric:swords" },
+    { "tag": "fabric:axes" }
   ],
   "style": {
     "color": "white"
   },
+  "rarity": "common",
+  "tooltip_border": 1,
   "attributes": [
     {
       "type": "generic.attack_damage",

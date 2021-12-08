@@ -26,6 +26,7 @@
   "mixins": [
     "tiered.mixins.json"
   ],
+  "accessWidener": "tiered.accesswidener",
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

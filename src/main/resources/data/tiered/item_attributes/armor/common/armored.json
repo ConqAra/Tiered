@@ -1,26 +1,19 @@
 {
   "id": "tiered:armored",
   "verifiers": [
-    {
-      "tag": "fabric:helmets"
-    },
-    {
-      "tag": "fabric:chestplates"
-    },
-    {
-      "tag": "fabric:leggings"
-    },
-    {
-      "tag": "fabric:boots"
-    },
-    {
-      "tag": "fabric:shields"
-    }
-
+    { "tag": "fabric:helmets" },
+    { "tag": "fabric:chestplates" },
+    { "tag": "fabric:leggings" },
+    { "tag": "fabric:boots" },
+    { "tag": "fabric:shields" }
   ],
   "style": {
-    "color": "green"
+    "color": "white"
   },
+  "rarity": "common",
+  "tooltip_image": 1,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
   "attributes": [
     {
       "type": "generic.armor",
