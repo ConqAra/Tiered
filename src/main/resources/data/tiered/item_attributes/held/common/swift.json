@@ -9,9 +9,10 @@
     "color": "white"
   },
   "rarity": "common",
-  "tooltip_image": 1,
+  "tooltip_image": 10,
   "tooltip_border_start":  4294967295,
   "tooltip_border_end":  4294967295,
+  "reforge_cost": 5,
   "attributes": [
     {
       "type": "tiered:generic.dig_speed",

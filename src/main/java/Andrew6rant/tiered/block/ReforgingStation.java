@@ -22,6 +22,7 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -116,17 +117,23 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                 && (hit.getPos().z - pos.getZ()) < 0.81
                 && (blockState.get(Properties.FACING) == Direction.WEST))) {
                     player.openHandledScreen((BarrelBlockEntity)blockEntity);
+                    System.out.println("hey hey");
                     return ActionResult.CONSUME;
             }
             if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-                Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDNoDuplicates(stack);
-                if(potentialAttributeID != null) {
-                    stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
-                }
-                player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
+                if(player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getReforgeCost(stack)) {
+                    // super strange that Mojang made a nice method for finding xp levels but not points
+                    player.playSound(SoundEvents.BLOCK_WOOD_HIT, 1, 1);
+                    player.sendMessage(new TranslatableText("message.tiered.no_xp"), true);
+                } else {
+                    player.addExperience(-Tiered.getReforgeCost(stack)); // this is the negative of reforge_cost
 
-                //((TooltipFadeAccessor) this).setHeldItemTooltipFade(40);
-                //((TooltipFadeAccessor) MinecraftClient.getInstance()).setHeldItemTooltipFade(40);
+                    Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDNoDuplicates(stack);
+                    if(potentialAttributeID != null) {
+                        stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
+                    }
+                    player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
+                }
                 return ActionResult.SUCCESS;
             }
         }

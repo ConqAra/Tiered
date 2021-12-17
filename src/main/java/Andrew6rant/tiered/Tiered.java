@@ -141,6 +141,17 @@ public class Tiered implements ModInitializer {
         return 0; // this should never be called
     }
 
+    public static int getReforgeCost(ItemStack stack) {
+        // get tier
+        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        // attempt to display attribute if it is valid
+        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+        if(potentialAttribute != null) {
+            return potentialAttribute.getReforge_cost();
+        }
+        return 0; // this should never be called
+    }
+
     public static boolean isPreferredEquipmentSlot(ItemStack stack, EquipmentSlot slot) {
         if(stack.getItem() instanceof ArmorItem item) {
             return item.getSlotType().equals(slot);

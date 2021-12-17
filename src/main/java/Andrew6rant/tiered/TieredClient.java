@@ -36,10 +36,7 @@ public class TieredClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         registerAttributeSyncHandler();
-        //RenderTooltipEvents.PRE.register(TieredClient::onPreTooltipEvent);
-        //RenderTooltipEvents.COLOR.register(TieredClient::onTooltipColorEvent);
         RenderTooltipEvents.POST.register(TieredClient::onPostTooltipEvent);
-        //RenderTickEvents.START.register(TieredClient::onRenderTick);
     }
 
     public static void registerAttributeSyncHandler() {

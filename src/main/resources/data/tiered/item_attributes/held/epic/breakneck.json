@@ -14,6 +14,7 @@
   "tooltip_image": 4,
   "tooltip_border_start":  4288244002,
   "tooltip_border_end":  4288244002,
+  "reforge_cost": 21,
   "attributes": [
     {
       "type": "generic.attack_speed",

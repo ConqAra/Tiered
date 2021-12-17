@@ -14,9 +14,10 @@ public class PotentialAttribute {
     private final int tooltip_image;
     private final int tooltip_border_start;
     private final int tooltip_border_end;
+    private final int reforge_cost;
     private final List<AttributeTemplate> attributes;
 
-    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, String rarity, int tooltip_image, int tooltip_border_start, int tooltip_border_end, List<AttributeTemplate> attributes) {
+    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, String rarity, int tooltip_image, int tooltip_border_start, int tooltip_border_end, int reforge_cost, List<AttributeTemplate> attributes) {
         this.id = id;
         this.verifiers = verifiers;
         this.style = style;
@@ -24,6 +25,7 @@ public class PotentialAttribute {
         this.tooltip_image = tooltip_image;
         this.tooltip_border_start = tooltip_border_start;
         this.tooltip_border_end = tooltip_border_end;
+        this.reforge_cost = reforge_cost;
         this.attributes = attributes;
     }
 
@@ -45,6 +47,10 @@ public class PotentialAttribute {
 
     public int getTooltip_border_end() {
         return tooltip_border_end;
+    }
+
+    public int getReforge_cost() {
+        return reforge_cost;
     }
 
     public List<ItemVerifier> getVerifiers() {

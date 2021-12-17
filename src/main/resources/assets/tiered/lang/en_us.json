@@ -6,6 +6,8 @@
   "generic.crit_chance": "Crit Chance",
   "generic.size": "Size",
 
+  "message.tiered.no_xp": "not enough xp",
+
   "//": "--- Held Item Modifiers ---",
 
     "///": "Junk",
