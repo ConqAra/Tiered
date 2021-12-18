@@ -79,7 +79,9 @@ public abstract class ItemStackClientMixin {
             if (!entityAttributeModifier.getName().contains("tiered")) {
                 vanillaFirst.put(entityAttribute, entityAttributeModifier);
             } else {
-                remaining.put(entityAttribute, entityAttributeModifier);
+                if (!entityAttributeModifier.getName().contains("no_tooltip")) {
+                    remaining.put(entityAttribute, entityAttributeModifier);
+                }
             }
         });
 

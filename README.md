@@ -71,13 +71,12 @@ Reforging an item's modifier costs experience points (not levels). Each item's c
 
 ### Tooltips
 
-Tiered provides four customization options regarding tooltips.
+Tiered provides five customization options regarding tooltips.
 
 - `color` changes the text color
-
 - `tooltip_image` specifies the border style (see below)
-
 - `tooltip_border_start` and `tooltip_border_end` determine the top and bottom line colors of the border, respectively.
+- `no_tooltip` can be used in the `name` section of an attribute to prevent it from showing. For example, this can be useful for the `reach` and `attack_range` modifier types, as they are often used together and can clutter a tooltip.
 
 Here is the formatting for the border style. This image allows for up to 16 styles (0-15):
 

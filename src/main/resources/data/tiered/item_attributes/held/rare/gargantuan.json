@@ -41,7 +41,7 @@
     {
       "type": "reach-entity-attributes:attack_range",
       "modifier": {
-        "name": "tiered:gargantuan",
+        "name": "tiered:gargantuan_no_tooltip",
         "operation": "ADDITION",
         "amount": 3
       },
