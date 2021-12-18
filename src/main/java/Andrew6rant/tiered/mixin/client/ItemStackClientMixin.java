@@ -74,6 +74,22 @@ public abstract class ItemStackClientMixin {
     private Multimap<EntityAttribute, EntityAttributeModifier> sort(Multimap<EntityAttribute, EntityAttributeModifier> map) {
         Multimap<EntityAttribute, EntityAttributeModifier> vanillaFirst = LinkedListMultimap.create();
         Multimap<EntityAttribute, EntityAttributeModifier> remaining = LinkedListMultimap.create();
+        Multimap<EntityAttribute, EntityAttributeModifier> no_duplicates = LinkedListMultimap.create();
+
+        /*map.forEach((entityAttribute, entityAttributeModifier) -> {
+            map.forEach((entityAttributeCompare, entityAttributeModifierCompare) -> {
+                if(entityAttribute.getTranslationKey().equals(entityAttributeCompare.getTranslationKey())) {
+                    System.out.println("yes");
+                    System.out.println(entityAttributeModifier.getName());
+                    System.out.println(entityAttributeModifier.getValue());
+                    System.out.println(entityAttributeModifier.getOperation());
+                    System.out.println("--");
+                    System.out.println(entityAttribute.getTranslationKey());
+                    System.out.println(entityAttribute.getDefaultValue());
+                }
+            });
+        });*/
+
 
         map.forEach((entityAttribute, entityAttributeModifier) -> {
             if (!entityAttributeModifier.getName().contains("tiered")) {
@@ -85,7 +101,31 @@ public abstract class ItemStackClientMixin {
             }
         });
 
+        vanillaFirst.forEach((entityAttribute, entityAttributeModifier) -> remaining.forEach((entityAttributeCompare, entityAttributeModifierCompare) -> {
+            if(entityAttribute.getTranslationKey().equals(entityAttributeCompare.getTranslationKey())){
+                double test; double combo_calc;
+
+                if (entityAttributeModifier.getOperation() == EntityAttributeModifier.Operation.ADDITION) {
+                    test = entityAttributeModifier.getValue() + entityAttribute.getDefaultValue();
+                } else {
+                    test = (entityAttributeModifier.getValue() * entityAttribute.getDefaultValue()) + 1;
+                }
+
+                if (entityAttributeModifierCompare.getOperation() == EntityAttributeModifier.Operation.ADDITION) {
+                    combo_calc = entityAttributeModifierCompare.getValue() + test;
+                } else {
+                    combo_calc = (entityAttributeModifierCompare.getValue() * test) + 1;
+                }
+                System.out.println(entityAttribute.getTranslationKey());
+                System.out.println(combo_calc);
+
+                //no_duplicates.put(entityAttribute, entityAttributeModifier);
+                no_duplicates.put(entityAttribute, new EntityAttributeModifier(entityAttributeModifier.getName(), combo_calc, entityAttributeModifierCompare.getOperation()));
+            }
+        }));
+        
         vanillaFirst.putAll(remaining);
+        vanillaFirst.putAll(no_duplicates);
         return vanillaFirst;
     }
 
