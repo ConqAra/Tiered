@@ -24,6 +24,7 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
   "tooltip_image": 2,
   "tooltip_border_start":  4283826005,
   "tooltip_border_end":  4279880217,
+  "reforge_cost": 8,
   "attributes": [
     {
       "type": "generic.dig_speed",
@@ -63,6 +64,10 @@ and a tag can be specified with:
 ```
 
 Tiered provides 6 tags (`c:helmets`, `c:chestplates`, `c:leggings`, `c:boots`, `c:shields`, and `c:fishing_rods`) for your convenience.
+
+### Reforging Cost
+
+Reforging an item's modifier costs experience points (not levels). Each item's cost can be configured individually. The default setup is a Terraria-like system where higher rarities cost more to reforge. Use a value of 0 to make the reforge free, and a negative number to add experience to the player instead of removing it.
 
 ### Tooltips
 
