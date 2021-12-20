@@ -29,7 +29,7 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
         super(ctx);
     }
 
-    @Inject(at = @At("HEAD"), method = "render", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "render")
     public void preRender(ItemEntity itemEntity, float f, float g, MatrixStack matrices, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo info) {
         matrices.push();
         AtomicReference<Float> scale = new AtomicReference<>(1f);
@@ -54,7 +54,7 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
         matrices.scale(scale.get(), scale.get(), scale.get());
         matrices.push();
     }
-    @Inject(at = @At("RETURN"), method = "render", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "render")
     public void postRender(ItemEntity itemEntity, float f, float g, MatrixStack matrices, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo info) {
         matrices.pop();
         matrices.pop();

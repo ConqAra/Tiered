@@ -139,7 +139,7 @@ public class ModifierUtils {
         List<Identifier> arcaneRarity = new ArrayList<>();
         Random rand = new Random();
         int rarityCalc = rand.nextInt(100);
-        System.out.println(rarityCalc);
+        //System.out.println(rarityCalc);
         // collect all valid attributes for the given item
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
