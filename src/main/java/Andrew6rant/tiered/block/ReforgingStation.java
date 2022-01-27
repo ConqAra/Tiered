@@ -127,7 +127,8 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                 } else {
                     player.addExperience(-Tiered.getReforgeCost(stack)); // this is the negative of reforge_cost
 
-                    Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDNoDuplicates(stack);
+                    //Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDNoDuplicates(stack);
+                    Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
                     if(potentialAttributeID != null) {
                         stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
                     }

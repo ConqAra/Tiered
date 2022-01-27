@@ -9,6 +9,7 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.apache.commons.lang3.mutable.MutableInt;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.include.com.google.gson.reflect.TypeToken;
 
@@ -45,7 +46,7 @@ public class ModifierUtils {
         }
     }
 
-    public static Identifier getWeightedAttributeIDFor(ItemStack stack) {
+    /*public static Identifier getWeightedAttributeIDFor(ItemStack stack) {
 
         List<Identifier> junkRarity = new ArrayList<>();
         List<Identifier> commonRarity = new ArrayList<>();
@@ -126,76 +127,42 @@ public class ModifierUtils {
             return potentialAttributes.get(new Random().nextInt(potentialAttributes.size()));
         } else {
             return null;
-        }*/
-    }
+        }
+    }*/
 
-    public static Identifier getWeightedAttributeIDNoDuplicates(ItemStack stack) {
-        List<Identifier> junkRarity = new ArrayList<>();
-        List<Identifier> commonRarity = new ArrayList<>();
-        List<Identifier> uncommonRarity = new ArrayList<>();
-        List<Identifier> rareRarity = new ArrayList<>();
-        List<Identifier> epicRarity = new ArrayList<>();
-        List<Identifier> legendaryRarity = new ArrayList<>();
-        List<Identifier> arcaneRarity = new ArrayList<>();
-        Random rand = new Random();
-        int rarityCalc = rand.nextInt(100);
-        //System.out.println(rarityCalc);
-        // collect all valid attributes for the given item
+    public static Identifier getWeightedAttributeIDFor(ItemStack stack) {
+        List<Identifier> potentialAttributes = new ArrayList<>();
+        List<Identifier> chosenAttribute = new ArrayList<>();
+        MutableInt totalWeight = new MutableInt();
         Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
             if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
-                switch (attribute.getRarity()) {
-                    case "junk" -> junkRarity.add(new Identifier(attribute.getID()));
-                    case "common" -> commonRarity.add(new Identifier(attribute.getID()));
-                    case "uncommon" -> uncommonRarity.add(new Identifier(attribute.getID()));
-                    case "rare" -> rareRarity.add(new Identifier(attribute.getID()));
-                    case "epic" -> epicRarity.add(new Identifier(attribute.getID()));
-                    case "legendary" -> legendaryRarity.add(new Identifier(attribute.getID()));
-                    default -> arcaneRarity.add(new Identifier((attribute.getID())));
-                }
-                //System.out.println("item:");
-                //System.out.println(Objects.requireNonNull(attribute.getStyle()));
-                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(0)));
-                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(1)));
-                //System.out.println(Objects.requireNonNull(attribute.getStyle().get(2)));
-
-                /*if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GRAY))){
-                    junkRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("junk: "+junkRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.WHITE))){
-                    commonRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("common: "+commonRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GREEN))){
-                    uncommonRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("uncommon: "+uncommonRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.BLUE))){
-                    rareRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("rare: "+rareRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.DARK_PURPLE))){
-                    epicRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("epic: "+epicRarity);
-                } else if (attribute.getStyle().get(0).getColor().equals(TextColor.fromFormatting(Formatting.GOLD))){
-                    legendaryRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("legendary: "+legendaryRarity);
-                } else{
-                    arcaneRarity.add(new Identifier(attribute.getID()));
-                    //System.out.println("arcane: "+arcaneRarity);
-                }*/
+                potentialAttributes.add(new Identifier(attribute.getID()));
+                totalWeight.add(attribute.getWeight());
             }
         });
-        // return a weighted attribute if there are any, or null if there are none
-        if (rarityCalc <= 25) {
-            //System.out.println("junk get");
-            return getIdentifier(stack, junkRarity);
-        } else if (rarityCalc <= 60) {
-            return getIdentifier(stack, commonRarity);
-        } else if (rarityCalc <= 80) {
-            return getIdentifier(stack, uncommonRarity);
-        } else if (rarityCalc <= 92) {
-            return getIdentifier(stack, rareRarity);
-        } else if (rarityCalc <= 98) {
-            return getIdentifier(stack, epicRarity);
+        if (totalWeight.getValue() > 0) {
+            MutableInt randomAttribute = new MutableInt(new Random().nextInt(totalWeight.getValue())+1);
+            MutableInt i = new MutableInt();
+            Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().forEach((id, attribute) -> {
+                if(attribute.isValid(Registry.ITEM.getId(stack.getItem()))) {
+//					System.out.println("Checking Weights "+id+" "+attribute.getWeight()+" ("+i.getValue()+">"+totalWeight.getValue()+")");
+                    i.add(attribute.getWeight());
+                    if (i.getValue() >= randomAttribute.getValue()) {
+                        chosenAttribute.add(id);
+                    }
+                }
+            });
+        }
+        // return an attribute with a random weight
+        if(chosenAttribute.size() > 0) {
+            return chosenAttribute.get(0);
+        }
+        //
+        // return a random attribute if there are any, or null if there are none
+        else if(potentialAttributes.size() > 0) {
+            return potentialAttributes.get(new Random().nextInt(potentialAttributes.size()));
         } else {
-            return getIdentifier(stack, legendaryRarity);
+            return null;
         }
     }
 
