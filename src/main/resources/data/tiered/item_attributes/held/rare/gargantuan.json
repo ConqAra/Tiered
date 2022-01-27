@@ -10,7 +10,7 @@
   "style": {
     "color": "aqua"
   },
-  "rarity": "rare",
+  "weight": 3,
   "tooltip_image": 3,
   "tooltip_border_start":  4286578687,
   "tooltip_border_end":  4286578687,

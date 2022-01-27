@@ -7,7 +7,7 @@
   "style": {
     "color": "light_purple"
   },
-  "rarity": "epic",
+  "weight": 2,
   "tooltip_image": 4,
   "tooltip_border_start":  4288244002,
   "tooltip_border_end":  4288244002,
