@@ -3,30 +3,21 @@ package Andrew6rant.tiered;
 import Andrew6rant.tiered.api.CustomEntityAttributes;
 import Andrew6rant.tiered.data.AttributeDataLoader;
 import Andrew6rant.tiered.api.PotentialAttribute;
-import Andrew6rant.tiered.mixin.client.ItemStackClientMixin;
-import com.anthonyhilyard.iceberg.events.RenderTickEvents;
 import com.anthonyhilyard.iceberg.events.RenderTooltipEvents;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class TieredClient implements ClientModInitializer {
 

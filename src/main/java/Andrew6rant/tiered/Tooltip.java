@@ -1,21 +1,15 @@
 package Andrew6rant.tiered;
 
-import com.anthonyhilyard.iceberg.Loader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.*;
 import com.anthonyhilyard.iceberg.util.GuiHelper;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.texture.AbstractTexture;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Matrix4f;
 
-import java.util.List;
 import org.lwjgl.opengl.GL11;
 
 public class Tooltip {
