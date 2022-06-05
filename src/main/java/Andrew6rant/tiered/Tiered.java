@@ -5,7 +5,6 @@ import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.api.TieredItemTags;
 import Andrew6rant.tiered.block.ReforgingStation;
 import Andrew6rant.tiered.data.AttributeDataLoader;
-import Andrew6rant.tiered.mixin.ServerResourceManagerMixin;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
@@ -15,6 +14,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
@@ -23,6 +23,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -42,7 +43,7 @@ public class Tiered implements ModInitializer {
 
     /**
      * Attribute Data Loader instance which handles loading attribute .json files from "data/modid/item_attributes".
-     * <p> This field is registered to the server's data manager in {@link ServerResourceManagerMixin}
+     * <p> This field is registered to the fapi's resource manager in onInitialize().
      */
     public static final AttributeDataLoader ATTRIBUTE_DATA_LOADER = new AttributeDataLoader();
 
@@ -74,6 +75,11 @@ public class Tiered implements ModInitializer {
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
 //            setupModifierLabel();
         }
+
+        // Register the data pack contents listener
+        var manager = ResourceManagerHelper.get(ResourceType.SERVER_DATA);
+        manager.registerReloadListener(ATTRIBUTE_DATA_LOADER);
+
         //Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
         Registry.register(Registry.BLOCK, new Identifier("tiered", "reforging_station"), REFORGING_STATION);
         //Registry.register(Registry.ITEM, new Identifier("tiered", "reforging_station"), new BlockItem(REFORGING_STATION, new FabricItemSettings().group(Tiered.ITEM_GROUP)));

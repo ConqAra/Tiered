@@ -1,5 +1,6 @@
 package Andrew6rant.tiered.data;
 
+import Andrew6rant.tiered.Tiered;
 import Andrew6rant.tiered.gson.EntityAttributeModifierDeserializer;
 import Andrew6rant.tiered.gson.EntityAttributeModifierSerializer;
 import com.google.common.collect.Maps;
@@ -10,6 +11,7 @@ import com.google.gson.JsonParseException;
 import Andrew6rant.tiered.api.PotentialAttribute;
 import Andrew6rant.tiered.gson.EquipmentSlotDeserializer;
 import Andrew6rant.tiered.gson.EquipmentSlotSerializer;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.resource.JsonDataLoader;
@@ -23,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AttributeDataLoader extends JsonDataLoader {
+public class AttributeDataLoader extends JsonDataLoader implements IdentifiableResourceReloadListener {
 
     public static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
@@ -71,5 +73,10 @@ public class AttributeDataLoader extends JsonDataLoader {
      */
     public Map<Identifier, PotentialAttribute> getItemAttributes() {
         return itemAttributes;
+    }
+
+    @Override
+    public Identifier getFabricId() {
+        return Tiered.id("item_attributes");
     }
 }
