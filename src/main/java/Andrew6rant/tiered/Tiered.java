@@ -12,6 +12,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.client.ItemTooltipCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
@@ -28,6 +29,9 @@ import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class Tiered implements ModInitializer {
@@ -65,6 +69,7 @@ public class Tiered implements ModInitializer {
         TieredItemTags.init();
         CustomEntityAttributes.init();
         registerAttributeSyncer();
+        registerAttributeModifier();
 
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
 //            setupModifierLabel();
@@ -175,6 +180,43 @@ public class Tiered implements ModInitializer {
 
             // send packet with attributes to client
             packetSender.sendPacket(ATTRIBUTE_SYNC_PACKET, packet);
+        });
+    }
+
+    public static void registerAttributeModifier() {
+        // Registering an event instead of using a mixin.
+        // because why try to work around fapi's modifications when you can just use them?
+        ModifyItemAttributeModifiersCallback.EVENT.register((itemStack, slot, modifiers) -> {
+            if(itemStack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) {
+                Identifier tier = new Identifier(itemStack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+
+                if(!itemStack.hasNbt() || !itemStack.getNbt().contains("AttributeModifiers", 9)) {
+                    PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+
+                    if(potentialAttribute != null) {
+                        potentialAttribute.getAttributes().forEach(template -> {
+                            // get required equipment slots
+                            if(template.getRequiredEquipmentSlots() != null) {
+                                List<EquipmentSlot> requiredEquipmentSlots = new ArrayList<>(Arrays.asList(template.getRequiredEquipmentSlots()));
+
+                                if(requiredEquipmentSlots.contains(slot)) {
+                                    template.realize(modifiers, slot);
+                                }
+                            }
+
+                            // get optional equipment slots
+                            if(template.getOptionalEquipmentSlots() != null) {
+                                List<EquipmentSlot> optionalEquipmentSlots = new ArrayList<>(Arrays.asList(template.getOptionalEquipmentSlots()));
+
+                                // optional equipment slots are valid ONLY IF the equipment slot is valid for the thing
+                                if(optionalEquipmentSlots.contains(slot) && Tiered.isPreferredEquipmentSlot(itemStack, slot)) {
+                                    template.realize(modifiers, slot);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
         });
     }
 }
