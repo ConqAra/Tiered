@@ -7,13 +7,13 @@
     { "tag": "c:hoes" }
   ],
   "style": {
-    "color": "green"
+    "color": "white"
   },
-  "weight": 5,
-  "tooltip_image": 2,
-  "tooltip_border_start":  4283826005,
-  "tooltip_border_end":  4279880217,
-  "reforge_cost": 8,
+  "weight": 8,
+  "tooltip_image": 10,
+  "tooltip_border_start":  4294967295,
+  "tooltip_border_end":  4294967295,
+  "reforge_cost": 5,
   "attributes": [
     {
       "type": "tiered:generic.dig_speed",
