@@ -7,6 +7,8 @@
   "generic.size": "Size",
 
   "message.tiered.no_xp": "not enough xp",
+  "tooltip.tiered.add_combo": "+%1$s %2$s (%3$s + %4$s)",
+  "tooltip.tiered.space": " %s",
 
   "//": "--- Held Item Modifiers ---",
 
