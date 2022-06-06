@@ -116,17 +116,18 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                 && (hit.getPos().z - pos.getZ()) > 0.2
                 && (hit.getPos().z - pos.getZ()) < 0.81
                 && (blockState.get(Properties.FACING) == Direction.WEST))) {
+                    // If the player hit the drawers section of the table
                     player.openHandledScreen((BarrelBlockEntity)blockEntity);
                     return ActionResult.CONSUME;
             }
             if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
                 if (!player.isCreative()) {
-                    if(player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getReforgeCost(stack)) {
+                    if(player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getter(stack, "reforgeCost")) {
                         // super strange that Mojang made a nice method for finding xp levels but not points
                         player.playSound(SoundEvents.BLOCK_WOOD_HIT, 1, 1);
                         player.sendMessage(new TranslatableText("message.tiered.no_xp"), true);
                     } else {
-                        player.addExperience(-Tiered.getReforgeCost(stack)); // this is the negative of reforge_cost
+                        player.addExperience(-Tiered.getter(stack, "reforgeCost")); // this is the negative of reforge_cost
                     }
                 }
                 Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);

@@ -117,46 +117,18 @@ public class Tiered implements ModInitializer {
         });
     }
 
-    public static int getTooltipLevel(ItemStack stack) {
+    public static int getter(ItemStack stack, String key) {
         // get tier
         Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
         // attempt to display attribute if it is valid
         PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
         if(potentialAttribute != null) {
-            return potentialAttribute.getTooltip_image();
-        }
-        return 0; // this should never be called
-    }
-
-    public static int getStartColor(ItemStack stack) {
-        // get tier
-        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-        // attempt to display attribute if it is valid
-        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-        if(potentialAttribute != null) {
-            return potentialAttribute.getTooltip_border_start();
-        }
-        return 0; // this should never be called
-    }
-
-    public static int getEndColor(ItemStack stack) {
-        // get tier
-        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-        // attempt to display attribute if it is valid
-        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-        if(potentialAttribute != null) {
-            return potentialAttribute.getTooltip_border_end();
-        }
-        return 0; // this should never be called
-    }
-
-    public static int getReforgeCost(ItemStack stack) {
-        // get tier
-        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-        // attempt to display attribute if it is valid
-        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-        if(potentialAttribute != null) {
-            return potentialAttribute.getReforge_cost();
+            switch (key) {
+                case "level": return potentialAttribute.getTooltip_image();
+                case "startColor": return potentialAttribute.getTooltip_border_start();
+                case "endColor": return potentialAttribute.getTooltip_border_end();
+                case "reforgeCost": return potentialAttribute.getReforge_cost();
+            }
         }
         return 0; // this should never be called
     }
