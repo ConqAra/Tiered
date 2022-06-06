@@ -1,8 +1,8 @@
 {
   "id": "tiered:sharp",
   "verifiers": [
-    { "tag": "fabric:swords" },
-    { "tag": "fabric:axes" }
+    { "tag": "c:swords" },
+    { "tag": "c:axes" }
   ],
   "style": {
     "color": "white"

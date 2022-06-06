@@ -1,7 +1,7 @@
 {
   "id": "tiered:lucky",
   "verifiers": [
-    { "tag": "fabric:fishing_rods" }
+    { "tag": "c:fishing_rods" }
   ],
   "style": {
     "color": "white"

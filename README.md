@@ -13,9 +13,9 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
 {
   "id": "tiered:hasteful",
   "verifiers": [
-    { "tag": "fabric:pickaxes" },
-    { "tag": "fabric:shovels" },
-    { "tag": "fabric:axes" }
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:axes" }
   ],
   "style": {
     "color": "green"
@@ -59,11 +59,11 @@ and a tag can be specified with:
 
 ```json
 
-"tag": "fabric:helmets"
+"tag": "c:helmets"
 
 ```
 
-Tiered provides 6 tags (`fabric:helmets`, `fabric:chestplates`, `fabric:leggings`, `fabric:boots`, `fabric:shields`, and `fabric:fishing_rods`) for your convenience.
+Tiered provides 6 tags (`c:helmets`, `c:chestplates`, `c:leggings`, `c:boots`, `c:shields`, and `c:fishing_rods`) for your convenience.
 
 ### Reforging Cost
 

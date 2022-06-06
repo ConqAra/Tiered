@@ -1,11 +1,11 @@
 {
   "id": "tiered:heavy",
   "verifiers": [
-    { "tag": "fabric:helmets" },
-    { "tag": "fabric:chestplates" },
-    { "tag": "fabric:leggings" },
-    { "tag": "fabric:boots" },
-    { "tag": "fabric:shields" }
+    { "tag": "c:helmets" },
+    { "tag": "c:chestplates" },
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" },
+    { "tag": "c:shields" }
   ],
   "style": {
     "color": "white"

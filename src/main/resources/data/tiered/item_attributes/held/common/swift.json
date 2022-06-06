@@ -1,9 +1,9 @@
 {
   "id": "tiered:swift",
   "verifiers": [
-    { "tag": "fabric:pickaxes" },
-    { "tag": "fabric:shovels" },
-    { "tag": "fabric:axes" }
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:axes" }
   ],
   "style": {
     "color": "white"

@@ -1,11 +1,11 @@
 {
   "id": "tiered:nimble",
   "verifiers": [
-    { "tag": "fabric:swords" },
-    { "tag": "fabric:axes" },
-    { "tag": "fabric:pickaxes" },
-    { "tag": "fabric:shovels" },
-    { "tag": "fabric:hoes" }
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "aqua"

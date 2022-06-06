@@ -1,10 +1,10 @@
 {
   "id": "tiered:dented",
   "verifiers": [
-    { "tag": "fabric:helmets" },
-    { "tag": "fabric:chestplates" },
-    { "tag": "fabric:leggings" },
-    { "tag": "fabric:boots" }
+    { "tag": "c:helmets" },
+    { "tag": "c:chestplates" },
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" }
   ],
   "style": {
     "color": "gray"

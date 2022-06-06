@@ -1,8 +1,8 @@
 {
   "id": "tiered:steppy",
   "verifiers": [
-    { "tag": "fabric:leggings" },
-    { "tag": "fabric:boots" }
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" }
   ],
   "style": {
     "color": "green"

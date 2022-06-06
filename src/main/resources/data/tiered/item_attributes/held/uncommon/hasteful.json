@@ -1,10 +1,10 @@
 {
   "id": "tiered:hasteful",
   "verifiers": [
-    { "tag": "fabric:pickaxes" },
-    { "tag": "fabric:shovels" },
-    { "tag": "fabric:axes" },
-    { "tag": "fabric:hoes" }
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:axes" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "green"

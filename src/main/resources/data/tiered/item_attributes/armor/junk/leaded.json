@@ -1,7 +1,7 @@
 {
   "id": "tiered:leaded",
   "verifiers": [
-    { "tag": "fabric:boots" }
+    { "tag": "c:boots" }
   ],
   "style": {
     "color": "gray"
