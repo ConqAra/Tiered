@@ -121,21 +121,20 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                     return ActionResult.CONSUME;
             }
             if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-                if (!player.isCreative()) {
-                    if(player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getter(stack, "reforgeCost")) {
-                        // super strange that Mojang made a nice method for finding xp levels but not points
-                        player.playSound(SoundEvents.BLOCK_WOOD_HIT, 1, 1);
-                        player.sendMessage(new TranslatableText("message.tiered.no_xp"), true);
-                    } else {
+                if (!player.isCreative() && (player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getter(stack, "reforgeCost"))) {
+                    // super strange that Mojang made a nice method for finding xp levels but not points
+                    player.playSound(SoundEvents.BLOCK_WOOD_HIT, 1, 1);
+                    player.sendMessage(new TranslatableText("message.tiered.no_xp"), true);
+                } else {
+                    if (!player.isCreative()) {
                         player.addExperience(-Tiered.getter(stack, "reforgeCost")); // this is the negative of reforge_cost
                     }
+                    Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
+                    if(potentialAttributeID != null) {
+                        stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
+                    }
+                    player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
                 }
-                Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
-                if(potentialAttributeID != null) {
-                    stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
-                }
-                player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
-
                 return ActionResult.SUCCESS;
             }
         }
