@@ -127,20 +127,31 @@ public abstract class ItemStackClientMixin {
             }*/
 
             for (int i = skipLine; i < list.size(); i++) { // Skip the first few lines of tooltip
-                //System.out.println(list.get(i));
+
                 if (!(list.get(i) instanceof TranslatableText)) {
                     TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
                     list.remove(i);
                     TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                    list.add(i, new TranslatableText(translatableText.getKey(), Integer.parseInt((String)translatableText.getArgs()[0]), new TranslatableText(newText.getKey())));
+                    list.add(i, new TranslatableText(translatableText.getKey(), Integer.parseInt((String)translatableText.getArgs()[0]), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
                 }
+                System.out.println("||||"+list.get(i));
                 TranslatableText listText = (TranslatableText) list.get(i);
                 Object[] args = listText.getArgs();
                 TranslatableText argText = (TranslatableText) args[1];
-                if (!set.add(argText.getKey())) { // if there is more than one modifier with the same key
+                //System.out.println(argText.getKey().substring(0, argText.getKey().length()-4));
+                //String s = argText.getKey().substring(0, argText.getKey().length()-7);
+                //System.out.println(s);
+                if (!set.add(argText.getKey())) {
+                //if (!set.add(argText.getKey().substring(0, argText.getKey().length()-7))) { // if there is more than one modifier with the same key
                     for (int j = skipLine; j < list.size(); j++) {
                         TranslatableText listText2 = (TranslatableText) list.get(j);
-                        if(listText2.getKey().equals(listText.getKey())) {
+                        Object[] args2 = listText2.getArgs();
+                        TranslatableText argText2 = (TranslatableText) args2[1];
+                        //System.out.println(argText.getKey() + " --- " + argText2.getKey());
+                        //System.out.println(listText2);
+                        //System.out.println(listText);
+                        //System.out.println("--------!!!----");
+                        if(argText.getKey().equals(argText2.getKey())) {
                             list.remove(listText);
                             list.remove(listText2);
                             noDuplicates.add(listText);
@@ -156,12 +167,13 @@ public abstract class ItemStackClientMixin {
             }
 
 
-            System.out.println("Dup"+noDuplicates);
+            System.out.println("Dup"+noDuplicates.size()+" "+noDuplicates);
             System.out.println("set"+set);
             //if (titleText.getKey().equals("item.modifiers.mainhand")) {
                 // The first two lines of held weapons are blank TextComponents with sibling TranslatableComponents
                 //list.add(3, new TranslatableText("tooltip.tiered.space", new TranslatableText("attribute.modifier.equals.0", 9, new TranslatableText("attribute.name.generic.attack_damage")).formatted(Formatting.DARK_GREEN)));
             //}
+
             for (int i = 0; i < noDuplicates.size(); i += 2) {
                 //list.add(text);
                 TranslatableText text = (TranslatableText) noDuplicates.toArray()[i];
@@ -169,8 +181,22 @@ public abstract class ItemStackClientMixin {
                 System.out.println(text + " --- " + text_compare);
                 System.out.println(text.getKey() + " --- " + text_compare.getKey());
                 System.out.println(text.getArgs()[0] + " --- " + text_compare.getArgs()[0]);
-                list.add(new TranslatableText("tooltip.tiered.add_combo", Integer.parseInt((String)text.getArgs()[0])+Integer.parseInt((String)text_compare.getArgs()[0]), text.getArgs()[1], text.getArgs()[0], text_compare.getArgs()[0]).setStyle(attribute.getStyle()));
+                System.out.println(text);
+                System.out.println(text_compare);
+                System.out.println(Arrays.toString(text.getArgs()));
+                System.out.println(Arrays.toString(text_compare.getArgs()));
+
+                int val1 = Integer.parseInt(String.valueOf(text.getArgs()[0]));
+                int val2 = Integer.parseInt(String.valueOf(text_compare.getArgs()[0]));
+                TranslatableText translation_key = (TranslatableText) text.getArgs()[1];
+                switch(text_compare.getKey()) {
+                    case "attribute.modifier.plus.0": list.add(new TranslatableText("tooltip.tiered.add_combo", val1+val2, translation_key, val1, val2).setStyle(attribute.getStyle()));
+                    case "attribute.modifier.plus.2": list.add(new TranslatableText("tooltip.tiered.multiply_combo", (val1*(val2/100.0f))+val1, translation_key, val1, val2).setStyle(attribute.getStyle()));
+                    //case "attribute.modifier.plus.2":list.add(new TranslatableText("tooltip.tiered.add_combo", Integer.parseInt(String.valueOf(text.getArgs()[0]))+Integer.parseInt(String.valueOf(text_compare.getArgs()[0])), text.getArgs()[1], text.getArgs()[0], text_compare.getArgs()[0]).setStyle(attribute.getStyle()));
+                }
+
             }
+
             //list.add(new TranslatableText("tooltip.tiered.add_combo", 6, new TranslatableText("attribute.name.generic.armor"), 5, 1).setStyle(attribute.getStyle()));
             //list.add(new TranslatableText("attribute.modifier.combo.0", 6, new TranslatableText("attribute.name.generic.armor")));
             System.out.println("-------------");
