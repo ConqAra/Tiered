@@ -101,49 +101,56 @@ public abstract class ItemStackClientMixin {
             method = "getTooltip",
             at = @At(value = "RETURN", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
     private void test(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
+        List<Text> list = cir.getReturnValue();
         if (isTiered && this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) { // only run on tiered items
-            List<Text> list = cir.getReturnValue();
+            //List<Text> list = cir.getReturnValue();
+            List<Text> badlyFormattedList = new ArrayList<>();
+            List<Text> properlyFormattedList = new ArrayList<>();
             Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
             PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
             list.remove(1); // remove Vanilla's blank tooltip line
 
             TranslatableText titleText = (TranslatableText) list.get(1);
-            //int skipLine = titleText.getKey().equals("item.modifiers.mainhand") ? 4 : 2;
-            int skipLine = 2;
+            int skipLine = titleText.getKey().equals("item.modifiers.mainhand") ? 4 : 2;
+            //int skipLine = 2;
             Set<String> set = new HashSet<>();
-            Set<TranslatableText> noDuplicates = new HashSet<>();
 
-            if (titleText.getKey().equals("item.modifiers.mainhand")) {
-                System.out.println("Mainhand");
-                for (int i = 2; i < 4; i++) { // translate blank TextComponents with TranslatableComponent siblings into TranslatableTexts
-                    System.out.println(list.get(i));
-                    if (!(list.get(i) instanceof TranslatableText)) {
-                        TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
-                        list.remove(i);
-                        TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                        list.add(i, new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())));
-                    }
+            Set<TranslatableText> noDuplicates = new HashSet<>();
+            for (Text textComponent : list) {
+                if (!(textComponent instanceof TranslatableText)) {
+                    badlyFormattedList.add(textComponent);
                 }
             }
+            //System.out.println("BAD"+badlyFormattedList.get(1));
 
-            for (int i = skipLine; i < list.size(); i++) { // Skip the first few lines of tooltip
-                /*
-                if (!(list.get(i) instanceof TranslatableText)) {
-                    TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
-                    list.remove(i);
-                    TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                    list.add(i, new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
-                }*/
-                System.out.println("||||"+list.get(i));
+            for(int i = 2; i < badlyFormattedList.size() + 1; i++) {
+                // reformat badly formatted tooltip lines into TranslatableTexts
+                System.out.println("BEFORE_FORMATTING "+list.get(i));
+                TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
+                TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
+                properlyFormattedList.add(new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())));
+            }
+            list.addAll(2, properlyFormattedList);
+            for(Text text : list){
+                System.out.println("|bef| "+text);
+            }
+            badlyFormattedList.remove(0); // preserve the name of the item
+            System.out.println("badlyFormattedList " + badlyFormattedList.size());
+            list.removeAll(badlyFormattedList); // remove badly formatted lines
+            for(Text text : list){
+                System.out.println("|aft| "+text);
+            }
+            for (int i = 2; i < list.size(); i++) { // Skip the item name and location
+                System.out.println("|all| "+list.get(i));
                 TranslatableText listText = (TranslatableText) list.get(i);
                 Object[] args = listText.getArgs();
                 TranslatableText argText = (TranslatableText) args[1];
                 //System.out.println(argText.getKey().substring(0, argText.getKey().length()-4));
                 //String s = argText.getKey().substring(0, argText.getKey().length()-7);
-                //System.out.println(s);
+                //System.out.println("ARG-KEY "+argText.getKey());
                 if (!set.add(argText.getKey())) {
                 //if (!set.add(argText.getKey().substring(0, argText.getKey().length()-7))) { // if there is more than one modifier with the same key
-                    for (int j = skipLine; j < list.size(); j++) {
+                    for (int j = 2; j < list.size(); j++) {
                         TranslatableText listText2 = (TranslatableText) list.get(j);
                         Object[] args2 = listText2.getArgs();
                         TranslatableText argText2 = (TranslatableText) args2[1];
@@ -152,8 +159,8 @@ public abstract class ItemStackClientMixin {
                         //System.out.println(listText);
                         //System.out.println("--------!!!----");
                         if(argText.getKey().equals(argText2.getKey())) {
-                            list.remove(listText);
-                            list.remove(listText2);
+                            //list.remove(listText);
+                            //list.remove(listText2);
                             noDuplicates.add(listText);
                             noDuplicates.add(listText2);
                         }
@@ -166,14 +173,14 @@ public abstract class ItemStackClientMixin {
                 //System.out.println(Arrays.toString(translatableText.getArgs()));
             }
 
-
-            System.out.println("Dup"+noDuplicates.size()+" "+noDuplicates);
+            System.out.println(" ");
+            System.out.println("Dup "+noDuplicates.size()+" "+noDuplicates);
             System.out.println("set"+set);
             //if (titleText.getKey().equals("item.modifiers.mainhand")) {
                 // The first two lines of held weapons are blank TextComponents with sibling TranslatableComponents
                 //list.add(3, new TranslatableText("tooltip.tiered.space", new TranslatableText("attribute.modifier.equals.0", 9, new TranslatableText("attribute.name.generic.attack_damage")).formatted(Formatting.DARK_GREEN)));
             //}
-
+/*
             for (int i = 0; i < noDuplicates.size(); i += 2) {
                 //list.add(text);
                 TranslatableText text = (TranslatableText) noDuplicates.toArray()[i];
@@ -193,12 +200,18 @@ public abstract class ItemStackClientMixin {
                     case "attribute.modifier.plus.0" -> list.add(new TranslatableText("tooltip.tiered.add_combo", val1 + val2, translation_key, val1, val2).setStyle(attribute.getStyle()));
                     case "attribute.modifier.plus.2" -> list.add(new TranslatableText("tooltip.tiered.multiply_combo", (val1 * (val2 / 100.0f)) + val1, translation_key, val1, val2).setStyle(attribute.getStyle()));
                 }
-
-            }
+            }*/
 
             //list.add(new TranslatableText("tooltip.tiered.add_combo", 6, new TranslatableText("attribute.name.generic.armor"), 5, 1).setStyle(attribute.getStyle()));
             //list.add(new TranslatableText("attribute.modifier.combo.0", 6, new TranslatableText("attribute.name.generic.armor")));
             System.out.println("-------------");
         }
+        /*
+        else {
+            for (Text text : list) {
+                System.out.println(text);
+            }
+            System.out.println("-------------");
+        }*/
     }
 }
