@@ -112,7 +112,7 @@ public abstract class ItemStackClientMixin {
             int skipLine = 2;
             Set<String> set = new HashSet<>();
             Set<TranslatableText> noDuplicates = new HashSet<>();
-/*
+
             if (titleText.getKey().equals("item.modifiers.mainhand")) {
                 System.out.println("Mainhand");
                 for (int i = 2; i < 4; i++) { // translate blank TextComponents with TranslatableComponent siblings into TranslatableTexts
@@ -121,19 +121,19 @@ public abstract class ItemStackClientMixin {
                         TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
                         list.remove(i);
                         TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                        list.add(i, new TranslatableText(translatableText.getKey(), Integer.parseInt((String)translatableText.getArgs()[0]), new TranslatableText(newText.getKey())));
+                        list.add(i, new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())));
                     }
                 }
-            }*/
+            }
 
             for (int i = skipLine; i < list.size(); i++) { // Skip the first few lines of tooltip
-
+                /*
                 if (!(list.get(i) instanceof TranslatableText)) {
                     TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
                     list.remove(i);
                     TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                    list.add(i, new TranslatableText(translatableText.getKey(), Integer.parseInt((String)translatableText.getArgs()[0]), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
-                }
+                    list.add(i, new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
+                }*/
                 System.out.println("||||"+list.get(i));
                 TranslatableText listText = (TranslatableText) list.get(i);
                 Object[] args = listText.getArgs();
@@ -186,14 +186,12 @@ public abstract class ItemStackClientMixin {
                 System.out.println(Arrays.toString(text.getArgs()));
                 System.out.println(Arrays.toString(text_compare.getArgs()));
 
-                int val1 = Integer.parseInt(String.valueOf(text.getArgs()[0]));
-                int val2 = Integer.parseInt(String.valueOf(text_compare.getArgs()[0]));
+                float val1 = Float.parseFloat(String.valueOf(text.getArgs()[0]));
+                float val2 = Float.parseFloat(String.valueOf(text_compare.getArgs()[0]));
                 TranslatableText translation_key = (TranslatableText) text.getArgs()[1];
                 switch (text_compare.getKey()) {
                     case "attribute.modifier.plus.0" -> list.add(new TranslatableText("tooltip.tiered.add_combo", val1 + val2, translation_key, val1, val2).setStyle(attribute.getStyle()));
                     case "attribute.modifier.plus.2" -> list.add(new TranslatableText("tooltip.tiered.multiply_combo", (val1 * (val2 / 100.0f)) + val1, translation_key, val1, val2).setStyle(attribute.getStyle()));
-
-                    //case "attribute.modifier.plus.2":list.add(new TranslatableText("tooltip.tiered.add_combo", Integer.parseInt(String.valueOf(text.getArgs()[0]))+Integer.parseInt(String.valueOf(text_compare.getArgs()[0])), text.getArgs()[1], text.getArgs()[0], text_compare.getArgs()[0]).setStyle(attribute.getStyle()));
                 }
 
             }
