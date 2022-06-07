@@ -189,9 +189,10 @@ public abstract class ItemStackClientMixin {
                 int val1 = Integer.parseInt(String.valueOf(text.getArgs()[0]));
                 int val2 = Integer.parseInt(String.valueOf(text_compare.getArgs()[0]));
                 TranslatableText translation_key = (TranslatableText) text.getArgs()[1];
-                switch(text_compare.getKey()) {
-                    case "attribute.modifier.plus.0": list.add(new TranslatableText("tooltip.tiered.add_combo", val1+val2, translation_key, val1, val2).setStyle(attribute.getStyle()));
-                    case "attribute.modifier.plus.2": list.add(new TranslatableText("tooltip.tiered.multiply_combo", (val1*(val2/100.0f))+val1, translation_key, val1, val2).setStyle(attribute.getStyle()));
+                switch (text_compare.getKey()) {
+                    case "attribute.modifier.plus.0" -> list.add(new TranslatableText("tooltip.tiered.add_combo", val1 + val2, translation_key, val1, val2).setStyle(attribute.getStyle()));
+                    case "attribute.modifier.plus.2" -> list.add(new TranslatableText("tooltip.tiered.multiply_combo", (val1 * (val2 / 100.0f)) + val1, translation_key, val1, val2).setStyle(attribute.getStyle()));
+
                     //case "attribute.modifier.plus.2":list.add(new TranslatableText("tooltip.tiered.add_combo", Integer.parseInt(String.valueOf(text.getArgs()[0]))+Integer.parseInt(String.valueOf(text_compare.getArgs()[0])), text.getArgs()[1], text.getArgs()[0], text_compare.getArgs()[0]).setStyle(attribute.getStyle()));
                 }
 
