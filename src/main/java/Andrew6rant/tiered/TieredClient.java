@@ -62,6 +62,13 @@ public class TieredClient implements ClientModInitializer {
 
         return f;
     }
+    public static String trailZeros(float f) {
+        int i = (int) f;
+        return f == i ? String.valueOf(i) : String.valueOf(f);
+    }
+    public static float roundFloat(float f) {
+        return ((int) ((f + (f >= 0 ? 1 : -1) * 0.005f) * 100)) / 100f;
+    }
 
     public static void onPostTooltipEvent(ItemStack stack, List<TooltipComponent> components, MatrixStack matrixStack, int x, int y, TextRenderer font, int width, int height, boolean comparison) {
         if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) {
