@@ -2,7 +2,8 @@
   "id": "tiered:brutal",
   "verifiers": [
     { "tag": "c:swords" },
-    { "tag": "c:axes" }
+    { "tag": "c:axes" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "aqua"

@@ -2,7 +2,10 @@
   "id": "tiered:keen",
   "verifiers": [
     { "tag": "c:swords" },
-    { "tag": "c:axes" }
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "white"

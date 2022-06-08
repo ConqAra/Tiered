@@ -1,15 +1,13 @@
 {
   "id": "tiered:unchained",
   "verifiers": [
-    { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
-    { "tag": "c:leggings" },
-    { "tag": "c:boots" }
+    { "tag": "c:leggings" }
   ],
   "style": {
     "color": "aqua"
   },
-  "weight": 4,
+  "weight": 3,
   "tooltip_image": 3,
   "tooltip_border_start":  4286578687,
   "tooltip_border_end":  4286578687,

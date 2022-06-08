@@ -121,7 +121,7 @@ public abstract class ItemStackClientMixin {
                 // of most held weapons are blank TextComponents with sibling TranslatableComponents
                 TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
                 TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                properlyFormattedList.add(new TranslatableText(translatableText.getKey(), Float.parseFloat(String.valueOf(translatableText.getArgs()[0])), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
+                properlyFormattedList.add(new TranslatableText(translatableText.getKey(), trailZeros(Float.parseFloat(String.valueOf(translatableText.getArgs()[0]))), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
             }
             list.addAll(2, properlyFormattedList);
             badlyFormattedList.remove(0); // preserve the name of the item
@@ -156,15 +156,15 @@ public abstract class ItemStackClientMixin {
                         //System.out.println(text.getKey() + " --- " + text_compare.getKey());
                         switch (text.getKey() + text_compare.getKey()) {
                             // I will turn this into a proper lookup table later lol
-                            case "attribute.modifier.plus.0attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.add", roundFloat(val1 + val2), key, val1Str, val2Str).setStyle(attribute.getStyle()));
+                            case "attribute.modifier.plus.0attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.add", trailZeros(roundFloat(val1 + val2)), key, val1Str, val2Str).setStyle(attribute.getStyle()));
                             case "attribute.modifier.plus.0attribute.modifier.plus.1", "attribute.modifier.plus.0attribute.modifier.plus.2" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.plus.0attribute.modifier.take.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.plus.0attribute.modifier.take.1", "attribute.modifier.plus.0attribute.modifier.take.2" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.plus.0attribute.modifier.equals.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.plus.1attribute.modifier.take.0", "attribute.modifier.plus.2attribute.modifier.take.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.plus.1attribute.modifier.take.1", "attribute.modifier.plus.2attribute.modifier.take.1" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
-                            case "attribute.modifier.plus.1attribute.modifier.equals.0", "attribute.modifier.plus.2attribute.modifier.equals.0", "attribute.modifier.plus.1attribute.modifier.plus.0", "attribute.modifier.plus.2attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.multiply", roundFloat((val2 * (val1 / 100.0f)) + val2), key, val2Str, val1Str).setStyle(attribute.getStyle()));
-                            case "attribute.modifier.take.0attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.subtract", val2 - val1, key, val2, val1).formatted(Formatting.RED));
+                            case "attribute.modifier.plus.1attribute.modifier.equals.0", "attribute.modifier.plus.2attribute.modifier.equals.0", "attribute.modifier.plus.1attribute.modifier.plus.0", "attribute.modifier.plus.2attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.multiply", trailZeros(roundFloat((val2 * (val1 / 100.0f)) + val2)), key, val2Str, val1Str).setStyle(attribute.getStyle()));
+                            case "attribute.modifier.take.0attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.subtract", trailZeros(roundFloat(val2 - val1)), key, val2Str, val1Str).formatted(Formatting.RED));
                             case "attribute.modifier.take.0attribute.modifier.plus.1", "attribute.modifier.take.0attribute.modifier.plus.2" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.take.0attribute.modifier.take.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.take.0attribute.modifier.take.1", "attribute.modifier.take.0attribute.modifier.take.2" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
@@ -172,11 +172,11 @@ public abstract class ItemStackClientMixin {
                             case "attribute.modifier.take.1attribute.modifier.plus.0", "attribute.modifier.take.2attribute.modifier.plus.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
                             case "attribute.modifier.take.1attribute.modifier.plus.1", "attribute.modifier.take.2attribute.modifier.plus.1", "attribute.modifier.take.2attribute.modifier.plus.2", "attribute.modifier.take.1attribute.modifier.plus.2" -> System.out.println("AHHHH");
                             case "attribute.modifier.take.1attribute.modifier.take.0", "attribute.modifier.take.2attribute.modifier.take.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
-                            case "attribute.modifier.take.1attribute.modifier.equals.0", "attribute.modifier.take.2attribute.modifier.equals.0" -> list.add(2, new TranslatableText("tooltip.tiered.divide", roundFloat(val2 - (val2 * (val1 / 100.0f))), key, val2Str, val1Str).formatted(Formatting.RED));
+                            case "attribute.modifier.take.1attribute.modifier.equals.0", "attribute.modifier.take.2attribute.modifier.equals.0" -> list.add(2, new TranslatableText("tooltip.tiered.divide", trailZeros(roundFloat(val2 - (val2 * (val1 / 100.0f)))), key, val2Str, val1Str).formatted(Formatting.RED));
                             case "attribute.modifier.equals.0attribute.modifier.plus.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
-                            case "attribute.modifier.equals.0attribute.modifier.plus.1", "attribute.modifier.equals.0attribute.modifier.plus.2" -> list.add(2, new TranslatableText("tooltip.tiered.multiply", roundFloat((val1 * (val2 / 100.0f)) + val1), key, val1Str, val2Str).setStyle(attribute.getStyle()));
+                            case "attribute.modifier.equals.0attribute.modifier.plus.1", "attribute.modifier.equals.0attribute.modifier.plus.2" -> list.add(2, new TranslatableText("tooltip.tiered.multiply", trailZeros(roundFloat((val1 * (val2 / 100.0f)) + val1)), key, val1Str, val2Str).setStyle(attribute.getStyle()));
                             case "attribute.modifier.equals.0attribute.modifier.take.0" -> System.out.println("AHHHH "+text.getKey() + " --- " + text_compare.getKey());
-                            case "attribute.modifier.equals.0attribute.modifier.take.1", "attribute.modifier.equals.0attribute.modifier.take.2" -> list.add(2, new TranslatableText("tooltip.tiered.divide", roundFloat(val1 - (val1 * (val2 / 100.0f))), key, val1Str, val2Str).formatted(Formatting.RED));
+                            case "attribute.modifier.equals.0attribute.modifier.take.1", "attribute.modifier.equals.0attribute.modifier.take.2" -> list.add(2, new TranslatableText("tooltip.tiered.divide", trailZeros(roundFloat(val1 - (val1 * (val2 / 100.0f)))), key, val1Str, val2Str).formatted(Formatting.RED));
                             default -> System.out.println("The combination of "+text.getKey()+" and "+text_compare.getKey()+" is not supported yet. Please make an issue on GitHub: https://github.com/Andrew6rant/tiered");
                         }
                     }

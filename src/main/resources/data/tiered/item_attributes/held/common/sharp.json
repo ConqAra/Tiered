@@ -2,12 +2,15 @@
   "id": "tiered:sharp",
   "verifiers": [
     { "tag": "c:swords" },
-    { "tag": "c:axes" }
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "white"
   },
-  "weight": 8,
+  "weight": 6,
   "tooltip_image": 10,
   "tooltip_border_start":  4294967295,
   "tooltip_border_end":  4294967295,

@@ -1,16 +1,16 @@
 {
   "id": "tiered:tiny",
   "verifiers": [
-    { "tag": "fabric:swords" },
-    { "tag": "fabric:axes" },
-    { "tag": "fabric:pickaxes" },
-    { "tag": "fabric:shovels" },
-    { "tag": "fabric:hoes" }
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
   ],
   "style": {
     "color": "green"
   },
-  "weight": 5,
+  "weight": 4,
   "tooltip_image": 2,
   "tooltip_border_start":  4283826005,
   "tooltip_border_end":  4279880217,
