@@ -2,7 +2,13 @@
 
 Tiered is a Fabric mod inspired by [Quality Tools](https://www.curseforge.com/minecraft/mc-mods/quality-tools). Every tool you make will have a special modifier, as seen below:
 
-![tiered](https://user-images.githubusercontent.com/57331134/142939375-8ea3935d-ec9d-4f47-aea7-8cfb090a2159.png)
+![Tiered tooltips](https://user-images.githubusercontent.com/57331134/142939375-8ea3935d-ec9d-4f47-aea7-8cfb090a2159.png)
+There is also a Reforging station added to reroll item attributes:
+<details>
+  <summary>Show Reforging Station</summary>
+
+![Tiered Reforging Station](https://user-images.githubusercontent.com/57331134/172750885-5ba9668d-51db-43ff-ba63-d5c177210462.png)
+</details>
 
 Tiered was originally made by Draylar, and is being updated and maintained by Andrew6rant.
 
