@@ -6,7 +6,7 @@
   "generic.crit_chance": "Crit Chance",
   "generic.size": "Size",
 
-  "message.tiered.no_xp": "not enough xp",
+  "message.tiered.no_xp": "Not enough xp!",
 
   "tooltip.tiered.add": " %1$s %2$s (%3$s + %4$s)",
   "tooltip.tiered.subtract": " %1$s %2$s (%3$s - %4$s)",
@@ -25,8 +25,6 @@
   "tooltip.tiered.item.modifiers.legs": "Legs",
   "tooltip.tiered.item.modifiers.chest": "Body",
   "tooltip.tiered.item.modifiers.head": "Head",
-
-  "tooltip.tiered.space": " %s",
 
   "//": "--- Held Item Modifiers ---",
 
@@ -86,5 +84,4 @@
       "tiered:resilient.label": "Resilient",
 
     "///": "Legendary"
-
 }
