@@ -29,36 +29,43 @@
   "//": "--- Held Item Modifiers ---",
 
     "///": "Junk",
+      "tiered:blighted.label": "Blighted",
+      "tiered:cursed.label": "Cursed",
       "tiered:dull.label": "Dull",
       "tiered:slow.label": "Slow",
       "tiered:sluggish.label": "Sluggish",
+      "tiered:unlucky.label": "Unlucky",
 
     "///": "Common",
       "tiered:critical.label": "Critical",
+      "tiered:hasteful.label": "Hasteful",
       "tiered:keen.label": "Keen",
       "tiered:lucky.label": "Lucky",
       "tiered:quick.label": "Quick",
       "tiered:sharp.label": "Sharp",
-      "tiered:swift.label": "Swift",
 
     "///": "Uncommon",
+      "tiered:blessed.label": "Blessed",
       "tiered:extended.label": "Extended",
-      "tiered:hasteful.label": "Hasteful",
       "tiered:large.label": "Large",
       "tiered:massive.label": "Massive",
       "tiered:small.label": "Small",
+      "tiered:swift.label": "Swift",
       "tiered:tiny.label": "Tiny",
 
     "///": "Rare",
       "tiered:brutal.label": "Brutal",
       "tiered:gargantuan.label": "Gargantuan",
+      "tiered:hallowed.label": "Hallowed",
       "tiered:nimble.label": "Nimble",
 
     "///": "Epic",
       "tiered:breakneck.label": "Breakneck",
       "tiered:daring.label": "Daring",
+      "tiered:sacred.label": "Sacred",
 
     "///": "Legendary",
+      "tiered:exalted.label": "Exalted",
 
   "//": "--- Armor Modifiers ---",
 

@@ -1,23 +1,23 @@
 {
-  "id": "tiered:lucky",
+  "id": "tiered:blighted",
   "verifiers": [
     { "tag": "c:fishing_rods" }
   ],
   "style": {
-    "color": "white"
+    "color": "gray"
   },
-  "weight": 8,
-  "tooltip_image": 9,
-  "tooltip_border_start":  4294967295,
-  "tooltip_border_end":  4294967295,
-  "reforge_cost": 5,
+  "weight": 3,
+  "tooltip_image": 0,
+  "tooltip_border_start":  4289374890,
+  "tooltip_border_end":  4289374890,
+  "reforge_cost": 3,
   "attributes": [
     {
       "type": "generic.luck",
       "modifier": {
-        "name": "tiered:lucky",
+        "name": "tiered:blighted",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.05
+        "amount": -0.10
       },
       "optional_equipment_slots": [
         "MAINHAND",

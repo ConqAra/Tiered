@@ -1,23 +1,23 @@
 {
-  "id": "tiered:lucky",
+  "id": "tiered:sacred",
   "verifiers": [
     { "tag": "c:fishing_rods" }
   ],
   "style": {
-    "color": "white"
+    "color": "light_purple"
   },
-  "weight": 8,
-  "tooltip_image": 9,
-  "tooltip_border_start":  4294967295,
-  "tooltip_border_end":  4294967295,
-  "reforge_cost": 5,
+  "weight": 2,
+  "tooltip_image": 4,
+  "tooltip_border_start":  4288244002,
+  "tooltip_border_end":  4288244002,
+  "reforge_cost": 21,
   "attributes": [
     {
       "type": "generic.luck",
       "modifier": {
-        "name": "tiered:lucky",
+        "name": "tiered:sacred",
         "operation": "MULTIPLY_TOTAL",
-        "amount": 0.05
+        "amount": 0.20
       },
       "optional_equipment_slots": [
         "MAINHAND",
