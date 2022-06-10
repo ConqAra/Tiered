@@ -13,6 +13,19 @@
   "tooltip.tiered.multiply": " %1$s %2$s (%3$s + %4$s%%)",
   "tooltip.tiered.divide": " %1$s %2$s (%3$s - %4$s%%)",
 
+  "tooltip.tiered.modifier.2": "When in %1$s or %2$s:",
+  "tooltip.tiered.modifier.3": "When in %1$s, %2$s, or %3$s:",
+  "tooltip.tiered.modifier.4": "When in %1$s, %2$s, %3$s, or %4$s:",
+  "tooltip.tiered.modifier.5": "When in %1$s, %2$s, %3$s, %4$s, or %5$s:",
+  "tooltip.tiered.modifier.6": "When in %1$s, %2$s, %3$s, %4$s, %5$s, or %6$s:",
+
+  "tooltip.tiered.item.modifiers.mainhand": "Main Hand",
+  "tooltip.tiered.item.modifiers.offhand": "Off Hand",
+  "tooltip.tiered.item.modifiers.feet": "Feet",
+  "tooltip.tiered.item.modifiers.legs": "Legs",
+  "tooltip.tiered.item.modifiers.chest": "Body",
+  "tooltip.tiered.item.modifiers.head": "Head",
+
   "tooltip.tiered.space": " %s",
 
   "//": "--- Held Item Modifiers ---",

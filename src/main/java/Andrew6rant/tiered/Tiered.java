@@ -140,7 +140,8 @@ public class Tiered implements ModInitializer {
             //return item.getSlotType().equals(slot);
         }
 
-        return slot == EquipmentSlot.MAINHAND;
+        //return slot == EquipmentSlot.MAINHAND;
+        return slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND;
     }
 
     public static void registerAttributeSyncer() {

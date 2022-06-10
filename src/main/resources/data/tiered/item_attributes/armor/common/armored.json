@@ -5,7 +5,8 @@
     { "tag": "c:chestplates" },
     { "tag": "c:leggings" },
     { "tag": "c:boots" },
-    { "tag": "c:shields" }
+    { "tag": "c:shields" },
+    { "tag": "terramine:accessory" }
   ],
   "style": {
     "color": "white"

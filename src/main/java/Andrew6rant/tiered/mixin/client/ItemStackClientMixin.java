@@ -104,42 +104,75 @@ public abstract class ItemStackClientMixin {
         if (isTiered && this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) { // only run on tiered items
             List<Text> list = cir.getReturnValue();
             List<Text> badlyFormattedList = new ArrayList<>();
-            List<Text> properlyFormattedList = new ArrayList<>();
-            Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-            PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-            list.remove(1); // remove Vanilla's blank tooltip line
-            TranslatableText titleText = (TranslatableText) list.get(1);
+            List<TranslatableText> modifierList = new ArrayList<>();
+            //Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+            //PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+
+            //TranslatableText titleText = (TranslatableText) list.get(1);
             Set<String> set = new HashSet<>();
             Set<TranslatableText> noDuplicates = new HashSet<>();
+            list.removeIf(text -> (!(text instanceof TranslatableText) && text.getSiblings().size() == 0)); // remove blank tooltip lines
             for (Text textComponent : list) {
                 if (!(textComponent instanceof TranslatableText)) {
+                    //System.out.println("Badly formatted tooltip line: " + textComponent);
                     badlyFormattedList.add(textComponent);
                 }
             }
-            for(int i = 2; i < badlyFormattedList.size() + 1; i++) {
+            badlyFormattedList.remove(0); // preserve the name of the item
+            for (Text text : badlyFormattedList) {
                 // reformat badly formatted tooltip lines into TranslatableTexts, as the first two lines
                 // of most held weapons are blank TextComponents with sibling TranslatableComponents
-                TranslatableText translatableText = (TranslatableText) list.get(i).getSiblings().get(0);
+                TranslatableText translatableText = (TranslatableText) text.getSiblings().get(0);
                 TranslatableText newText = (TranslatableText) translatableText.getArgs()[1];
-                properlyFormattedList.add(new TranslatableText(translatableText.getKey(), trailZeros(Float.parseFloat(String.valueOf(translatableText.getArgs()[0]))), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
+                list.add(new TranslatableText(translatableText.getKey(), trailZeros(Float.parseFloat(String.valueOf(translatableText.getArgs()[0]))), new TranslatableText(newText.getKey())).formatted(Formatting.DARK_GREEN));
             }
-            list.addAll(2, properlyFormattedList);
-            badlyFormattedList.remove(0); // preserve the name of the item
             list.removeAll(badlyFormattedList); // remove badly formatted lines
-            for (int i = 2; i < list.size(); i++) { // Skip the item name and location
-                TranslatableText listText = (TranslatableText) list.get(i);
-                Object[] args = listText.getArgs(); TranslatableText argText = (TranslatableText) args[1];
-                if (!set.add(argText.getKey())) { // if there is more than one modifier with the same key
-                    for (int j = 2; j < list.size(); j++) {
-                        TranslatableText listText2 = (TranslatableText) list.get(j);
-                        Object[] args2 = listText2.getArgs(); TranslatableText argText2 = (TranslatableText) args2[1];
-                        if(argText.getKey().equals(argText2.getKey())) {
-                            noDuplicates.add(listText);
-                            noDuplicates.add(listText2);
-                        }
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i) instanceof TranslatableText translatableText) {
+                    if (translatableText.getKey().startsWith("item.modifiers")) {
+                        //System.out.println("Found modifier: " + translatableText);
+                        modifierList.add(translatableText);
+                    }
+                    if (modifierList.size() > 1) {
+                        //System.out.println("CLEARING MODIFIER LIST");
+                        list.subList(i, list.size()).clear();
                     }
                 }
             }
+            if (modifierList.size() > 1) {
+                list.removeAll(modifierList);
+                Object[] args = new Object[modifierList.size()];
+                for (int i = 0; i < modifierList.size(); i++) {
+                    args[i] = new TranslatableText("tooltip.tiered." +modifierList.get(i).getKey());
+                }
+                //System.out.println("Adding modifier list: " + modifierList.size()+ Arrays.toString(args));
+                list.add(1, new TranslatableText("tooltip.tiered.modifier."+modifierList.size(), args).formatted(Formatting.GRAY));
+            }
+
+            for (Text text : list) {
+
+                if (text instanceof TranslatableText listText && (listText.getArgs().length > 0) && (listText.getArgs()[0] instanceof String)) {
+                    //System.out.println("CHECKED "+text);
+                    System.out.println("|||"+text);
+
+                    System.out.println("YEEE "+listText.getKey());
+                    Object[] args = listText.getArgs();
+                    System.out.println("OK   "+ Arrays.toString(args));
+                    TranslatableText argText = (TranslatableText) args[1];
+                    if (!set.add(argText.getKey())) { // if there is more than one modifier with the same key
+                        for (Text text_compare : list) {
+                            if (text_compare instanceof TranslatableText listTextCompare) {
+                                Object[] args2 = listTextCompare.getArgs(); TranslatableText argText2 = (TranslatableText) args2[1];
+                                if(argText.getKey().equals(argText2.getKey())) {
+                                    noDuplicates.add(listText);
+                                    noDuplicates.add(listTextCompare);
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }/*
             for (int i = 0; i < noDuplicates.size(); i ++) {
                 for (int j = i+1; j < noDuplicates.size(); j ++) {
                     TranslatableText text = (TranslatableText) noDuplicates.toArray()[i];
@@ -151,9 +184,9 @@ public abstract class ItemStackClientMixin {
                     String val1Str = trailZeros(val1);
                     String val2Str = trailZeros(val2);
                     if (key.getKey().equals(key_compare.getKey())) {
-                        list.remove(noDuplicates.toArray()[i]);
-                        list.remove(noDuplicates.toArray()[j]);
-                        //System.out.println(text.getKey() + " --- " + text_compare.getKey());
+                        //list.remove(noDuplicates.toArray()[i]);
+                        //list.remove(noDuplicates.toArray()[j]);
+                        System.out.println(text.getKey() + " --- " + text_compare.getKey());
                         switch (text.getKey() + text_compare.getKey()) {
                             // I will turn this into a proper lookup table later lol
                             case "attribute.modifier.plus.0attribute.modifier.plus.0" -> list.add(2, new TranslatableText("tooltip.tiered.add", trailZeros(roundFloat(val1 + val2)), key, val1Str, val2Str).setStyle(attribute.getStyle()));
@@ -181,7 +214,8 @@ public abstract class ItemStackClientMixin {
                         }
                     }
                 }
-            }
+            }*/
+            System.out.println("------------------");
         }
     }
 }
