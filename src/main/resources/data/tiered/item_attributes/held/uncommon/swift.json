@@ -19,22 +19,24 @@
       "type": "tiered:generic.dig_speed",
       "modifier": {
         "name": "tiered:swift",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.10
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     },
     {
       "type": "generic.movement_speed",
       "modifier": {
         "name": "tiered:swift",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.05
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]

@@ -17,22 +17,24 @@
       "type": "generic.max_health",
       "modifier": {
         "name": "tiered:daring",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": -0.5
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     },
     {
       "type": "generic.attack_damage",
       "modifier": {
         "name": "tiered:daring",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]

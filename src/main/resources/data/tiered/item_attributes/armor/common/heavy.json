@@ -20,7 +20,7 @@
       "type": "generic.knockback_resistance",
       "modifier": {
         "name": "tiered:heavy",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.1
       },
       "optional_equipment_slots": [

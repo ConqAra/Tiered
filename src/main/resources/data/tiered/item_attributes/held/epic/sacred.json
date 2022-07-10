@@ -16,7 +16,7 @@
       "type": "generic.luck",
       "modifier": {
         "name": "tiered:sacred",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.20
       },
       "optional_equipment_slots": [

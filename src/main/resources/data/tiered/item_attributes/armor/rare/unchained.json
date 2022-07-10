@@ -31,7 +31,7 @@
       "type": "generic.attack_damage",
       "modifier": {
         "name": "tiered:unchained",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.25
       },
       "optional_equipment_slots": [

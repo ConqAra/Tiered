@@ -27,7 +27,7 @@
       "type": "generic.movement_speed",
       "modifier": {
         "name": "tiered:leaded",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": -0.05
       },
       "optional_equipment_slots": [

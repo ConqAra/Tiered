@@ -20,11 +20,12 @@
       "type": "generic.attack_speed",
       "modifier": {
         "name": "tiered:slow",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": -0.15
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]

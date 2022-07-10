@@ -16,7 +16,7 @@
       "type": "generic.luck",
       "modifier": {
         "name": "tiered:blighted",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": -0.10
       },
       "optional_equipment_slots": [

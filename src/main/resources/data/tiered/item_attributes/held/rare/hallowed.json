@@ -16,7 +16,7 @@
       "type": "generic.luck",
       "modifier": {
         "name": "tiered:hallowed",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.15
       },
       "optional_equipment_slots": [
