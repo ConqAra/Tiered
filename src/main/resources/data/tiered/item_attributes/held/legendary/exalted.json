@@ -8,15 +8,15 @@
   },
   "weight": 1,
   "tooltip_image": 7,
-  "tooltip_border_start":  0,
-  "tooltip_border_end":  0,
+  "tooltip_border_start":  "FFFFBB00",
+  "tooltip_border_end":  "FFFFBB00",
   "reforge_cost": 30,
   "attributes": [
     {
       "type": "generic.luck",
       "modifier": {
         "name": "tiered:exalted",
-        "operation": "MULTIPLY_BASE",
+        "operation": "MULTIPLY_TOTAL",
         "amount": 0.25
       },
       "optional_equipment_slots": [

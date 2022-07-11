@@ -21,26 +21,28 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
   "verifiers": [
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
-    { "tag": "c:axes" }
+    { "tag": "c:axes" },
+    { "tag": "c:hoes" }
   ],
   "style": {
-    "color": "green"
+    "color": "white"
   },
-  "weight": 5,
-  "tooltip_image": 2,
-  "tooltip_border_start":  4283826005,
-  "tooltip_border_end":  4279880217,
-  "reforge_cost": 8,
+  "weight": 8,
+  "tooltip_image": 10,
+  "tooltip_border_start":  "FFFFFFFF",
+  "tooltip_border_end":  "FFFFFFFF",
+  "reforge_cost": 5,
   "attributes": [
     {
-      "type": "generic.dig_speed",
+      "type": "tiered:generic.dig_speed",
       "modifier": {
         "name": "tiered:hasteful",
-        "operation": "MULTIPLY_TOTAL",
+        "operation": "MULTIPLY_BASE",
         "amount": 0.10
       },
       "optional_equipment_slots": [
-        "MAINHAND"
+        "MAINHAND",
+        "OFFHAND"
       ]
     }
   ]
@@ -81,7 +83,7 @@ Tiered provides five customization options regarding tooltips.
 
 - `color` changes the text color
 - `tooltip_image` specifies the border style (see below)
-- `tooltip_border_start` and `tooltip_border_end` determine the top and bottom line colors of the border, respectively.
+- `tooltip_border_start` and `tooltip_border_end` determine the top and bottom line colors of the border, respectively. They are in 0xAARRGGBB hexadecimal format.
 - `no_tooltip` can be used in the `name` section of an attribute to prevent it from showing. For example, this can be useful for the `reach` and `attack_range` modifier types, as they are often used together and can clutter a tooltip.
 
 Here is the formatting for the border style. This image allows for up to 16 styles (0-15):
@@ -91,8 +93,6 @@ Here is the formatting for the border style. This image allows for up to 16 styl
 And here is how it looks in-game:
 
 ![debug_inventory](https://user-images.githubusercontent.com/57331134/145140685-ce11ff58-b277-4029-b588-83f0db4b237d.png)
-
-In that image, the tooltip_border_start and tooltip_border_end colors are 4280615006 and 4279762996 (#25005e, #180034), for purple at the top and dark purple at the bottom. These are the same values Vanilla Minecraft uses. The format is 0xAARRGGBB converted to decimal (0xff25005e to decimal is 4280615006).
 
 You can use any sized image (with a power of 2 resolution (128x, 256x, 512x, etc, like Vanilla Minecraft) to make as many borders as you like. Here is an example with 64 styles:
 

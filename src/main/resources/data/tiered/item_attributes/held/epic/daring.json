@@ -9,8 +9,8 @@
   },
   "weight": 2,
   "tooltip_image": 4,
-  "tooltip_border_start":  4288244002,
-  "tooltip_border_end":  4288244002,
+  "tooltip_border_start":  "FF996922",
+  "tooltip_border_end":  "FF996922",
   "reforge_cost": 21,
   "attributes": [
     {

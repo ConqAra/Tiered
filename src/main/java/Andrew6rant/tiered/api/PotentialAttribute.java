@@ -10,19 +10,17 @@ public class PotentialAttribute {
     private final String id;
     private final List<ItemVerifier> verifiers;
     private final Style style;
-    //private final String rarity;
     private final int tooltip_image;
-    private final int tooltip_border_start;
-    private final int tooltip_border_end;
+    private final String tooltip_border_start;
+    private final String tooltip_border_end;
     private final int weight;
     private final int reforge_cost;
     private final List<AttributeTemplate> attributes;
 
-    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, int tooltip_image, int tooltip_border_start, int tooltip_border_end, int weight, int reforge_cost, List<AttributeTemplate> attributes) {
+    public PotentialAttribute(String id, List<ItemVerifier> verifiers, Style style, int tooltip_image, String tooltip_border_start, String tooltip_border_end, int weight, int reforge_cost, List<AttributeTemplate> attributes) {
         this.id = id;
         this.verifiers = verifiers;
         this.style = style;
-        //this.rarity = rarity;
         this.tooltip_image = tooltip_image;
         this.tooltip_border_start = tooltip_border_start;
         this.tooltip_border_end = tooltip_border_end;
@@ -44,11 +42,11 @@ public class PotentialAttribute {
     }
 
     public int getTooltip_border_start() {
-        return tooltip_border_start;
+        return (int)Long.parseUnsignedLong(tooltip_border_start, 16);
     }
 
     public int getTooltip_border_end() {
-        return tooltip_border_end;
+        return (int)Long.parseUnsignedLong(tooltip_border_end, 16);
     }
 
     public int getWeight() {
