@@ -28,9 +28,8 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
     "color": "white"
   },
   "weight": 8,
-  "tooltip_image": 10,
-  "tooltip_border_start":  "FFFFFFFF",
-  "tooltip_border_end":  "FFFFFFFF",
+  "tooltip_image": [10],
+  "tooltip_border":  ["FFFFFFFF"],
   "reforge_cost": 5,
   "attributes": [
     {
@@ -83,7 +82,7 @@ Tiered provides five customization options regarding tooltips.
 
 - `color` changes the text color
 - `tooltip_image` specifies the border style (see below)
-- `tooltip_border_start` and `tooltip_border_end` determine the top and bottom line colors of the border, respectively. They are in 0xAARRGGBB hexadecimal format.
+- `tooltip_border` determines the line colors of the border. It is an array of 0xAARRGGBB hexadecimal formatted strings. Use one value to color the entire border, or two to specify the start and end colors.
 - `no_tooltip` can be used in the `name` section of an attribute to prevent it from showing. For example, this can be useful for the `reach` and `attack_range` modifier types, as they are often used together and can clutter a tooltip.
 
 Here is the formatting for the border style. This image allows for up to 16 styles (0-15):
@@ -98,6 +97,7 @@ You can use any sized image (with a power of 2 resolution (128x, 256x, 512x, etc
 
 ![debug-big](https://user-images.githubusercontent.com/57331134/145140359-26c8014a-dcfc-4fbf-8364-41e7235bcbd9.png)
 
+The border image is stored in an array, to allow for animated borders. Use one value to have a static border, or multiple to animate it (in the frame order specified, with the last index being the framerate in milliseconds).
 
 ### License
 Tiered is licensed under MIT. You are free to use the code inside this repo as you want.

@@ -117,20 +117,20 @@ public class Tiered implements ModInitializer {
         });
     }
 
-    public static int getter(ItemStack stack, String key) {
+    public static int reforgeCostGetter(ItemStack stack) {
+        Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+        PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+        if(potentialAttribute != null) {
+            return potentialAttribute.getReforge_cost();
+        }
+        return 0; // this should never be called
+    }
+    public static int[] levelGetter(ItemStack stack, String key) {
         // get tier
         Identifier tier = new Identifier(stack.getOrCreateSubNbt(NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
         // attempt to display attribute if it is valid
         PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-        if(potentialAttribute != null) {
-            switch (key) {
-                case "level": return potentialAttribute.getTooltip_image();
-                case "startColor": return potentialAttribute.getTooltip_border_start();
-                case "endColor": return potentialAttribute.getTooltip_border_end();
-                case "reforgeCost": return potentialAttribute.getReforge_cost();
-            }
-        }
-        return 0; // this should never be called
+        return potentialAttribute.getTooltip_image();
     }
 
     public static boolean isPreferredEquipmentSlot(ItemStack stack, EquipmentSlot slot) {

@@ -11,9 +11,8 @@
     "color": "white"
   },
   "weight": 8,
-  "tooltip_image": 9,
-  "tooltip_border_start":  "FFFFFFFF",
-  "tooltip_border_end":  "FFFFFFFF",
+  "tooltip_image": [0, 1, 2, 500],
+  "tooltip_border":  ["FFFFFFFF"],
   "reforge_cost": 5,
   "attributes": [
     {

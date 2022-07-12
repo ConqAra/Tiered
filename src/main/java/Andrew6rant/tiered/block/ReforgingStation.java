@@ -121,13 +121,13 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                     return ActionResult.CONSUME;
             }
             if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null && !player.getItemCooldownManager().isCoolingDown(stack.getItem())) {
-                if (!player.isCreative() && (player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.getter(stack, "reforgeCost"))) {
+                if (!player.isCreative() && (player.experienceLevel == 0 && (MathHelper.floor(player.experienceProgress * (float)player.getNextLevelExperience())) < Tiered.reforgeCostGetter(stack))) {
                     // super strange that Mojang made a nice method for finding xp levels but not points
                     player.playSound(SoundEvents.BLOCK_WOOD_HIT, 1, 1);
                     player.sendMessage(new TranslatableText("message.tiered.no_xp"), true);
                 } else {
                     if (!player.isCreative()) {
-                        player.addExperience(-Tiered.getter(stack, "reforgeCost")); // this is the negative of reforge_cost
+                        player.addExperience(-Tiered.reforgeCostGetter(stack)); // this is the negative of reforge_cost
                     }
                     Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
                     if(potentialAttributeID != null) {

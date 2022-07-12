@@ -93,8 +93,12 @@ public abstract class ItemStackClientMixin {
             // attempt to display attribute if it is valid
             PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
 
-            if (potentialAttribute != null)
-                info.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(info.getReturnValue()).setStyle(potentialAttribute.getStyle()));
+            if (potentialAttribute != null) {
+                if(!potentialAttribute.getAttributes().get(0).getAttributeTypeID().equals("none")) {
+                    info.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(info.getReturnValue()).setStyle(potentialAttribute.getStyle()));
+                }
+            }
+
         }
     }
     @Inject(

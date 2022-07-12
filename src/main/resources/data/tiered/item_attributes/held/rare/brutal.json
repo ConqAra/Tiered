@@ -9,9 +9,8 @@
     "color": "aqua"
   },
   "weight": 3,
-  "tooltip_image": 3,
-  "tooltip_border_start":  "FF7FFFFF",
-  "tooltip_border_end":  "FF7FFFFF",
+  "tooltip_image": [3],
+  "tooltip_border":  ["FF7FFFFF"],
   "reforge_cost": 13,
   "attributes": [
     {
