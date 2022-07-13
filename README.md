@@ -48,7 +48,7 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
 }
 ```
 
-Tiered currently provides 3 custom attributes: Dig Speed, Crit Chance, and Size. Dig Speed increases the speed of your block breaking (think: haste), Crit Chance offers an additional random chance to crit when using a tool, and Size changes the held and dropped item rendering.
+Tiered currently provides 7 custom attributes: Attack Range, Crit Chance, Dig Speed, Projectile Damage, Reach, Size, and Step Height. Dig Speed increases the speed of your block breaking (think: haste), Crit Chance offers an additional random chance to crit when using a tool, and Size changes the held and dropped item rendering.
 
 ### Verifiers
 
