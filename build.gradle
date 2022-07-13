@@ -43,7 +43,7 @@ dependencies {
 
     modImplementation "curse.maven:iceberg-539382:3675784"
 
-    include modImplementation 'com.github.ZsoltMolnarrr:ProjectileDamage:1.18.2-1.0.2-2'
+    include modImplementation('com.github.ZsoltMolnarrr:ProjectileDamage:1.18.2-1.0.2-2')
 }
 
 processResources {
