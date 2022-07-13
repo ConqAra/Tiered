@@ -31,10 +31,13 @@
   "tooltip.tiered.item.modifiers.chest": "Body",
   "tooltip.tiered.item.modifiers.head": "Head",
 
+  "tooltip.tiered.error": "Error: The attribute \"%s\" cannot be displayed!",
+
   "//": "--- Held Item Modifiers ---",
 
     "///": "Junk",
       "tiered:blighted.label": "Blighted",
+      "tiered:blunted.label": "Blunted",
       "tiered:cursed.label": "Cursed",
       "tiered:dull.label": "Dull",
       "tiered:slow.label": "Slow",
@@ -46,6 +49,7 @@
       "tiered:hasteful.label": "Hasteful",
       "tiered:keen.label": "Keen",
       "tiered:lucky.label": "Lucky",
+      "tiered:pointed.label": "Pointed",
       "tiered:quick.label": "Quick",
       "tiered:sharp.label": "Sharp",
 

@@ -1,0 +1,27 @@
+{
+  "id": "tiered:pointed",
+  "verifiers": [
+    { "tag": "c:bows" }
+  ],
+  "style": {
+    "color": "white"
+  },
+  "weight": 8,
+  "tooltip_image": [1],
+  "tooltip_border":  ["FFFFFFFF"],
+  "reforge_cost": 5,
+  "attributes": [
+    {
+      "type": "generic.projectile_damage",
+      "modifier": {
+        "name": "tiered:pointed",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.20
+      },
+      "optional_equipment_slots": [
+        "MAINHAND",
+        "OFFHAND"
+      ]
+    }
+  ]
+}

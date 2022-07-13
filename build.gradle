@@ -42,6 +42,8 @@ dependencies {
     include "com.github.emilyploszaj:step-height-entity-attribute:v1.0.1"
 
     modImplementation "curse.maven:iceberg-539382:3675784"
+
+    include modImplementation 'com.github.ZsoltMolnarrr:ProjectileDamage:1.18.2-1.0.2-2'
 }
 
 processResources {

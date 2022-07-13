@@ -1,0 +1,27 @@
+{
+  "id": "tiered:blunted",
+  "verifiers": [
+    { "tag": "c:bows" }
+  ],
+  "style": {
+    "color": "gray"
+  },
+  "weight": 3,
+  "tooltip_image": [0],
+  "tooltip_border":  ["FFAAAAAA"],
+  "reforge_cost": 3,
+  "attributes": [
+    {
+      "type": "generic.projectile_damage",
+      "modifier": {
+        "name": "tiered:blunted",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.20
+      },
+      "optional_equipment_slots": [
+        "MAINHAND",
+        "OFFHAND"
+      ]
+    }
+  ]
+}
