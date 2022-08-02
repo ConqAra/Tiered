@@ -23,6 +23,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -88,35 +89,40 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
             return ActionResult.SUCCESS;
         }
         else {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if(((hit.getPos().x - pos.getX()) > 0.2
-                && (hit.getPos().x - pos.getX()) < 0.81
-                && (hit.getPos().y - pos.getY()) > 0.17
-                && (hit.getPos().y - pos.getY()) < 0.71
-                && (hit.getPos().z - pos.getZ()) == 0.0625
-                && ((blockState.get(Properties.FACING) == Direction.NORTH) || (blockState.get(Properties.FACING) == Direction.UP) || (blockState.get(Properties.FACING) == Direction.DOWN)))
+            Vec3d hitPos = hit.getPos();
+            int x = pos.getX();
+            int y = pos.getY();
+            int z = pos.getZ();
+            Direction blockDirection = blockState.get(Properties.FACING);
+            if(((hitPos.x - x) > 0.2
+                && (hitPos.x - x) < 0.81
+                && (hitPos.y - y) > 0.17
+                && (hitPos.y - y) < 0.71
+                && (hitPos.z - z) == 0.0625
+                && ((blockDirection == Direction.NORTH) || (blockDirection == Direction.UP) || (blockDirection == Direction.DOWN)))
                 ||
-                ((hit.getPos().x - pos.getX()) > 0.2
-                &&(hit.getPos().x - pos.getX()) < 0.81
-                && (hit.getPos().y - pos.getY()) > 0.17
-                && (hit.getPos().y - pos.getY()) < 0.71
-                && (hit.getPos().z - pos.getZ()) == 0.9375
-                && (blockState.get(Properties.FACING) == Direction.SOUTH))
+                ((hitPos.x - x) > 0.2
+                &&(hitPos.x - x) < 0.81
+                && (hitPos.y - y) > 0.17
+                && (hitPos.y - y) < 0.71
+                && (hitPos.z - z) == 0.9375
+                && (blockDirection == Direction.SOUTH))
                 ||
-                ((hit.getPos().x - pos.getX()) == 0.9375
-                && (hit.getPos().y - pos.getY()) > 0.17
-                && (hit.getPos().y - pos.getY()) < 0.71
-                && (hit.getPos().z - pos.getZ()) > 0.2
-                && (hit.getPos().z - pos.getZ()) < 0.81
-                && (blockState.get(Properties.FACING) == Direction.EAST))
+                ((hitPos.x - x) == 0.9375
+                && (hitPos.y - y) > 0.17
+                && (hitPos.y - y) < 0.71
+                && (hitPos.z - z) > 0.2
+                && (hitPos.z - z) < 0.81
+                && (blockDirection == Direction.EAST))
                 ||
-                ((hit.getPos().x - pos.getX()) == 0.0625
-                && (hit.getPos().y - pos.getY()) > 0.17
-                && (hit.getPos().y - pos.getY()) < 0.71
-                && (hit.getPos().z - pos.getZ()) > 0.2
-                && (hit.getPos().z - pos.getZ()) < 0.81
-                && (blockState.get(Properties.FACING) == Direction.WEST))) {
+                ((hitPos.x - x) == 0.0625
+                && (hitPos.y - y) > 0.17
+                && (hitPos.y - y) < 0.71
+                && (hitPos.z - z) > 0.2
+                && (hitPos.z - z) < 0.81
+                && (blockDirection == Direction.WEST))) {
                     // If the player hit the drawers section of the table
+                    BlockEntity blockEntity = world.getBlockEntity(pos);
                     player.openHandledScreen((BarrelBlockEntity)blockEntity);
                     return ActionResult.CONSUME;
             }
