@@ -1,5 +1,5 @@
 {
-  "id": "tiered:resilient",
+  "id": "tiered:builders",
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
@@ -7,17 +7,17 @@
     { "tag": "c:boots" }
   ],
   "style": {
-    "color": "light_purple"
+    "color": "aqua"
   },
-  "weight": 2,
-  "tooltip_image": [4],
-  "tooltip_border":  ["FF996922"],
-  "reforge_cost": 21,
+  "weight": 3,
+  "tooltip_image": [3],
+  "tooltip_border":  ["FF7FFFFF"],
+  "reforge_cost": 13,
   "attributes": [
     {
-      "type": "generic.max_health",
+      "type": "reach-entity-attributes:reach",
       "modifier": {
-        "name": "tiered:resilient",
+        "name": "tiered:builders",
         "operation": "ADDITION",
         "amount": 1
       },

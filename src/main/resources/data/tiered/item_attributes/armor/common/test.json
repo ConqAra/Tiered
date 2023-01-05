@@ -5,15 +5,14 @@
     { "tag": "c:chestplates" },
     { "tag": "c:leggings" },
     { "tag": "c:boots" },
-    { "tag": "c:shields" },
-    { "tag": "minecraft:planks" }
+    { "tag": "c:shields" }
   ],
   "style": {
-    "color": "green"
+    "color": "gray"
   },
-  "weight": 0,
-  "tooltip_image": [3],
-  "tooltip_border":  ["FF55FF55"],
+  "weight": 20,
+  "tooltip_image": [6],
+  "tooltip_border":  ["00100010"],
   "reforge_cost": 0,
   "attributes": [
     {

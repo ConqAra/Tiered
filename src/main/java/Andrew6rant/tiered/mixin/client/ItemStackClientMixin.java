@@ -1,5 +1,6 @@
 package Andrew6rant.tiered.mixin.client;
 
+import Andrew6rant.tiered.api.AttributeTemplate;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import Andrew6rant.tiered.Tiered;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.MutableText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -95,7 +97,7 @@ public abstract class ItemStackClientMixin {
 
             if (potentialAttribute != null) {
                 if(!potentialAttribute.getAttributes().get(0).getAttributeTypeID().equals("none")) {
-                    info.setReturnValue(new TranslatableText(potentialAttribute.getID() + ".label").append(" ").append(info.getReturnValue()).setStyle(potentialAttribute.getStyle()));
+                    info.setReturnValue(new TranslatableText(potentialAttribute.getID().split("_")[0] + ".name").append(" ").append(info.getReturnValue()).setStyle(potentialAttribute.getStyle()));
                 }
             }
 
@@ -105,6 +107,8 @@ public abstract class ItemStackClientMixin {
             method = "getTooltip",
             at = @At(value = "RETURN", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
     private void test(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
+        /*
+
         if (isTiered && this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) { // only run on tiered items
             List<Text> list = cir.getReturnValue();
             List<Text> badlyFormattedList = new ArrayList<>();
@@ -199,6 +203,21 @@ public abstract class ItemStackClientMixin {
                     }
                 }
             }
+            //for (Text text : list) {
+            //    System.out.println(text);
+            //}
+            //System.out.println("-------");
+            Identifier tier = new Identifier(getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+            PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
+            for (AttributeTemplate attribute : potentialAttribute.getAttributes()) {
+                if (attribute.getTooltip() != null) {
+                    List<Object> tooltips = attribute.getTooltip();
+                    for (Object tooltip : tooltips.subList(1, tooltips.size())) {
+                        list.add(new TranslatableText((String) tooltip).setStyle((Style) tooltips.get(0)));
+                    }
+                }
+            }
         }
+        */
     }
 }

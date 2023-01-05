@@ -26,6 +26,13 @@ repositories {
             includeGroup "com.jamieswhiteshirt"
         }
     }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
 }
 
 dependencies {
@@ -43,7 +50,7 @@ dependencies {
 
     modImplementation "curse.maven:iceberg-539382:3675784"
 
-    include modImplementation('com.github.ZsoltMolnarrr:ProjectileDamage:1.18.2-1.0.2-2')
+    modImplementation "maven.modrinth:projectile-damage-attribute:3.0.0+1.18.2-fabric"
 }
 
 processResources {

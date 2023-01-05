@@ -1,28 +1,27 @@
 {
-  "id": "tiered:resilient",
+  "id": "tiered:architects",
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
-    { "tag": "c:leggings" },
-    { "tag": "c:boots" }
+    { "tag": "c:leggings" }
   ],
   "style": {
     "color": "light_purple"
   },
-  "weight": 2,
+  "weight": 200,
   "tooltip_image": [4],
   "tooltip_border":  ["FF996922"],
   "reforge_cost": 21,
   "attributes": [
     {
-      "type": "generic.max_health",
+      "type": "reach-entity-attributes:reach",
+      "tooltip": ["tiered:architects.tooltip"],
       "modifier": {
-        "name": "tiered:resilient",
+        "name": "tiered:architects",
         "operation": "ADDITION",
-        "amount": 1
+        "amount": 2
       },
       "optional_equipment_slots": [
-        "FEET",
         "LEGS",
         "CHEST",
         "HEAD"

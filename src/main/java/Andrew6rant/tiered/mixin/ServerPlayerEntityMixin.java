@@ -40,6 +40,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         }
         // this will update the player's health when switching items
         if (this.getHealth() != this.getMaxHealth()) {
+            //System.out.println("Health: " + this.getHealth());
             this.setHealth(this.getHealth());
         }
     }

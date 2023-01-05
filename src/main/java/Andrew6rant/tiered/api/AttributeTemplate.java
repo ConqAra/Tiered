@@ -9,6 +9,8 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.List;
+
 /**
  * Stores information on an AttributeModifier template applied to an ItemStack.
  *
@@ -35,19 +37,15 @@ public class AttributeTemplate {
     @SerializedName("optional_equipment_slots")
     private final EquipmentSlot[] optionalEquipmentSlots;
 
-    //@SerializedName("size")
-    //private final String size;
+    @SerializedName("tooltip")
+    private final List<Object> tooltip;
 
-    //@SerializedName("rarity")
-    //private final String rarity;
-
-    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots) {
+    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots, List<Object> tooltip) {
         this.attributeTypeID = attributeTypeID;
         this.entityAttributeModifier = entityAttributeModifier;
         this.requiredEquipmentSlots = requiredEquipmentSlots;
         this.optionalEquipmentSlots = optionalEquipmentSlots;
-        //this.size = size;
-        //this.rarity = rarity;
+        this.tooltip = tooltip;
     }
 
     public EquipmentSlot[] getRequiredEquipmentSlots() {
@@ -62,13 +60,9 @@ public class AttributeTemplate {
         return attributeTypeID;
     }
 
-    /*public String getSize() {
-        return size;
-    }*/
-
-    /*public String getRarity() {
-        return rarity;
-    }*/
+    public List<Object> getTooltip() {
+        return tooltip;
+    }
 
     /**
      * Uses this {@link AttributeTemplate} to create an {@link EntityAttributeModifier}, which is placed into the given {@link Multimap}.
