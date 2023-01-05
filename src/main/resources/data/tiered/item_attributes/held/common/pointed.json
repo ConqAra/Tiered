@@ -12,7 +12,7 @@
   "reforge_cost": 5,
   "attributes": [
     {
-      "type": "generic.projectile_damage",
+      "type": "projectile_damage:generic",
       "modifier": {
         "name": "tiered:pointed",
         "operation": "MULTIPLY_BASE",
