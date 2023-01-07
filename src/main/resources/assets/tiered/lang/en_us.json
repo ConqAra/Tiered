@@ -8,12 +8,19 @@
 
   "message.tiered.no_xp": "Not enough xp!",
 
-  "tooltip.tiered.add": " %1$s %2$s (%3$s + %4$s)",
-  "tooltip.tiered.subtract": " %1$s %2$s (%3$s - %4$s)",
-  "tooltip.tiered.multiply_base": " %1$s %2$s (%3$s + %4$s%%)",
-  "tooltip.tiered.multiply_total": " %1$s %2$s (Total * %4$s%%)",
-  "tooltip.tiered.divide_base": " %1$s %2$s (%3$s - %4$s%%)",
-  "tooltip.tiered.divide_total": " %1$s %2$s (Total * %4$s%%)",
+  "tooltip.tiered.add": "+%1$s %2$s (%3$s + %4$s)",
+  "tooltip.tiered.subtract": "+%1$s %2$s (%3$s - %4$s)",
+  "tooltip.tiered.multiply_base": "+%1$s %2$s (%3$s + %4$s%%)",
+  "tooltip.tiered.multiply_total": "+%1$s %2$s (Total * %4$s%%)",
+  "tooltip.tiered.divide_base": "+%1$s %2$s (%3$s - %4$s%%)",
+  "tooltip.tiered.divide_total": "+%1$s %2$s (Total * %4$s%%)",
+
+  "tooltip.tiered.add_held": " %1$s %2$s (%3$s + %4$s)",
+  "tooltip.tiered.subtract_held": " %1$s %2$s (%3$s - %4$s)",
+  "tooltip.tiered.multiply_base_held": " %1$s %2$s (%3$s + %4$s%%)",
+  "tooltip.tiered.multiply_total_held": " %1$s %2$s (Total * %4$s%%)",
+  "tooltip.tiered.divide_base_held": " %1$s %2$s (%3$s - %4$s%%)",
+  "tooltip.tiered.divide_total_held": " %1$s %2$s (Total * %4$s%%)",
 
   "attribute.modifier.plus.2": "+%s%% Total %s",
   "attribute.modifier.take.2": "-%s%% Total %s",

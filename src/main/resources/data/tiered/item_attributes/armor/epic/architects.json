@@ -8,7 +8,7 @@
   "style": {
     "color": "light_purple"
   },
-  "weight": 200,
+  "weight": 2,
   "tooltip_image": [4],
   "tooltip_border":  ["FF996922"],
   "reforge_cost": 21,

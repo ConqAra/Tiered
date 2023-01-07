@@ -10,7 +10,7 @@
   "style": {
     "color": "gray"
   },
-  "weight": 20,
+  "weight": 0,
   "tooltip_image": [6],
   "tooltip_border":  ["00100010"],
   "reforge_cost": 0,
