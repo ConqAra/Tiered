@@ -110,17 +110,17 @@ public abstract class ItemStackClientMixin {
         if (isTiered && this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) { // only run on tiered items
             List<Text> list = cir.getReturnValue();
             List<Text> badlyFormattedList = new ArrayList<>();
-            List<Text> properlyFormattedList = new ArrayList<>();
+            Set<Text> modifierSet = new HashSet<>();
+            List<Text> modifierList = new ArrayList<>();
 
             list.removeIf(text -> (!(text instanceof TranslatableText) && text.getSiblings().size() == 0)); // remove blank tooltip lines
             for (Text text : list) {
             //    System.out.println("||||| "+text);
             }
-            List<TranslatableText> modifierList = new ArrayList<>();
             //boolean hasMainhand = false;
             //boolean hasOffhand = false;
-            byte hasMainhandIndex = -1; // invalid index
-            byte hasOffhandIndex = -1;
+            byte mainhandIndex = -1; // invalid index
+            byte offhandIndex = -1;
             // tooltip may need to be combined, e.g.
             // When in Main Hand: ...
             // and
@@ -130,19 +130,23 @@ public abstract class ItemStackClientMixin {
             // but only if main and off hand are identical
             for (byte i = 0; i < list.size(); i++) {
                 if (list.get(i) instanceof TranslatableText translatableText) {
-                    properlyFormattedList.add(translatableText);
-                    if (translatableText.getKey().startsWith("item.modifiers.mainhand")) {
-                        hasMainhandIndex = i;
+                    if (translatableText.getKey().startsWith("attribute.modifier")) {
+                        modifierSet.add(translatableText);
                     }
-                    if (translatableText.getKey().startsWith("item.modifiers.offhand")) {
-                        hasOffhandIndex = i;
+                    if (translatableText.getKey().equals("item.modifiers.mainhand")) {
+                        mainhandIndex = i;
+                        modifierList.add(translatableText);
+                    }
+                    if (translatableText.getKey().equals("item.modifiers.offhand")) {
+                        offhandIndex = i;
+                        modifierList.add(translatableText);
                     }
                 } else {
                     badlyFormattedList.add(list.get(i));
                 }
             }
             // This code replaces Vanilla's held item damage and attack speed tooltips (the green ones) with a custom one
-            if (hasMainhandIndex != -1) { // only run this code on held items
+            if (mainhandIndex != -1) { // only run this code on held items
                 for (Text text : badlyFormattedList) {
                     if (text.getSiblings() != null) {
                         for (Text sibling : text.getSiblings()) {
@@ -150,32 +154,22 @@ public abstract class ItemStackClientMixin {
                             if (sibling instanceof TranslatableText translatableText) {
                                 if (translatableText.getKey().equals("attribute.modifier.equals.0")) {
                                     list.remove(text);
-                                    list.add(hasMainhandIndex + 1, new TranslatableText(translatableText.getKey(), trailZeros(Float.parseFloat(String.valueOf(translatableText.getArgs()[0]))), new TranslatableText(((TranslatableText)translatableText.getArgs()[1]).getKey())).formatted(Formatting.DARK_GREEN));
+                                    list.add(mainhandIndex + 1, new TranslatableText(translatableText.getKey(), trailZeros(Float.parseFloat(String.valueOf(translatableText.getArgs()[0]))), new TranslatableText(((TranslatableText)translatableText.getArgs()[1]).getKey())).formatted(Formatting.DARK_GREEN));
                                 }
                             }
                         }
                     }
                 }
             }
+            for (Text text : list) {
+                    System.out.println("||||| "+text);
+            }
             // if both mainhand and offhand are present, remove duplicate tooltip items
-            if (hasMainhandIndex != -1 && hasOffhandIndex != -1) {
-                //System.out.println("has both, Mainhand: "+hasMainhandIndex+" Offhand: "+hasOffhandIndex);
-                //List<Text> tempList = list.subList(hasMainhandIndex, hasOffhandIndex - 1);
-                //System.out.println("sublist 1: "+list.subList(hasMainhandIndex + 1, hasOffhandIndex - 1));
-                //System.out.println("sublist 2: "+list.subList(hasOffhandIndex + 1, list.size()));
-
-                List<Text> tempList = properlyFormattedList.subList(1, (properlyFormattedList.size() / 2) - 1);
-                List<Text> tempList2 = properlyFormattedList.subList((properlyFormattedList.size() / 2) + 1, properlyFormattedList.size() - 1);
-                //System.out.println("sublist 1: "+properlyFormattedList.subList(1, (properlyFormattedList.size() / 2) - 1));
-                //System.out.println("sublist 2: "+properlyFormattedList.subList((properlyFormattedList.size() / 2) + 1, properlyFormattedList.size() - 1));
-                System.out.println(tempList.equals(tempList2));
-
-                if (properlyFormattedList.subList(1, (properlyFormattedList.size() / 2) - 1).equals(properlyFormattedList.subList((properlyFormattedList.size() / 2) + 1, properlyFormattedList.size() - 1))) { // if both mainhand and offhand are identical
-                    System.out.println("both are identical");
-                    //list.removeAll(properlyFormattedList.subList(hasMainhandIndex, hasOffhandIndex));
-                    //list.addAll(hasMainhandIndex, tempList);
-                    //list.add(hasMainhandIndex, new TranslatableText("item.modifiers.both_hands").formatted(Formatting.GRAY));
-                }
+            if (mainhandIndex != -1 && offhandIndex != -1) {
+                list.removeAll(modifierList); // remove mainhand and offhand tooltips
+                list.removeAll(modifierSet); // removes all instances of TranslatableComponents in the set (there are duplicates in the list)
+                list.addAll(modifierSet); // adds back only one of each TranslatableComponent tooltip item
+                list.add(mainhandIndex, new TranslatableText("item.modifiers.both_hands").formatted(Formatting.GRAY)); // add combo text for mainhand/offhand replacement
             }
 
 
