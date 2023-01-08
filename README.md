@@ -8,6 +8,7 @@ There is also a Reforging station added to reroll item attributes:
   <summary>Show Reforging Station</summary>
 
 ![Tiered Reforging Station](https://user-images.githubusercontent.com/57331134/172750885-5ba9668d-51db-43ff-ba63-d5c177210462.png)
+The Reforging Station holds a small inventory, click on the drawer to open it.
 </details>
 
 Tiered was originally made by Draylar, and is being updated and maintained by Andrew6rant.
@@ -38,6 +39,15 @@ Tiered is almost entirely data-driven, which means you can add, modify, and remo
         "name": "tiered:hasteful",
         "operation": "MULTIPLY_BASE",
         "amount": 0.10
+      },
+      "tooltip": {
+        "style": {
+          "color": "gray"
+        },
+        "text": [
+          "tiered:hasteful.tooltip",
+          "tiered:hasteful.tooltip_2"
+        ]
       },
       "optional_equipment_slots": [
         "MAINHAND",
@@ -78,12 +88,13 @@ Reforging an item's modifier costs experience points (not levels). Each item's c
 
 ### Tooltips
 
-Tiered provides five customization options regarding tooltips.
+Tiered provides six customization options regarding tooltips.
 
 - `color` changes the text color
 - `tooltip_image` specifies the border style (see below)
 - `tooltip_border` determines the line colors of the border. It is an array of 0xAARRGGBB hexadecimal formatted strings. Use one value to color the entire border, or two to specify the start and end colors.
 - `no_tooltip` can be used in the `name` section of an attribute to prevent it from showing. For example, this can be useful for the `reach` and `attack_range` modifier types, as they are often used together and can clutter a tooltip.
+- `tooltip` is an optional section in the `attributes` array. It allows you to add additional text to the tooltip. The `text` array is for translation keys, and there is an optional `style` section as well (otherwise, the text is colored to the above `style`)
 
 Here is the formatting for the border style. This image allows for up to 16 styles (0-15):
 

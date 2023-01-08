@@ -38,9 +38,9 @@ public class AttributeTemplate {
     private final EquipmentSlot[] optionalEquipmentSlots;
 
     @SerializedName("tooltip")
-    private final List<Object> tooltip;
+    private final TooltipClass tooltip;
 
-    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots, List<Object> tooltip) {
+    public AttributeTemplate(String attributeTypeID, EntityAttributeModifier entityAttributeModifier, EquipmentSlot[] requiredEquipmentSlots, EquipmentSlot[] optionalEquipmentSlots, TooltipClass tooltip) {
         this.attributeTypeID = attributeTypeID;
         this.entityAttributeModifier = entityAttributeModifier;
         this.requiredEquipmentSlots = requiredEquipmentSlots;
@@ -60,7 +60,7 @@ public class AttributeTemplate {
         return attributeTypeID;
     }
 
-    public List<Object> getTooltip() {
+    public TooltipClass getTooltip() {
         return tooltip;
     }
 

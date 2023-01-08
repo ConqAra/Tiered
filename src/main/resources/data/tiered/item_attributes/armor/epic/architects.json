@@ -15,7 +15,15 @@
   "attributes": [
     {
       "type": "reach-entity-attributes:reach",
-      "tooltip": ["tiered:architects.tooltip"],
+      "tooltip": {
+        "style": {
+          "color": "gray"
+        },
+        "text": [
+          "tiered:architects.tooltip",
+          "tiered:architects.tooltip_2"
+        ]
+      },
       "modifier": {
         "name": "tiered:architects",
         "operation": "ADDITION",

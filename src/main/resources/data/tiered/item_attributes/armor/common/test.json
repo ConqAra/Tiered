@@ -1,11 +1,6 @@
 {
   "id": "okay:test",
   "verifiers": [
-    { "tag": "c:helmets" },
-    { "tag": "c:chestplates" },
-    { "tag": "c:leggings" },
-    { "tag": "c:boots" },
-    { "tag": "c:shields" }
   ],
   "style": {
     "color": "gray"

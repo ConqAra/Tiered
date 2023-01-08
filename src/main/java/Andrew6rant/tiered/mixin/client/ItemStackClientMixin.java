@@ -1,6 +1,7 @@
 package Andrew6rant.tiered.mixin.client;
 
 import Andrew6rant.tiered.api.AttributeTemplate;
+import Andrew6rant.tiered.api.TooltipClass;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import Andrew6rant.tiered.Tiered;
@@ -108,6 +109,8 @@ public abstract class ItemStackClientMixin {
             at = @At(value = "RETURN", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
     private void test(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
         if (isTiered && this.hasNbt() && this.getSubNbt(Tiered.NBT_SUBTAG_KEY) != null) { // only run on tiered items
+            Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
+            PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
             List<Text> list = cir.getReturnValue();
             List<Text> badlyFormattedList = new ArrayList<>();
             Set<TranslatableText> modifierSet = new HashSet<>();
@@ -115,6 +118,10 @@ public abstract class ItemStackClientMixin {
             Set<String> set = new HashSet<>();
             Set<TranslatableText> noDuplicates = new HashSet<>();
             String heldOrArmor = "";
+
+            //for (Text text : list) {
+            //    System.out.println(text);
+            //}
 
             // remove blank tooltip lines
             list.removeIf(text -> (!(text instanceof TranslatableText) && text.getSiblings().size() == 0));
@@ -193,8 +200,6 @@ public abstract class ItemStackClientMixin {
                     String val1Str = trailZeros(val1);
                     String val2Str = trailZeros(val2);
                     if (key.getKey().equals(key_compare.getKey())) {
-                        Identifier tier = new Identifier(this.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-                        PotentialAttribute attribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
                         list.remove(noDuplicates.toArray()[i]);
                         list.remove(noDuplicates.toArray()[j]);
                         switch (text.getKey() + text_compare.getKey()) {
@@ -218,19 +223,18 @@ public abstract class ItemStackClientMixin {
                 }
             }
 
-        }
-        /*
-            Identifier tier = new Identifier(getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).getString(Tiered.NBT_SUBTAG_DATA_KEY));
-            PotentialAttribute potentialAttribute = Tiered.ATTRIBUTE_DATA_LOADER.getItemAttributes().get(tier);
-            for (AttributeTemplate attribute : potentialAttribute.getAttributes()) {
-                if (attribute.getTooltip() != null) {
-                    List<Object> tooltips = attribute.getTooltip();
-                    for (Object tooltip : tooltips.subList(1, tooltips.size())) {
-                        list.add(new TranslatableText((String) tooltip).setStyle((Style) tooltips.get(0)));
+            for (AttributeTemplate attributeTemplate : attribute.getAttributes()) {
+                if (attributeTemplate.getTooltip() != null) {
+                    TooltipClass tooltips = attributeTemplate.getTooltip();
+                    for (String tooltipText : tooltips.getTooltipText()) {
+                        if (tooltips.getStyle() != null) {
+                            list.add(new TranslatableText(tooltipText).setStyle(tooltips.getStyle()));
+                        } else {
+                            list.add(new TranslatableText(tooltipText).setStyle(attribute.getStyle()));
+                        }
                     }
                 }
             }
         }
-        */
     }
 }

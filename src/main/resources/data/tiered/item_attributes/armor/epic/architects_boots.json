@@ -6,16 +6,24 @@
   "style": {
     "color": "light_purple"
   },
-  "weight": 2,
+  "weight": 3,
   "tooltip_image": [4],
   "tooltip_border":  ["FF996922"],
   "reforge_cost": 21,
   "attributes": [
     {
       "type": "reach-entity-attributes:reach",
-      "tooltip": ["light_purple", "tiered:architects.tooltip"],
+      "tooltip": {
+        "style": {
+          "color": "gray"
+        },
+        "text": [
+          "tiered:architects.tooltip",
+          "tiered:architects.tooltip_2"
+        ]
+      },
       "modifier": {
-        "name": "no_tooltip",
+        "name": "tiered:architects_boots",
         "operation": "ADDITION",
         "amount": 2
       },

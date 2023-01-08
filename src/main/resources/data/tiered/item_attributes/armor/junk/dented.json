@@ -3,8 +3,7 @@
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
-    { "tag": "c:leggings" },
-    { "tag": "c:boots" }
+    { "tag": "c:leggings" }
   ],
   "style": {
     "color": "gray"

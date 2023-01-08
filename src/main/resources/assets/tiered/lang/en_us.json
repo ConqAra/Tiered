@@ -106,7 +106,8 @@
     "///": "Epic",
       "tiered:resilient.name": "Resilient",
       "tiered:architects.name": "Architect's",
-      "tiered:architects.tooltip": "Only affects Reach, not Attack Range",
+      "tiered:architects.tooltip": "Only affects Reach,",
+      "tiered:architects.tooltip_2": "not Attack Range",
 
     "///": "Legendary"
 }
