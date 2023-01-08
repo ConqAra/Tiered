@@ -21,6 +21,15 @@
         "operation": "ADDITION",
         "amount": 1
       },
+      "tooltip": {
+        "style": {
+          "color": "gray"
+        },
+        "text": [
+          "tiered:architects.tooltip",
+          "tiered:architects.tooltip_2"
+        ]
+      },
       "optional_equipment_slots": [
         "FEET",
         "LEGS",

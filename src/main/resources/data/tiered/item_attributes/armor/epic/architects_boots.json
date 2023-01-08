@@ -13,6 +13,11 @@
   "attributes": [
     {
       "type": "reach-entity-attributes:reach",
+      "modifier": {
+        "name": "tiered:architects_boots",
+        "operation": "ADDITION",
+        "amount": 2
+      },
       "tooltip": {
         "style": {
           "color": "gray"
@@ -21,11 +26,6 @@
           "tiered:architects.tooltip",
           "tiered:architects.tooltip_2"
         ]
-      },
-      "modifier": {
-        "name": "tiered:architects_boots",
-        "operation": "ADDITION",
-        "amount": 2
       },
       "optional_equipment_slots": [
         "FEET"
