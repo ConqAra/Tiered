@@ -1,8 +1,6 @@
 {
   "id": "tiered:sluggish",
   "verifiers": [
-    { "tag": "c:swords" },
-    { "tag": "c:axes" },
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
     { "tag": "c:hoes" }
@@ -10,21 +8,20 @@
   "style": {
     "color": "gray"
   },
-  "weight": 2,
+  "weight": 3,
   "tooltip_image": [0],
   "tooltip_border":  ["FFAAAAAA"],
   "reforge_cost": 3,
   "attributes": [
     {
-      "type": "generic.attack_speed",
+      "type": "tiered:generic.dig_speed",
       "modifier": {
         "name": "tiered:sluggish",
         "operation": "MULTIPLY_BASE",
-        "amount": -0.25
+        "amount": -0.10
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

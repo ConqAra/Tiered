@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
-    "minecraft:fishing_rod"
+    "minecraft:fishing_rod",
+    "gofish:blaze_rod",
+    "gofish:diamond_reinforced_rod",
+    "gofish:ender_rod",
+    "gofish:frosted_rod",
+    "gofish:slime_rod",
+    "gofish:celestial_rod",
+    "gofish:skeletal_rod",
+    "gofish:soul_rod",
+    "gofish:matrix_rod"
   ]
 }

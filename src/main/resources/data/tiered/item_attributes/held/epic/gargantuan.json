@@ -5,15 +5,17 @@
     { "tag": "c:axes" },
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
-    { "tag": "c:hoes" }
+    { "tag": "c:hoes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
-    "color": "aqua"
+    "color": "light_purple"
   },
-  "weight": 3,
-  "tooltip_image": [3],
-  "tooltip_border":  ["FF7FFFFF"],
-  "reforge_cost": 13,
+  "weight": 2,
+  "tooltip_image": [4],
+  "tooltip_border":  ["FF996922"],
+  "reforge_cost": 21,
   "attributes": [
     {
       "type": "generic.attack_speed",
@@ -23,10 +25,20 @@
         "amount": -0.75
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
+    {
+      "type": "tiered:generic.dig_speed",
+      "modifier": {
+        "name": "tiered:gargantuan",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.30
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
     {
       "type": "reach-entity-attributes:reach",
       "modifier": {
@@ -35,8 +47,7 @@
         "amount": 3
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -47,8 +58,7 @@
         "amount": 3
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -59,8 +69,7 @@
         "amount": 1.5
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

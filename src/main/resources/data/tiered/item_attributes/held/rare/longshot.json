@@ -1,0 +1,27 @@
+{
+    "id": "tiered:longshot",
+    "verifiers": [
+      { "tag": "c:bows" },
+      { "tag": "c:crossbows" }
+    ],
+  "style": {
+    "color": "aqua"
+  },
+  "weight": 3,
+  "tooltip_image": [3],
+  "tooltip_border":  ["FF7FFFFF"],
+  "reforge_cost": 13,
+    "attributes": [
+        {
+            "type": "projectile_damage:generic",
+            "modifier": {
+                "name": "tiered:longshot",
+                "operation": "MULTIPLY_BASE",
+                "amount": 0.40
+            },
+            "optional_equipment_slots": [
+                "MAINHAND"
+            ]
+        }
+    ]
+}

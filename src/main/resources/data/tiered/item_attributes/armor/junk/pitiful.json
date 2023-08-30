@@ -1,5 +1,5 @@
 {
-  "id": "tiered:resilient",
+  "id": "tiered:pitiful",
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
@@ -7,19 +7,19 @@
     { "tag": "c:boots" }
   ],
   "style": {
-    "color": "light_purple"
+    "color": "gray"
   },
-  "weight": 2,
-  "tooltip_image": [4],
-  "tooltip_border":  ["FF996922"],
-  "reforge_cost": 21,
+  "weight": 3,
+  "tooltip_image": [0, 1, 2, 3, 4, 200],
+  "tooltip_border":  ["FFAAAAAA"],
+  "reforge_cost": 3,
   "attributes": [
     {
       "type": "generic.max_health",
       "modifier": {
-        "name": "tiered:resilient",
+        "name": "tiered:pitiful",
         "operation": "ADDITION",
-        "amount": 1
+        "amount": -1
       },
       "optional_equipment_slots": [
         "FEET",

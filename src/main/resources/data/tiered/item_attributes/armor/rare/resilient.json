@@ -1,5 +1,5 @@
 {
-  "id": "tiered:builders",
+  "id": "tiered:resilient",
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
@@ -15,20 +15,11 @@
   "reforge_cost": 13,
   "attributes": [
     {
-      "type": "reach-entity-attributes:reach",
+      "type": "generic.max_health",
       "modifier": {
-        "name": "tiered:builders",
+        "name": "tiered:resilient",
         "operation": "ADDITION",
-        "amount": 1
-      },
-      "tooltip": {
-        "style": {
-          "color": "gray"
-        },
-        "text": [
-          "tiered:architects.tooltip",
-          "tiered:architects.tooltip_2"
-        ]
+        "amount": 2
       },
       "optional_equipment_slots": [
         "FEET",

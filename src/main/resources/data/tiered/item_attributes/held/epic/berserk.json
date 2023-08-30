@@ -1,0 +1,51 @@
+{
+  "id": "tiered:berserk",
+  "verifiers": [
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
+  ],
+  "style": {
+    "color": "light_purple"
+  },
+  "weight": 2,
+  "tooltip_image": [4],
+  "tooltip_border":  ["FF996922"],
+  "reforge_cost": 21,
+  "attributes": [
+    {
+      "type": "generic.max_health",
+      "modifier": {
+        "name": "tiered:berserk",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.3
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.attack_speed",
+      "modifier": {
+        "name": "tiered:berserk",
+        "operation": "MULTIPLY_BASE",
+        "amount": 1.3
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:berserk",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.3
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

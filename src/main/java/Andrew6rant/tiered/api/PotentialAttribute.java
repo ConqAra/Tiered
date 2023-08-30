@@ -5,6 +5,8 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 public class PotentialAttribute {
 
     private final String id;

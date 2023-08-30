@@ -1,0 +1,39 @@
+{
+  "id": "tiered:dawnguard",
+  "verifiers": [
+    { "tag": "c:shields" }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "weight": 5,
+  "tooltip_image": [2],
+  "tooltip_border":  ["FF55FF55"],
+  "reforge_cost": 8,
+  "attributes": [
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:dawnguard",
+        "operation": "ADDITION",
+        "amount": 2
+      },
+      "optional_equipment_slots": [
+        "MAINHAND",
+        "OFFHAND"
+      ]
+    },
+    {
+      "type": "generic.max_health",
+      "modifier": {
+        "name": "tiered:dawnguard",
+        "operation": "ADDITION",
+        "amount": 2
+      },
+      "optional_equipment_slots": [
+        "MAINHAND",
+        "OFFHAND"
+      ]
+    }
+  ]
+}

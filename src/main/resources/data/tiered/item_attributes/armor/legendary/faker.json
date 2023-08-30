@@ -1,0 +1,74 @@
+{
+  "id": "tiered:faker",
+  "verifiers": [
+    { "tag": "c:helmets" },
+    { "tag": "c:chestplates" },
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" }
+  ],
+  "style": {
+    "color": "gold"
+  },
+  "weight": 1,
+  "tooltip_image": [6, 7, 8, 9, 10, 11, 150],
+  "tooltip_border":  ["FFFFBB00"],
+  "reforge_cost": 30,
+  "attributes": [
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:faker",
+        "operation": "ADDITION",
+        "amount": 3
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    },
+    {
+      "type": "generic.max_health",
+      "modifier": {
+        "name": "tiered:faker",
+        "operation": "ADDITION",
+        "amount": 3
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    },
+    {
+      "type": "generic.armor_toughness",
+      "modifier": {
+        "name": "tiered:faker",
+        "operation": "ADDITION",
+        "amount": 1.5
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    },
+    {
+      "type": "generic.knockback_resistance",
+      "modifier": {
+        "name": "tiered:faker",
+        "operation": "ADDITION",
+        "amount": 0.1
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    }
+  ]
+}

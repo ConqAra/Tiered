@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "pbp",
+    "dad"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:red_wool"
+    },
+    "b": {
+      "item": "minecraft:bookshelf"
+    },
+    "a": {
+      "item": "minecraft:anvil"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "d": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "tiered:reforging_station"
+  }
+}

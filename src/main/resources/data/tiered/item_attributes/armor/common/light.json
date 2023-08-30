@@ -1,0 +1,26 @@
+{
+    "id": "tiered:light",
+    "verifiers": [
+        { "tag": "c:shields" }
+    ],
+  "style": {
+    "color": "white"
+  },
+  "weight": 8,
+  "tooltip_image": [0, 1, 2, 3, 4, 500],
+  "tooltip_border":  ["FFFFFFFF"],
+  "reforge_cost": 5,
+    "attributes": [
+    {
+      "type": "generic.movement_speed",
+      "modifier": {
+        "name": "tiered:holy",
+        "operation": "ADDITION",
+        "amount": 0.005
+      },
+      "optional_equipment_slots": [
+        "OFFHAND"
+      ]
+    }
+  ]
+}

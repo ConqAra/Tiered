@@ -1,9 +1,10 @@
 {
-  "id": "tiered:architects",
+  "id": "tiered:bulletproof",
   "verifiers": [
     { "tag": "c:helmets" },
     { "tag": "c:chestplates" },
-    { "tag": "c:leggings" }
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" }
   ],
   "style": {
     "color": "light_purple"
@@ -14,22 +15,14 @@
   "reforge_cost": 21,
   "attributes": [
     {
-      "type": "reach-entity-attributes:reach",
-      "tooltip": {
-        "style": {
-          "color": "gray"
-        },
-        "text": [
-          "tiered:architects.tooltip",
-          "tiered:architects.tooltip_2"
-        ]
-      },
+      "type": "generic.armor",
       "modifier": {
-        "name": "tiered:architects",
+        "name": "tiered:bulletproof",
         "operation": "ADDITION",
-        "amount": 2
+        "amount": 4
       },
       "optional_equipment_slots": [
+        "FEET",
         "LEGS",
         "CHEST",
         "HEAD"

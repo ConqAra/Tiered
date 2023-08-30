@@ -1,0 +1,38 @@
+{
+    "id": "tiered:hunting",
+    "verifiers": [
+        { "tag": "c:bows" },
+        { "tag": "c:crossbows" }
+    ],
+  "style": {
+    "color": "green"
+  },
+  "weight": 5,
+  "tooltip_image": [2],
+  "tooltip_border":  ["FF55FF55"],
+  "reforge_cost": 8,
+    "attributes": [
+        {
+            "type": "projectile_damage:generic",
+            "modifier": {
+                "name": "tiered:hunting",
+                "operation": "MULTIPLY_BASE",
+                "amount": 0.20
+            },
+            "optional_equipment_slots": [
+                "MAINHAND"
+            ]
+        },
+        {
+            "type": "generic.movement_speed",
+            "modifier": {
+                "name": "tiered:hunting",
+                "operation": "MULTIPLY_BASE",
+                "amount": 0.2
+            },
+            "optional_equipment_slots": [
+                "MAINHAND"
+            ]
+        }
+    ]
+}

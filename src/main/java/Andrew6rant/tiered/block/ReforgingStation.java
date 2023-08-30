@@ -30,6 +30,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.item.Item;
+import net.minecraft.tag.TagKey;
+import net.minecraft.util.registry.Registry;
+
 public class ReforgingStation extends BarrelBlock implements BlockEntityProvider {
     public static final DirectionProperty FACING;
     public static final BooleanProperty OPEN;
@@ -142,11 +146,22 @@ public class ReforgingStation extends BarrelBlock implements BlockEntityProvider
                     player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
                 }
                 return ActionResult.SUCCESS;
+            } else if(stack.getSubNbt(Tiered.NBT_SUBTAG_KEY) == null) {
+                // attempt to get a random tier
+                //Identifier potentialAttributeID = ModifierUtils.getRandomAttributeIDFor(stack.getItem());
+                Identifier potentialAttributeID = ModifierUtils.getWeightedAttributeIDFor(stack);
+
+                // found an ID
+                if(potentialAttributeID != null) {
+                    stack.getOrCreateSubNbt(Tiered.NBT_SUBTAG_KEY).putString(Tiered.NBT_SUBTAG_DATA_KEY, potentialAttributeID.toString());
+                }
+
+                return ActionResult.SUCCESS;
             }
+
         }
         return ActionResult.FAIL;
     }
-
     static {
         FACING = Properties.FACING;
         OPEN = Properties.OPEN;

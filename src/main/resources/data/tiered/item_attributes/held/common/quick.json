@@ -3,9 +3,8 @@
   "verifiers": [
     { "tag": "c:swords" },
     { "tag": "c:axes" },
-    { "tag": "c:pickaxes" },
-    { "tag": "c:shovels" },
-    { "tag": "c:hoes" }
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
     "color": "white"
@@ -23,8 +22,7 @@
         "amount": 0.25
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

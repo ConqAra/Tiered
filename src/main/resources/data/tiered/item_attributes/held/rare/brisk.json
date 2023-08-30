@@ -1,10 +1,9 @@
 {
-  "id": "tiered:fortified",
+  "id": "tiered:brisk",
   "verifiers": [
-    { "tag": "c:helmets" },
-    { "tag": "c:chestplates" },
-    { "tag": "c:leggings" },
-    { "tag": "c:boots" }
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:axes" }
   ],
   "style": {
     "color": "aqua"
@@ -15,17 +14,14 @@
   "reforge_cost": 13,
   "attributes": [
     {
-      "type": "generic.armor",
+      "type": "generic.movement_speed",
       "modifier": {
-        "name": "tiered:fortified",
+        "name": "tiered:brisk",
         "operation": "MULTIPLY_BASE",
-        "amount": 0.25
+        "amount": 0.20
       },
       "optional_equipment_slots": [
-        "FEET",
-        "LEGS",
-        "CHEST",
-        "HEAD"
+        "MAINHAND"
       ]
     }
   ]

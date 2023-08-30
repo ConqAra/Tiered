@@ -23,17 +23,6 @@
       ]
     },
     {
-      "type": "generic.movement_speed",
-      "modifier": {
-        "name": "tiered:leaded",
-        "operation": "MULTIPLY_BASE",
-        "amount": -0.05
-      },
-      "optional_equipment_slots": [
-        "FEET"
-      ]
-    },
-    {
       "type": "stepheightentityattribute:stepheight",
       "modifier": {
         "name": "tiered:leaded",

@@ -20,14 +20,13 @@
       "modifier": {
         "name": "tiered:reinforced",
         "operation": "ADDITION",
-        "amount": 1.5
+        "amount": 2
       },
       "optional_equipment_slots": [
         "FEET",
         "LEGS",
         "CHEST",
         "HEAD",
-        "MAINHAND",
         "OFFHAND"
       ]
     }

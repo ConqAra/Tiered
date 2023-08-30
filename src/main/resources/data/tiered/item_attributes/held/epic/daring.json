@@ -2,7 +2,9 @@
   "id": "tiered:daring",
   "verifiers": [
     { "tag": "c:swords" },
-    { "tag": "c:axes" }
+    { "tag": "c:axes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
     "color": "light_purple"
@@ -20,8 +22,7 @@
         "amount": -0.5
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -32,8 +33,7 @@
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

@@ -1,7 +1,8 @@
 {
   "id": "tiered:blunted",
   "verifiers": [
-    { "tag": "c:bows" }
+    { "tag": "c:bows" },
+    { "tag": "c:crossbows" }
   ],
   "style": {
     "color": "gray"
@@ -19,8 +20,7 @@
         "amount": -0.20
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

@@ -1,0 +1,63 @@
+{
+  "id": "tiered:immovable",
+  "verifiers": [
+    { "tag": "c:helmets" },
+    { "tag": "c:chestplates" },
+    { "tag": "c:leggings" },
+    { "tag": "c:boots" },
+    { "tag": "c:shields" }
+  ],
+  "style": {
+    "color": "light_purple"
+  },
+  "weight": 2,
+  "tooltip_image": [4],
+  "tooltip_border":  ["FF996922"],
+  "reforge_cost": 21,
+  "attributes": [
+    {
+      "type": "generic.knockback_resistance",
+      "modifier": {
+        "name": "tiered:immovable",
+        "operation": "ADDITION",
+        "amount": 0.2
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD",
+        "OFFHAND"
+      ]
+    },
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:immovable",
+        "operation": "ADDITION",
+        "amount": 1.5
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD"
+      ]
+    },
+    {
+      "type": "generic.movement_speed",
+      "modifier": {
+        "name": "tiered:immovable",
+        "operation": "ADDITION",
+        "amount": -0.01
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD",
+        "OFFHAND"
+      ]
+    }
+  ]
+}

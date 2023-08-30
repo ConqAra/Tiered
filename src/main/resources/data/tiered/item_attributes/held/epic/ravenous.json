@@ -1,0 +1,40 @@
+{
+  "id": "tiered:ravenous",
+  "verifiers": [
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
+  ],
+  "style": {
+    "color": "light_purple"
+  },
+  "weight": 2,
+  "tooltip_image": [4],
+  "tooltip_border":  ["FF996922"],
+  "reforge_cost": 21,
+  "attributes": [
+    {
+      "type": "generic.attack_speed",
+      "modifier": {
+        "name": "tiered:ravenous",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.50
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "tiered:generic.crit_chance",
+      "modifier": {
+        "name": "tiered:ravenous",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.50
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

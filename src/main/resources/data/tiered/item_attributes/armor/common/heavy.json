@@ -19,7 +19,7 @@
       "type": "generic.knockback_resistance",
       "modifier": {
         "name": "tiered:heavy",
-        "operation": "MULTIPLY_BASE",
+        "operation": "ADDITION",
         "amount": 0.1
       },
       "optional_equipment_slots": [
@@ -27,7 +27,36 @@
         "LEGS",
         "CHEST",
         "HEAD",
-        "MAINHAND",
+        "OFFHAND"
+      ]
+    },
+    {
+      "type": "generic.armor",
+      "modifier": {
+        "name": "tiered:heavy",
+        "operation": "ADDITION",
+        "amount": 0.5
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD",
+        "OFFHAND"
+      ]
+    },
+    {
+      "type": "generic.movement_speed",
+      "modifier": {
+        "name": "tiered:heavy",
+        "operation": "ADDITION",
+        "amount": -0.005
+      },
+      "optional_equipment_slots": [
+        "FEET",
+        "LEGS",
+        "CHEST",
+        "HEAD",
         "OFFHAND"
       ]
     }

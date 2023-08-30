@@ -5,7 +5,9 @@
     { "tag": "c:axes" },
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
-    { "tag": "c:hoes" }
+    { "tag": "c:hoes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
     "color": "green"
@@ -23,8 +25,18 @@
         "amount": -0.25
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "tiered:generic.dig_speed",
+      "modifier": {
+        "name": "tiered:large",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.10
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
       ]
     },
     {
@@ -35,8 +47,7 @@
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -47,8 +58,7 @@
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -59,8 +69,7 @@
         "amount": 0.25
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

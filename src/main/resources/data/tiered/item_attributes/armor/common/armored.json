@@ -21,14 +21,13 @@
       "modifier": {
         "name": "tiered:armored",
         "operation": "ADDITION",
-        "amount": 0.5
+        "amount": 1
       },
       "optional_equipment_slots": [
         "FEET",
         "LEGS",
         "CHEST",
         "HEAD",
-        "MAINHAND",
         "OFFHAND"
       ]
     }

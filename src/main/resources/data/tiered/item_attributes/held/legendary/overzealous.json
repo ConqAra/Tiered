@@ -1,0 +1,40 @@
+{
+  "id": "tiered:overzealous",
+  "verifiers": [
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
+  ],
+  "style": {
+    "color": "gold"
+  },
+  "weight": 1,
+  "tooltip_image": [6, 7, 8, 9, 10, 11, 150],
+  "tooltip_border":  ["FFFFBB00"],
+  "reforge_cost": 30,
+  "attributes": [
+    {
+      "type": "tiered:generic.dig_speed",
+      "modifier": {
+        "name": "tiered:overzealous",
+        "operation": "MULTIPLY_BASE",
+        "amount": 1
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.max_health",
+      "modifier": {
+        "name": "tiered:overzealous",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.6
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

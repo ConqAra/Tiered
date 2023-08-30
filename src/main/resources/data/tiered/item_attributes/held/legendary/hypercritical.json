@@ -1,0 +1,40 @@
+{
+  "id": "tiered:hypercritical",
+  "verifiers": [
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
+  ],
+  "style": {
+    "color": "gold"
+  },
+  "weight": 1,
+  "tooltip_image": [6, 7, 8, 9, 10, 11, 150],
+  "tooltip_border":  ["FFFFBB00"],
+  "reforge_cost": 30,
+  "attributes": [
+    {
+      "type": "tiered:generic.crit_chance",
+      "modifier": {
+        "name": "tiered:hypercritical",
+        "operation": "MULTIPLY_BASE",
+        "amount": 1
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:critical",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.50
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "tiered:holy",
+  "verifiers": [
+    { "tag": "c:shields" }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "weight": 5,
+  "tooltip_image": [2],
+  "tooltip_border":  ["FF55FF55"],
+  "reforge_cost": 8,
+  "attributes": [
+    {
+      "type": "generic.movement_speed",
+      "modifier": {
+        "name": "tiered:holy",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.2
+      },
+      "optional_equipment_slots": [
+        "OFFHAND"
+      ]
+    }
+  ]
+}

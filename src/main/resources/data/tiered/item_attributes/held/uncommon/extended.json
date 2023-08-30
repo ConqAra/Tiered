@@ -5,7 +5,9 @@
     { "tag": "c:axes" },
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
-    { "tag": "c:hoes" }
+    { "tag": "c:hoes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
     "color": "green"
@@ -23,8 +25,7 @@
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     },
     {
@@ -35,8 +36,7 @@
         "amount": 1
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
       ]
     }
   ]

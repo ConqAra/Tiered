@@ -1,0 +1,40 @@
+{
+  "id": "tiered:impatient",
+  "verifiers": [
+    { "tag": "c:swords" },
+    { "tag": "c:axes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "weight": 5,
+  "tooltip_image": [2],
+  "tooltip_border":  ["FF55FF55"],
+  "reforge_cost": 8,
+  "attributes": [
+    {
+      "type": "generic.attack_speed",
+      "modifier": {
+        "name": "tiered:impatient",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.25
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "generic.attack_damage",
+      "modifier": {
+        "name": "tiered:impatient",
+        "operation": "MULTIPLY_BASE",
+        "amount": -0.10
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

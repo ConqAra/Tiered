@@ -1,0 +1,29 @@
+{
+  "id": "tiered:architect",
+  "verifiers": [
+    { "tag": "c:axes" },
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:hoes" }
+  ],
+  "style": {
+    "color": "light_purple"
+  },
+  "weight": 2,
+  "tooltip_image": [4],
+  "tooltip_border":  ["FF996922"],
+  "reforge_cost": 21,
+  "attributes": [
+    {
+      "type": "reach-entity-attributes:reach",
+      "modifier": {
+        "name": "tiered:architect",
+        "operation": "ADDITION",
+        "amount": 3
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

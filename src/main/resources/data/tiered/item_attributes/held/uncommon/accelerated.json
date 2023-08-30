@@ -1,0 +1,29 @@
+{
+  "id": "tiered:accelerated",
+  "verifiers": [
+    { "tag": "c:pickaxes" },
+    { "tag": "c:shovels" },
+    { "tag": "c:axes" },
+    { "tag": "c:hoes" }
+  ],
+  "style": {
+    "color": "green"
+  },
+  "weight": 5,
+  "tooltip_image": [2],
+  "tooltip_border":  ["FF55FF55"],
+  "reforge_cost": 8,
+  "attributes": [
+    {
+      "type": "tiered:generic.dig_speed",
+      "modifier": {
+        "name": "tiered:accelerated",
+        "operation": "MULTIPLY_BASE",
+        "amount": 0.25
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
+      ]
+    }
+  ]
+}

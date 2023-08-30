@@ -5,7 +5,9 @@
     { "tag": "c:axes" },
     { "tag": "c:pickaxes" },
     { "tag": "c:shovels" },
-    { "tag": "c:hoes" }
+    { "tag": "c:hoes" },
+    { "tag": "c:knives" },
+    { "tag": "c:reapers" }
   ],
   "style": {
     "color": "white"
@@ -23,8 +25,18 @@
         "amount": 0.10
       },
       "optional_equipment_slots": [
-        "MAINHAND",
-        "OFFHAND"
+        "MAINHAND"
+      ]
+    },
+    {
+      "type": "reach-entity-attributes:attack_range",
+      "modifier": {
+        "name": "tiered:keen",
+        "operation": "ADDITION",
+        "amount": 1
+      },
+      "optional_equipment_slots": [
+        "MAINHAND"
       ]
     }
   ]
